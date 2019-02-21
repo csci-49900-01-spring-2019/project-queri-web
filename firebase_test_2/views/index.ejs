@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<h2>hi</h2>
+
+
+<button onclick = "push_p();">test</button>
+
+<form action = "/new_p" method = "post">
+  <input type="text" name="username"/>
+  <input type="text" name="content"/>
+  <input type="submit" value="submit">
+</form>
+
+
+<script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyB62FNBVlLn5Ds8ErK6llcWdFaHN5UWBIw",
+    authDomain: "databasea-468e3.firebaseapp.com",
+    databaseURL: "https://databasea-468e3.firebaseio.com",
+    projectId: "databasea-468e3",
+    storageBucket: "databasea-468e3.appspot.com",
+    messagingSenderId: "875637812357"
+  };
+  firebase.initializeApp(config);
+</script>
+
+
+<script type="text/javascript">
+	function push_p() {
+		// body...
+		let db = firebase.database().ref();
+		db.child("queri").child("posts").push().set("hello");
+	}
+
+</script>
+
+
+</body>
+</html>
