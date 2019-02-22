@@ -33,7 +33,7 @@ app.post('/new_p', function(req, res){
 	let name = req.body.username;
 	let content = req.body.content;
 
-	request.post("https://us-central1-databasea-468e3.cloudfunctions.net/new_post", {json:{'user':name,'content':content}}, function(error, response, body){
+	request.post("https://us-central1-projectq-42a18.cloudfunctions.net/new_post", {json:{'user':name,'content':content}}, function(error, response, body){
 		console.log(body);
 		res.render("index");
 	})

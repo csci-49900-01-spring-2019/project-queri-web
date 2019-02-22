@@ -1,13 +1,13 @@
 {
-  "name": "firebase_test_2",
+  "name": "queri",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
+  "description": "",
   "dependencies": {
     "cookie-parser": "^1.4.4",
     "ejs": "^2.6.1",
