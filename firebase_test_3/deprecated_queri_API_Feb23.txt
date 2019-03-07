@@ -1,0 +1,51 @@
+API can currently be used to update database and retrieve from database as of February 23 2019
+This should remain private given the database is not yet secured with Googles oAuth service
+Thank you!
+
+
+	Create A New Post:
+			function:
+				exports.new_post
+			api request link:
+				https://us-central1-projectq-42a18.cloudfunctions.net/new_post
+			params:
+				user: post creator username
+				content: post content
+			response:
+				none
+
+	Get All Posts in database:
+			function:
+				exports.get_posts
+			api request link:
+				https://us-central1-projectq-42a18.cloudfunctions.net/get_posts
+			params:
+				none
+			response:
+				JSON formatted, all posts in queri
+					format:
+						{"__post_id":{"content":"__post content","user":"__post creator username"},"__post_id":{..}}
+
+	Create New Comment in identified post:
+			function:
+				exports.new_comment
+			api request link:
+				https://us-central1-projectq-42a18.cloudfunctions.net/new_comment
+			params:
+				user: comment creator username
+				content: comment content
+				post_id: post identification
+			response
+				none
+
+	Get All Comments in identified post:
+			function:
+				exports.get_comments
+			api request link:
+				https://us-central1-projectq-42a18.cloudfunctions.net/get_comments
+			params:
+				post_id: post identification
+			response:
+				JSON formatted, all comments in queri under speficifed post
+					format:
+						{ '__comment_id': { "content": '__comment content', "user": '__comment username' }, '__comment_id': {..}, ...}

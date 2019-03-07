@@ -3,13 +3,16 @@ var request = require('request');
 var cookieParser = require('cookie-parser'); 
 var path = require('path');
 var port = process.env.PORT || 3000;
-
-
+var firebase = require('firebase');
+var config = {
+/*private*/
+};
+firebase.initializeApp(config);
 
 var app = express();
 
 app.set('view engine', 'ejs');
-app.set('vies', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'views'));
 
 
 
@@ -28,13 +31,43 @@ app.get('/', function(req, res){
 });
 
 
+app.get('/posts/:id', function(req, res){
+	let url = "/queri/posts/" + req.params.id;
+	firebase.database().ref(url).once("value",function(snap){
+		res.send(snap.val());
+	}, function(err){
+		res.send(err);
+	});
+});	
 
-app.post('/new_p', function(req, res){
-	let name = req.body.username;
-	let content = req.body.content;
+app.get('/posts/:id/comments', function(req, res){
+	let url = "/queri/posts/" + req.params.id;
+	firebase.database().ref(url).once("value",function(snap){
+		res.send(snap.val());
+	}, function(err){
+		res.send(err);
+	});
+});	
 
-	request.post("https://us-central1-projectq-42a18.cloudfunctions.net/new_post", {json:{'user':name,'content':content}}, function(error, response, body){
-		console.log(body);
-		res.render("index");
-	})
+app.post('/posts/createPost/', function(req, res){
+	let url = "queri/posts/";
+	let comment_object = {
+		"name":req.body["username"],
+		"content":req.body["content"]
+	}
+
+	firebase.database.ref(url).push().set(comment_object);
+	res.send("added post!");  });
+
+app.post('/posts/:id/createComment/', function(req, res){
+	let url = "queri/posts/" + req.params.id;
+	let comment_object = {
+		"name":req.body["username"],
+		"content":req.body["content"]
+	}
+
+	firebase.database().ref(url).push().set(comment_object);
+	res.send("added comment!");
 });
+
+
