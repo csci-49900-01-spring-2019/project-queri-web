@@ -6,35 +6,32 @@
 <body>
 <h2>hi</h2>
 
-
-<button onclick = "push_p();">test</button>
-
-<form action = "/new_p" method = "post">
-  <input type="text" name="username"/>
-  <input type="text" name="content"/>
-  <input type="submit" value="submit">
-</form>
-
+<button onclick="call();">HI</button>
 
 <script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
 
 <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
 <script>
   // Initialize Firebase
-  var config = {
-    
-  };
-  firebase.initializeApp(config);
+
 </script>
 
 
 <script type="text/javascript">
-	function push_p() {
-		// body...
-		let db = firebase.database().ref();
-		db.child("queri").child("posts").push().set("hello");
-	}
 
+function call(){
+  fetch("/posts/-LZHqfA8j8tfRBos9qXw").then(function(res){
+    return res.json();
+  }).then(function(res){
+    console.log(res);
+  }).catch((err)=>{
+    console.log(err);
+  });
+}
+   
+
+
+ 
 </script>
 
 
