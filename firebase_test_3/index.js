@@ -3,11 +3,8 @@ var request = require('request');
 var cookieParser = require('cookie-parser'); 
 var path = require('path');
 var port = process.env.PORT || 3000;
-var firebase = require('firebase');
-var config = {
-/*private*/
-};
-firebase.initializeApp(config);
+
+
 
 var app = express();
 
@@ -22,52 +19,97 @@ app.use(cookieParser());
 app.listen(port, function(){
 	console.log("listening in port: ", port);
 });
+app.get('/posts/', function(req, res){
+	 request.get("https://us-central1-project-bc489.cloudfunctions.net/queri/posts/", function(error, response, body) {
+	 	if (!error && response.statusCode == 200){
+	 		if(body!="null"){
+	 			console.log(body);
+	 			res.json(JSON.parse(body));
+	 		}else{
+	 			res.end("Error getting a response: Empty response!");
+	 		}
+	 	}else{
+	 		res.end("Error getting a response: URL may be invalid");
+	 	}
+    });
+})
 
-
-//load homepage
-app.get('/', function(req, res){
-
-		res.render("index");
+app.get('/posts/:post_id/', function(req, res){
+	 request.get("https://us-central1-project-bc489.cloudfunctions.net/queri/posts/"+ req.params.post_id, function(error, response, body) {
+	 	if (!error && response.statusCode == 200){
+	 		if(body!="null"){
+	 			console.log(body);
+	 			res.json(JSON.parse(body));
+	 		}else{
+	 			res.end("Error getting a response: Empty response!");
+	 		}
+	 	}else{
+	 		res.end("Error getting a response: URL may be invalid");
+	 	}
+    });
 });
 
 
-app.get('/posts/:id', function(req, res){
-	let url = "/queri/posts/" + req.params.id;
-	firebase.database().ref(url).once("value",function(snap){
-		res.send(snap.val());
-	}, function(err){
-		res.send(err);
-	});
-});	
+app.get('/posts/:post_id/comments/', function(req, res){
+	 request.get("https://us-central1-project-bc489.cloudfunctions.net/queri/posts/"+ req.params.post_id + "/comments", function(error, response, body) {
+	 	if (!error && response.statusCode == 200){
+	 		if(body!="null"){
+	 			console.log(body);
+	 			res.json(JSON.parse(body));
+	 		}else{
+	 			res.end("Error getting a response: Empty response!");
+	 		}
+	 	}else{
+	 		res.end("Error getting a response: URL may be invalid");
+	 	}
+    });
+});
+app.get('/posts/:post_id/comments/:comment_id/', function(req, res){
+	 request.get("https://us-central1-project-bc489.cloudfunctions.net/queri/posts/"+ req.params.post_id + "/comments/" + req.params.comment_id, function(error, response, body) {
+	 	if (!error && response.statusCode == 200){
+	 		if(body!="null"){
+	 			console.log(body);
+	 			res.json(JSON.parse(body));
+	 		}else{
+	 			res.end("Error getting a response: Empty response!");
+	 		}
+	 	}else{
+	 		res.end("Error getting a response: URL may be invalid");
+	 	}
+    });
+});
 
-app.get('/posts/:id/comments', function(req, res){
-	let url = "/queri/posts/" + req.params.id;
-	firebase.database().ref(url).once("value",function(snap){
-		res.send(snap.val());
-	}, function(err){
-		res.send(err);
-	});
-});	
-
-app.post('/posts/createPost/', function(req, res){
-	let url = "queri/posts/";
-	let comment_object = {
-		"name":req.body["username"],
-		"content":req.body["content"]
-	}
-
-	firebase.database.ref(url).push().set(comment_object);
-	res.send("added post!");  });
-
-app.post('/posts/:id/createComment/', function(req, res){
-	let url = "queri/posts/" + req.params.id;
-	let comment_object = {
-		"name":req.body["username"],
-		"content":req.body["content"]
-	}
-
-	firebase.database().ref(url).push().set(comment_object);
-	res.send("added comment!");
+app.get('/posts/:post_id/comments/:comment_id/username', function(req, res){
+	 request.get("https://us-central1-project-bc489.cloudfunctions.net/queri/posts/"+ req.params.post_id + "/comments/" + req.params.comment_id + "/username/", function(error, response, body) {
+	 	if (!error && response.statusCode == 200){
+	 		if(body!="null"){
+	 			console.log(body);
+	 			res.json(JSON.parse(body));
+	 		}else{
+	 			res.end("Error getting a response: Empty response!");
+	 		}
+	 	}else{
+	 		res.end("Error getting a response: URL may be invalid");
+	 	}
+    });
+});
+app.get('/posts/:post_id/comments/:comment_id/content', function(req, res){
+	 request.get("https://us-central1-project-bc489.cloudfunctions.net/queri/posts/"+ req.params.post_id + "/comments/" + req.params.comment_id + "/content/", function(error, response, body) {
+	 	if (!error && response.statusCode == 200){
+	 		if(body!="null"){
+	 			console.log(body);
+	 			res.json(JSON.parse(body));
+	 		}else{
+	 			res.end("Error getting a response: Empty response!");
+	 		}
+	 	}else{
+	 		res.end("Error getting a response: URL may be invalid");
+	 	}
+    });
 });
 
 
+
+app.get('/', function(req,res){
+	res.render('index');
+})
