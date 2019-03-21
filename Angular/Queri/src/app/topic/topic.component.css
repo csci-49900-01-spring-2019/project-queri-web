@@ -1,0 +1,14 @@
+.topic_button{
+  background: rgb(128, 128, 128);
+  color: white;
+  border-radius: 10px;
+  height: 110px;
+  width: 110px;
+  font: bold 15px arial, sans-serif;
+  text-shadow: none;
+}
+
+.topic_button:hover{
+  background: blue;
+  color: black;
+}
