@@ -274,7 +274,7 @@ app.get('/users', function(req, res){
 });
 
 app.get('/users/:name', function(req, res){
-	request.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/users" + req.params.name + "/", function(error, response, body) {
+	request.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/users/" + req.params.name + "/", function(error, response, body) {
 		if (!error && response.statusCode == 200){
 			if(body!="null"){
 				console.log(body);
