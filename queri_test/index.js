@@ -137,6 +137,8 @@ app.get('/posts/categories/:name', function(req, res){
   });
 });
 
+//Angel's Functions
+
 app.get('/posts/categories/:name/:count', function(req, res){
 	request.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/" + req.params.name + "/" + req.params.count + "/", function(error, response, body) {
 		if (!error && response.statusCode == 200){
