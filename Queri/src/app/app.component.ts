@@ -12,8 +12,7 @@ export class AppComponent {
   public foods;
  
   constructor(private _demoService: DemoService) { 
-
-    _demoService.getFoods();
+	_demoService.getFoods();
   }
   
   
