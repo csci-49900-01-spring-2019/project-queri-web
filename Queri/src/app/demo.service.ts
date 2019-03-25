@@ -1,11 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-<<<<<<< HEAD
-import { Observable } from 'rxjs';
-
-=======
 import {Observable} from 'rxjs';
->>>>>>> 72c44f312ff498c5712c0e8619a8db016958e175
 
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -13,16 +8,6 @@ const httpOptions = {
 
 @Injectable()
 export class DemoService {
-<<<<<<< HEAD
- 
- 	
-    constructor(private http: HttpClient) {}
- 	private _url: string = "https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/category1";
- 	
-    // Uses http.get() to load data from a single API endpoint
-    getFoods () {
-        return this.http.get(this._url)
-=======
 
     constructor(private http:HttpClient) {}
 
@@ -30,14 +15,10 @@ export class DemoService {
 
     getPostInCategory(name, post_id) {
         return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/" + name + "/" + post_id + "/")
->>>>>>> 72c44f312ff498c5712c0e8619a8db016958e175
         .subscribe((data:any[])=>{
             console.log(data);
         })
     }
-<<<<<<< HEAD
-    
-=======
     getCommentsInPostInCategory(name, post_id) {
         return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/" + name + "/"+ post_id + "/comments/")
         .subscribe((data:any[])=>{
@@ -74,16 +55,10 @@ export class DemoService {
             console.log(data);
         })
     }
->>>>>>> 72c44f312ff498c5712c0e8619a8db016958e175
 
 
 
 
-<<<<<<< HEAD
-   
-
-}
-=======
 
 
 
@@ -138,4 +113,3 @@ export class DemoService {
     pos
 
 }
->>>>>>> 72c44f312ff498c5712c0e8619a8db016958e175
