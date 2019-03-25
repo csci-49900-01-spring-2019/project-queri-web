@@ -137,6 +137,8 @@ app.get('/posts/categories/:name', function(req, res){
   });
 });
 
+//Angel's Functions
+
 app.get('/posts/categories/:name/:count', function(req, res){
 	request.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/" + req.params.name + "/" + req.params.count + "/", function(error, response, body) {
 		if (!error && response.statusCode == 200){
@@ -274,7 +276,7 @@ app.get('/users', function(req, res){
 });
 
 app.get('/users/:name', function(req, res){
-	request.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/users" + req.params.name + "/", function(error, response, body) {
+	request.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/users/" + req.params.name + "/", function(error, response, body) {
 		if (!error && response.statusCode == 200){
 			if(body!="null"){
 				console.log(body);
