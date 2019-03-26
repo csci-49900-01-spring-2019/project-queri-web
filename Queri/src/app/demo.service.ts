@@ -58,18 +58,6 @@ export class DemoService {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
     getCategory(name, count) {
         return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/" + name + "/" + count + "/")
         .subscribe((data:any[])=>{
@@ -101,7 +89,7 @@ export class DemoService {
         })
     }
     getVotes(name, p_id) {
-        return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/category/" + name + "/" + p_id + "/meta/votes/")
+        return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/" + name + "/" + p_id + "/meta/votes/")
         .subscribe((data:any[])=>{
             console.log(data);
         })
@@ -110,6 +98,22 @@ export class DemoService {
 
 
 
-    pos
+    AddComment(username,content){
+      const body= {
+      "username":username,
+      "content":content
+      }
+      this.http.post('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/category1/0/comments/new/', body).subscribe((data:any[])=>{
+          console.log(data);
+      })
+
+    }
+    AddLike(name, post_id){
+
+      this.http.put('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/' + name + '/' + post_id + "/meta/like").subscribe((data:any[])=>{
+          console.log(data);
+      })
+
+    }
 
 }

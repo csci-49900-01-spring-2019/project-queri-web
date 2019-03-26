@@ -13,7 +13,8 @@ export class AppComponent {
 
   constructor(private _demoService: DemoService) {
 
-    _demoService.getCommentsInPostInCategory("category1", "0");
+    _demoService.AddLike("category1", "0");
+
   }
 
 
