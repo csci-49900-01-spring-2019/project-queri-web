@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IFoods } from './Foods';
-
+import { dataModel } from './shared/Data';
 
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -11,13 +10,13 @@ const httpOptions = {
 @Injectable()
 export class DemoService {
 
-    constructor(private http:HttpClient) {}
+    constructor(private http: HttpClient) {}
 
     // Uses http.get() to load data from a single API endpoint
 
-    getPostInCategory(name, post_id) :Observable<IFoods>{
-        return this.http.get<IFoods>("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/" + name + "/" + post_id + "/")
-            .pipe();
+    getPostInCategory(name, post_id) : Observable<dataModel>{
+        return this.http.get<dataModel>("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/" + name + "/" + post_id + "/");
+            //.pipe();
         
     }
     getCommentsInPostInCategory(name, post_id) {
