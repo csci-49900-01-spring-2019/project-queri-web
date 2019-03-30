@@ -1,14 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-
-export class Question{
-  public question: string;
-
-  constructor(line: string){
-    this.question = line;
-  }
-}
-
+import { DemoService } from '../demo.service';
 @Component({
   selector: 'app-question',
   templateUrl: './question.component.html',
@@ -16,9 +7,13 @@ export class Question{
 })
 export class QuestionComponent implements OnInit {
 
-  a_Question: Question;
+  question: string;
 
-  constructor() { }
+  constructor(private _demoService: DemoService) { 
+
+      _demoService.getPostInCategory("category1","0");
+
+  }
 
   ngOnInit() {
   }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {Observable} from 'rxjs';
+import { Observable } from 'rxjs';
 
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -56,8 +56,6 @@ export class DemoService {
         })
     }
 
-
-
     getCategory(name, count) {
         return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/" + name + "/" + count + "/")
         .subscribe((data:any[])=>{
@@ -94,9 +92,6 @@ export class DemoService {
             console.log(data);
         })
     }
-
-
-
 
     AddComment(username,content){
       const body= {
