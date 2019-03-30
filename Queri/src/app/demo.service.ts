@@ -108,12 +108,12 @@ export class DemoService {
       })
 
     }
-    AddLike(name, post_id){
 
+    /** 
+    AddLike(name, post_id){
       this.http.put('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/' + name + '/' + post_id + "/meta/like").subscribe((data:any[])=>{
           console.log(data);
       })
-
     }
-
+    */
 }
