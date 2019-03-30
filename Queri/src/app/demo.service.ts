@@ -104,11 +104,17 @@ export class DemoService {
 
     }
 
+
     /** 
+    // ERROR in src/app/demo.service.ts(109,7): error TS2554: Expected 2-3 arguments, but got 1.
+
+    
     AddLike(name, post_id){
       this.http.put('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/' + name + '/' + post_id + "/meta/like").subscribe((data:any[])=>{
           console.log(data);
       })
     }
     */
+
+
 }
