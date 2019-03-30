@@ -1,13 +1,12 @@
 
-export interface IFoods {
-    //category: string
-    comments: Array<comment_info>;
+export interface dataModel {
+    comments: commentInfo[];
     content: string;
-    meta: Array<statistics>;
+    meta: statistics[];
     op: string;
 }
 
-interface comment_info{
+interface commentInfo{
     content: string;
     commentor: string;
 }
