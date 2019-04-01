@@ -11,3 +11,9 @@ Web Development for Project Queri
 * Node JS
 * Firebase
 ```
+
+### Android Development
+```
+* Java
+* Firebase
+```
