@@ -12,8 +12,4 @@ Web Development for Project Queri
 * Firebase
 ```
 
-### Android Development
-```
-* Java
-* Firebase
-```
+## Instructions
