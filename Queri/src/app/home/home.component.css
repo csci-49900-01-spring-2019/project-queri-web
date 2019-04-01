@@ -7,8 +7,8 @@
 .question{
     top: 275px;
     position: absolute;
-    border: 2.5px solid rgb(0, 0, 0);
-    margin: auto;
+    left: 325px;
+    border: 1.0px solid rgb(0, 0, 0);
     height: 200px;
     width: 800px;
 }
