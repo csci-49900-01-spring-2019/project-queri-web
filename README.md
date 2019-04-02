@@ -21,5 +21,6 @@ Web Development for Project Queri
 
 ### Getting Started
 ```
-To get started please clone the repository. To see how to clone a repository refer to this [tutorial](https://help.github.com/en/articles/cloning-a-repository)
+To get started please clone the repository. To see how to clone a repository refer to this 
+[tutorial](https://help.github.com/en/articles/cloning-a-repository)
 ```
