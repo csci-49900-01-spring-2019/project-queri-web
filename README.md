@@ -2,9 +2,14 @@
 
 Web Development for Project Queri
 
-## Platforms used
+## Authors
+* Angel Checo
+* Kevin Yang
+* Ramela Ramnauth
 
-### Web Development
+## Technology
+
+### Platforms Used
 ```
 * Express JS
 * Angular 7
@@ -13,3 +18,8 @@ Web Development for Project Queri
 ```
 
 ## Instructions
+
+### Getting Started
+```
+To get started please clone the repository. To see how to clone a repository refer to this [tutorial](https://help.github.com/en/articles/cloning-a-repository)
+```
