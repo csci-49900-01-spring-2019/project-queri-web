@@ -12,10 +12,10 @@ Web Development for Project Queri
 
 ### Platforms Used
 
-* Express JS
-* Angular 7
-* Node JS
-* Firebase
+* [Express JS](https://expressjs.com/)
+* [Angular 7](https://angular.io/)
+* [Node JS](https://nodejs.org/en/)
+* [Firebase](https://firebase.google.com/)
 
 
 ## Instructions
