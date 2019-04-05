@@ -11,11 +11,11 @@
         <textarea class="answer_box" name="answer" id="" cols="30" rows="10"></textarea>
     </div>
     -->
-    <!--
+    
     <div>
-        <li *ngFor = "let comment of post.comments">
+        <li *ngFor = "let comment of post?.comments|objectToArray ">
             {{comment}}
         </li>
     </div>
-    -->
+    
 </div>
