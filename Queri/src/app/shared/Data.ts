@@ -1,12 +1,12 @@
 
 export interface dataModel {
-    comments: commentInfo[];
+    comments: comment[];
     content: string;
     meta: statistics[];
     op: string;
 }
 
-interface commentInfo{
+interface comment{
     content: string;
     commentor: string;
 }

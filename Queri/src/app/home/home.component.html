@@ -4,10 +4,18 @@
         <topic-list></topic-list>
     </div> -->  
     <div class="question">
-        <app-question></app-question>
+        <app-question [question] = "post?.content"></app-question>
     </div>
+    <!--
     <div class="answer_section">
         <textarea class="answer_box" name="answer" id="" cols="30" rows="10"></textarea>
-
     </div>
+    -->
+    <!--
+    <div>
+        <li *ngFor = "let comment of post.comments">
+            {{comment}}
+        </li>
+    </div>
+    -->
 </div>
