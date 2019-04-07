@@ -15,6 +15,7 @@ import { AskComponent } from './ask/ask.component';
 import { HomeComponent } from './home/home.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { QuestionComponent } from './home/question/question.component';
+import { ObjectToArrayPipe } from './pipes/object-to-array.pipe';
 
 
 
@@ -25,7 +26,8 @@ import { QuestionComponent } from './home/question/question.component';
     TopicComponent,
     AskComponent,
     HomeComponent,
-    QuestionComponent
+    QuestionComponent,
+    ObjectToArrayPipe
 
   ],
   imports: [

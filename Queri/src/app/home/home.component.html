@@ -11,11 +11,11 @@
         <textarea class="answer_box" name="answer" id="" cols="30" rows="10"></textarea>
     </div>
     -->
-    <!--
+    
     <div>
-        <li *ngFor = "let comment of post.comments">
-            {{comment}}
+        <li *ngFor = "let comment of comments ">
+            {{post.comments[comment].content}} posted by {{post.comments[comment].username}}
         </li>
     </div>
-    -->
+    
 </div>

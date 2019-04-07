@@ -8,7 +8,7 @@ export interface dataModel {
 
 interface comment{
     content: string;
-    commentor: string;
+    username: string;
 }
 
 interface statistics{
