@@ -7,19 +7,20 @@
 .question{
     top: 275px;
     position: absolute;
-    left: 325px;
-    border: 1.0px solid rgb(0, 0, 0);
+    left: 115px;
+    /*border: 1.0px solid rgb(0, 0, 0);*/
     height: 200px;
-    width: 800px;
+    width: 1200px;
 }
 .homepage{
-    background-color: rgb(255, 255, 255);
+    background-color: black;
     width: 100%;
-    top: 58px;
+    top: 50px;
     height: 1000px;
     margin: 0px;
     left: 0px;
     position: absolute;
+
 }
 
 .answer_section{
@@ -44,7 +45,7 @@
 
 .comments{
     position: absolute;
-    left: 325px;
-
+    left: 500px;
+    width: 400px;
     top: 500px;
 }

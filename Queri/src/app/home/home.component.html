@@ -4,8 +4,13 @@
         <topic-list></topic-list>
     </div> -->  
     <div class="question">
-        <app-question [question] = "post?.content"></app-question>
-        Number of likes: {{post?.meta.likes}}
+        <app-question 
+        [question] = "post?.content"
+        [username] = "post?.username"
+        [days_remaining] = "post?.meta.days_remaining"
+        [number_of_likes] = "post?.meta.likes"
+        [number_of_comments] = "post?.meta.comments"
+        ></app-question>
     </div>
     <!--
     <div class="answer_section">
