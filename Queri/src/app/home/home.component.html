@@ -13,8 +13,8 @@
     -->
     
     <div>
-        <li *ngFor = "let comment of post?.comments|objectToArray ">
-            {{comment}}
+        <li *ngFor = "let comment of comments ">
+            {{post.comments[comment].content}} posted by {{post.comments[comment].username}}
         </li>
     </div>
     

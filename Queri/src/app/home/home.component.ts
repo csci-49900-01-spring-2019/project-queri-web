@@ -12,14 +12,19 @@ export class HomeComponent implements OnInit {
   
   post: dataModel;
   constructor(private demoService: DemoService) { }
+  comments: string[]; //Object.keys(this.post.comments);
 
   ngOnInit() {
     this.getData();
+    
   }
 
   getData(): void{
     this.demoService.getPostInCategory('category1', '0')
-      .subscribe(post => this.post = post);
+      .subscribe(post => {this.post = post
+        console.log(post);
+        this.comments = Object.keys(this.post.comments);
+       });
   }
 
 }
