@@ -41,3 +41,10 @@
    border: 2.5px solid rgb(0, 0, 0);
    padding: 20px;
 }
+
+.comments{
+    position: absolute;
+    left: 325px;
+
+    top: 500px;
+}

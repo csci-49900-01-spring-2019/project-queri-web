@@ -5,17 +5,22 @@
     </div> -->  
     <div class="question">
         <app-question [question] = "post?.content"></app-question>
+        Number of likes: {{post?.meta.likes}}
     </div>
     <!--
     <div class="answer_section">
         <textarea class="answer_box" name="answer" id="" cols="30" rows="10"></textarea>
     </div>
     -->
-    
-    <div>
-        <li *ngFor = "let comment of comments ">
-            {{post.comments[comment].content}} posted by {{post.comments[comment].username}}
-        </li>
+    <div class = "comments">
+        <tr *ngFor = "let comment of comments ">
+            <td> <app-comment 
+            [comment] = "post?.comments[comment].content"
+            [username] = "post?.comments[comment].username"
+            ></app-comment>
+            </td>
+        </tr>
     </div>
+    
     
 </div>

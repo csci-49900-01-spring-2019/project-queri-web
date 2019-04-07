@@ -1,9 +1,8 @@
-
-export interface dataModel {
+export interface Post {
     comments: comment[];
     content: string;
     meta: statistics[];
-    op: string;
+    username: string;
 }
 
 interface comment{
@@ -12,7 +11,7 @@ interface comment{
 }
 
 interface statistics{
-    number_of_comments: number;
-    number_of_days_remaining: number;
-    number_of_likes: number;
+    comments: number;
+    day_remaining: number;
+    likes: number;
 }

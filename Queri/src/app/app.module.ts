@@ -16,6 +16,7 @@ import { HomeComponent } from './home/home.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { QuestionComponent } from './home/question/question.component';
 import { ObjectToArrayPipe } from './pipes/object-to-array.pipe';
+import { CommentComponent } from './home/comment/comment.component';
 
 
 
@@ -27,7 +28,8 @@ import { ObjectToArrayPipe } from './pipes/object-to-array.pipe';
     AskComponent,
     HomeComponent,
     QuestionComponent,
-    ObjectToArrayPipe
+    ObjectToArrayPipe,
+    CommentComponent
 
   ],
   imports: [

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DemoService } from '../demo.service';
-import { dataModel} from '../shared/Data';
+import { Post } from '../shared/Data';
 
 @Component({
   selector: 'app-home',
@@ -10,9 +10,10 @@ import { dataModel} from '../shared/Data';
 })
 export class HomeComponent implements OnInit {
   
-  post: dataModel;
+  post: Post;
   constructor(private demoService: DemoService) { }
   comments: string[]; //Object.keys(this.post.comments);
+  //stats: number[];
 
   ngOnInit() {
     this.getData();
@@ -24,6 +25,7 @@ export class HomeComponent implements OnInit {
       .subscribe(post => {this.post = post
         console.log(post);
         this.comments = Object.keys(this.post.comments);
+        //this.stats = Object.keys(this.post.meta);
        });
   }
 
