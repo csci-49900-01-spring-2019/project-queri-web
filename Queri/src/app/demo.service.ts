@@ -119,7 +119,7 @@ export class DemoService {
             "username":username,
             "content":content
         }
-        this.http.post('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/' + name + '/' + 'new/').subscribe((data:any[]))=>{
+        this.http.post('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/' + name + '/' + 'new/', {}).subscribe((data:any[]))=>{
         console.log(data);    
     })
     
