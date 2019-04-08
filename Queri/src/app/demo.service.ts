@@ -93,6 +93,8 @@ export class DemoService {
         })
     }
 
+   
+
     AddComment(username,content){
       const body= {
       "username":username,
@@ -112,4 +114,14 @@ export class DemoService {
  
     }
 
+    AddNewPost(username, content, name){
+        const body = {
+            "username":username,
+            "content":content
+        }
+        this.http.post('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/' + name + '/' + 'new/').subscribe((data:any[]))=>{
+        console.log(data);    
+    })
+    
+    }
 }

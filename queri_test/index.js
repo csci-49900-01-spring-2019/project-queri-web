@@ -259,6 +259,21 @@ app.put('/posts/category/:name/:p_id/meta/votes', function(req, res){
   });
 });
 
+app.post('/posts/categories/:name/new/', function(req, res){
+	 req.post("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/" + req.params.name + "/" + "new/", function(error, response, body) {
+		if (!error && response.statusCode == 200){
+			if(body!="null"){
+				console.log(body);
+				res.json(JSON.parse(body));
+			}else{
+				res.end("Error getting a response: Empty response!");
+			}
+		}else{
+			res.end("Error getting a response: URL may be invalid");
+		}
+  });
+});
+
 //Users
 app.get('/users', function(req, res){
 	request.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/users/", function(error, response, body) {
