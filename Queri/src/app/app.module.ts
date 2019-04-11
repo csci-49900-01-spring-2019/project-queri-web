@@ -9,27 +9,30 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { DemoService } from './demo.service';
-import { TopicListComponent } from './shared/topic-list/topic-list.component';
+//import { TopicListComponent } from './shared/topic-list/topic-list.component';
 import { TopicComponent } from './shared/topic-list/topic/topic.component';
 import { AskComponent } from './ask/ask.component';
 import { HomeComponent } from './home/home.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { QuestionComponent } from './home/question/question.component';
-import { ObjectToArrayPipe } from './pipes/object-to-array.pipe';
+//import { ObjectToArrayPipe } from './pipes/object-to-array.pipe';
 import { CommentComponent } from './home/comment/comment.component';
+import { AskFormComponent } from './ask/ask-form/ask-form.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    TopicListComponent,
+    //TopicListComponent,
     TopicComponent,
     AskComponent,
     HomeComponent,
     QuestionComponent,
-    ObjectToArrayPipe,
-    CommentComponent
+    //ObjectToArrayPipe,
+    CommentComponent,
+    //FormsModule,
+    AskFormComponent
 
   ],
   imports: [
@@ -37,6 +40,7 @@ import { CommentComponent } from './home/comment/comment.component';
     AppRoutingModule,
     FlexLayoutModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot([
       {
         path: '', component: HomeComponent

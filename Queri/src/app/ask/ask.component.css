@@ -1,20 +1,16 @@
-.list-of-topics{
-   position: absolute;
-   margin-left: 200px;
-   top: 100px;
-   
-}
 
-.ask-form {
+
+.ask {
    position:absolute;
    text-align: center;
-   top: 58px;
+   top: 50px;
    display: block;
    width: 100%;
    background-color: rgb(255, 255, 255);
    margin: 0px;
    left: 0px;
    height: 1000px;
+   background-color: black;
  }
 .text-form{
    position: abolute;
@@ -28,6 +24,7 @@
    margin-top: 300px;
    border: 2.5px solid rgb(0, 0, 0);
    padding: 20px;
+   background-color: rgb(165, 115, 172);
 }
 
 .ask_button{

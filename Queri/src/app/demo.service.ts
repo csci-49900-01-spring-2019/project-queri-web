@@ -114,10 +114,11 @@ export class DemoService {
  
     }
 
-    AddNewPost(username, content, name){
+    AddNewPost(username, content, name) {
         const body = {
-            "username":username,
-            "content":content
+            'username': username,
+            'content': content
+
         }
         this.http.post('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/' + name + '/' + 'new/', body).subscribe((data:any[])=>{
         console.log(data);    
