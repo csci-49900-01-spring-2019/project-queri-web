@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DemoService } from '../demo.service';
-import { Post } from '../shared/Data';
+import { Post } from '../models/data';
 
 @Component({
   selector: 'app-home',

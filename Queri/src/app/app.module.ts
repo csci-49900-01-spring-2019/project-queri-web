@@ -10,7 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { DemoService } from './demo.service';
 //import { TopicListComponent } from './shared/topic-list/topic-list.component';
-import { TopicComponent } from './shared/topic-list/topic/topic.component';
+//import { TopicComponent } from './models/topic-list/topic/topic.component';
 import { AskComponent } from './ask/ask.component';
 import { HomeComponent } from './home/home.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -25,7 +25,7 @@ import { AskFormComponent } from './ask/ask-form/ask-form.component';
   declarations: [
     AppComponent,
     //TopicListComponent,
-    TopicComponent,
+    //TopicComponent,
     AskComponent,
     HomeComponent,
     QuestionComponent,

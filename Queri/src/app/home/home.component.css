@@ -1,11 +1,5 @@
-.list-of-topics{
-    position: absolute;
-    margin-left: 200px;
-    top: 100px;
-    
-}
 .question{
-    top: 275px;
+    top: 200px;
     position: absolute;
     left: 115px;
     /*border: 1.0px solid rgb(0, 0, 0);*/
