@@ -11,6 +11,7 @@ export class CommentFormComponent implements OnInit {
   constructor(private demoService: DemoService) { }
   username = 'Jimmi76';
   comment: string;
+  hideForm = true;
 
   log(x){
     console.log("Comment: " + x.control.value);

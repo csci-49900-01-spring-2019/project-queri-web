@@ -14,12 +14,15 @@
     </div>
 
     <div class = "comment-form">
-        <app-comment-form></app-comment-form>
+        <app-comment-form
+           *ngIf = "!hideForm"
+        ></app-comment-form>
     </div>
     
     <div class = "comments">
         <tr *ngFor = "let comment of comments ">
             <td> <app-comment 
+            *ngIf = "hideComments"
             [comment] = "post?.comments[comment].content"
             [username] = "post?.comments[comment].username"
             ></app-comment>

@@ -16,6 +16,9 @@ export class HomeComponent implements OnInit {
   category: string = 'category1';
   postID: string = '0';
 
+  //hideForm = false;
+  //hideComments = true;
+
   ngOnInit() {
     this.getData();
   }
