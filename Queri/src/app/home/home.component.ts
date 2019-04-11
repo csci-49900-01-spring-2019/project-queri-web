@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DemoService } from '../demo.service';
 import { Post } from '../models/data';
 
@@ -25,7 +25,6 @@ export class HomeComponent implements OnInit {
       .subscribe(post => {this.post = post
         console.log(post);
         this.comments = Object.keys(this.post.comments);
-        //this.stats = Object.keys(this.post.meta);
        });
   }
 

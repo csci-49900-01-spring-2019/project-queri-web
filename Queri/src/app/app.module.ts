@@ -18,6 +18,7 @@ import { QuestionComponent } from './home/question/question.component';
 //import { ObjectToArrayPipe } from './pipes/object-to-array.pipe';
 import { CommentComponent } from './home/comment/comment.component';
 import { AskFormComponent } from './ask/ask-form/ask-form.component';
+import { CommentFormComponent } from './home/comment-form/comment-form.component';
 
 
 
@@ -32,7 +33,8 @@ import { AskFormComponent } from './ask/ask-form/ask-form.component';
     //ObjectToArrayPipe,
     CommentComponent,
     //FormsModule,
-    AskFormComponent
+    AskFormComponent,
+    CommentFormComponent
 
   ],
   imports: [
