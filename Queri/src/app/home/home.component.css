@@ -5,12 +5,11 @@
     
 }
 .question{
-    top: 275px;
-    position: absolute;
-    left: 115px;
-    /*border: 1.0px solid rgb(0, 0, 0);*/
+    padding-top: 275px;
+    text-align: center;
+     /*border: 1.0px solid rgb(0, 0, 0);*/
     height: 200px;
-    width: 1200px;
+    width: 100%;
 }
 .homepage{
     background-color: black;
@@ -44,8 +43,10 @@
 }
 
 .comments{
-    position: absolute;
-    left: 500px;
-    width: 400px;
-    top: 500px;
+    
+    text-align: center !important;
+    width: 100%;
+    position: fixed;
+
+    padding-top: 250px;
 }

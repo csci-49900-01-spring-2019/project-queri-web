@@ -3,6 +3,8 @@
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule} from '@angular/core';
+import { AngularFireModule } from "@angular/fire"
+import { AngularFireAuthModule } from "@angular/fire/auth"
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,7 +19,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { QuestionComponent } from './home/question/question.component';
 import { ObjectToArrayPipe } from './pipes/object-to-array.pipe';
 import { CommentComponent } from './home/comment/comment.component';
-
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -37,18 +39,30 @@ import { CommentComponent } from './home/comment/comment.component';
     AppRoutingModule,
     FlexLayoutModule,
     HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
     RouterModule.forRoot([
       {
         path: '', component: HomeComponent
       },
       {
-        path:'Ask', 
-        component: AskComponent,
+        path:'Ask',
+        component: AskComponent
       }
+
     ])
   ],
   providers: [DemoService, HttpClientModule],
   bootstrap: [AppComponent],
-  
+
 })
 export class AppModule { }
+
+
+/*
+export const rootRouterConfig: Routes = [
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
+  { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
+  { path: 'user', component: UserComponent,  resolve: { data: UserResolver}}
+];*/

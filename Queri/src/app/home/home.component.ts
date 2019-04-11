@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DemoService } from '../demo.service';
 import { Post } from '../shared/Data';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-home',
@@ -10,14 +11,15 @@ import { Post } from '../shared/Data';
 })
 export class HomeComponent implements OnInit {
   post: Post;
-  constructor(private demoService: DemoService) { }
+  constructor(private demoService: DemoService, private authService : AuthService){ }
   comments: string[]; // Object.keys(this.post.comments);
 
   category: string = 'category1';
   postID: string = '0';
 
   ngOnInit() {
-    this.getData();
+    //this.getData();
+    this.authService.doGoogleLogin();
   }
 
   getData(): void{
