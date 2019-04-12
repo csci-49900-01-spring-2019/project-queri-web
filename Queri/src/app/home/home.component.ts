@@ -11,7 +11,9 @@ import { AuthService } from '../auth.service';
 })
 export class HomeComponent implements OnInit {
   post: Post;
-  constructor(private demoService: DemoService, private authService : AuthService){ }
+  constructor(private demoService: DemoService, private authService : AuthService){
+
+  }
   comments: string[]; // Object.keys(this.post.comments);
 
   category: string = 'category1';
@@ -19,7 +21,12 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     //this.getData();
-    this.authService.doGoogleLogin();
+    if(localStorage.getItem("token") == null){
+        this.authService.doGoogleLogin();
+    }else{
+      this.getData();
+    }
+
   }
 
   getData(): void{
