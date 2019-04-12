@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DemoService } from '../../demo.service';
+import { ViewChild } from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-ask-form',
@@ -12,6 +15,7 @@ export class AskFormComponent implements OnInit {
   username = 'Jimmi76';
   name = 'Jimmy';
   question: string;
+  @ViewChild('question') form: any;
 
   log(x) { 
     console.log(x);
@@ -22,6 +26,7 @@ export class AskFormComponent implements OnInit {
   onSubmit() {
     //this.demoService.AddNewPost(this.username, this.question, this.name);
     console.log("Button clicked");
+    this.form.reset();
   }
   ngOnInit() {
   }
