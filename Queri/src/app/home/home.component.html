@@ -16,7 +16,7 @@
     
     
     <div class = "comment-form">
-        <app-comment-form *ngIf = "showForm">
+        <app-comment-form *ngIf = "this.showForm" (event)='setDataFromchild($event)'>
         </app-comment-form>
     </div>
     
@@ -24,7 +24,7 @@
     <div class = "comments">
         <tr *ngFor = "let comment of comments ">
             <td> <app-comment 
-            *ngIf = "showComments"
+            *ngIf = "this.showComments"
             [comment] = "post?.comments[comment].content"
             [username] = "post?.comments[comment].username"
             ></app-comment>

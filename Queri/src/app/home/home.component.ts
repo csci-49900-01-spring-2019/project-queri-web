@@ -27,7 +27,12 @@ export class HomeComponent implements OnInit {
     this.getData();
   }
 
-  getData(): void{
+  setDataFromchild(data) {
+    this.showForm = false;
+    this.showComments = true;
+  }
+
+  getData(): void {
     this.demoService.getPostInCategory(this.category, this.postID)
       .subscribe(post => {this.post = post
         console.log(post);
