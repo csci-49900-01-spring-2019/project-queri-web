@@ -9,9 +9,12 @@ export class CommentComponent implements OnInit {
 
   @Input() comment: string;
   @Input() username: string;
+  
+  @Input() hidden: boolean;
   constructor() { }
 
-  hideComments = false;
+  // Default should be true
+  // hideComments = false;
 
   ngOnInit() { }
 

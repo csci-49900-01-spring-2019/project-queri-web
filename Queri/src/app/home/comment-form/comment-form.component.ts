@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DemoService } from '../../demo.service';
 
 @Component({
@@ -11,7 +11,11 @@ export class CommentFormComponent implements OnInit {
   constructor(private demoService: DemoService) { }
   username = 'Jimmi76';
   comment: string;
-  hideForm = true;
+  
+  @Input() hidden: boolean;
+
+  // Default should be false
+  // hideForm = true;
 
   log(x){
     console.log("Comment: " + x.control.value);

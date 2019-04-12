@@ -16,8 +16,12 @@ export class HomeComponent implements OnInit {
   category: string = 'category1';
   postID: string = '0';
 
-  //hideForm = false;
-  //hideComments = true;
+  
+  // Determines what componts will be shown
+  // These values should never be equal
+  showForm = true;
+  showComments = false;
+  
 
   ngOnInit() {
     this.getData();
