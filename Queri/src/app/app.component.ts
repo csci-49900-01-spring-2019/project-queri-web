@@ -14,6 +14,8 @@ export class AppComponent {
   constructor(private _demoService: DemoService) {
 
     //_demoService.getPostInCategory("category1", "0");
+    //_demoService.getArchived();
+    //_demoService.getRecent();
 
   }
 

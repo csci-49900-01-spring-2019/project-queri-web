@@ -1,0 +1,17 @@
+#question{
+    background-color: black;
+    border-color:darkslategrey;
+    color: white;
+    height: 300px;
+    max-width: 500;
+    font-size: 20px;
+    
+}
+
+.btn-primary{
+    color: darkslategray;
+    background-color: black;
+    border-color: darkcyan;
+    
+    
+}

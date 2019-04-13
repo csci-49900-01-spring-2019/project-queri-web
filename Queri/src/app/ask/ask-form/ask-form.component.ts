@@ -17,15 +17,15 @@ export class AskFormComponent implements OnInit {
   question: string;
   @ViewChild('question') form: any;
 
-  log(x) { 
+  log(x) {
     console.log(x);
     this.question = x.control.value;
-    console.log("Question: " + this.question);
-   };
+    console.log('Question: ' + this.question);
+   }
 
   onSubmit() {
-    //this.demoService.AddNewPost(this.username, this.question, this.name);
-    console.log("Button clicked");
+    // this.demoService.AddNewPost(this.username, this.question, this.name);
+    console.log('Button clicked');
     this.form.reset();
   }
   ngOnInit() {
