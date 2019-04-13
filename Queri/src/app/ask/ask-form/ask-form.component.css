@@ -5,13 +5,11 @@
     height: 300px;
     max-width: 500;
     font-size: 20px;
-    
+    resize: none;
 }
 
 .btn-primary{
     color: darkslategray;
     background-color: black;
-    border-color: darkcyan;
-    
-    
+    border-color: darkcyan; 
 }
