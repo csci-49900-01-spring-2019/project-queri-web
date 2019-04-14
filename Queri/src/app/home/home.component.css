@@ -1,31 +1,37 @@
-.question{
-    top: 200px;
+.homepage{
+    background-color: black;
+    height: 100%;
+    left: 0px;
+    margin: 0px;
     position: absolute;
-    left: 75px;
-    /*border: 1.0px solid rgb(0, 0, 0);*/
-    height: 200px;
-    width: 1200px;
+    overflow: auto;
+    text-align: center;
+    top: 50px;
+    width: 100%;
+}
+
+.question{
+    display: block;
+    padding: 100px;
+    position: relative;
+    top: 50px;
+    width: 100%;
 }
 
 .comment-form{
-    top: 400px;
-    position: absolute;
-    width: 50%;
-    left: 400px;
-}
-.homepage{
-    background-color: black;
+    display: block;
+    padding: 100px;
+    position: relative;
+    top: -100px;
     width: 100%;
-    top: 50px;
-    height: 1000px;
-    margin: 0px;
-    left: 0px;
-    position: absolute;
-
+    
 }
 .comments{
-    position: absolute;
-    left: 500px;
-    width: 400px;
-    top: 500px;
+    display: block;
+    padding: 100px;
+    position: relative;
+    top: -100px;
+    width: 100%;
+    
 }
+

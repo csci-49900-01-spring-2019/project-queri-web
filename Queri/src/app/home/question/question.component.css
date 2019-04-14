@@ -1,11 +1,9 @@
 .question{
-   
-    color: #ff7770;
-    font-family: sans-serif;
-    text-align: center;
-    font-size: 47px;
     background-color: black;
-    
+    color: white;
+    font-family: sans-serif;
+    font-size: 47px;
+    text-align: center;
 }
 
 .username{
@@ -23,7 +21,7 @@
     font-size: 40px;
     width: 100%;
     height: auto;
-    background-color:black;
-    color:grey;
+    background-color: black;
+    color: white;
 }
 

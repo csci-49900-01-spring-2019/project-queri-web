@@ -1,45 +1,14 @@
-
-
 .ask {
+   background-color: black;
+   display: block;
+   height: 100%;
+   margin: 0px;
+   left: 0px;
    position:absolute;
    text-align: center;
    top: 50px;
-   display: block;
-   width: 100%;
-   background-color: rgb(255, 255, 255);
-   margin: 0px;
-   left: 0px;
-   height: 1000px;
-   background-color: black;
+   width: 100%;  
  }
-.text-form{
-   position: abolute;
-   text-align: center;
-   top: 50 px;
-   width: 800px;
-   height: 200px;
-   font-size: 22px;
-   resize: none;
-   color: #9900ff;
-   margin-top: 300px;
-   border: 2.5px solid rgb(0, 0, 0);
-   padding: 20px;
-   background-color: rgb(165, 115, 172);
-}
 
-.ask_button{
-   width: 260px;
-	height: 35px;
-	background: #5bf3e5;
-	border: 1px solid #fff;
-	cursor: pointer;
-	border-radius: 2px;
-	color: #a18d6c;
-	/*font-family: "Exo", sans-serif;*/
-	font-size: 16px;
-	font-weight: 400;
-	padding: 6px;
-	margin-top: 10px;
-}
 
  

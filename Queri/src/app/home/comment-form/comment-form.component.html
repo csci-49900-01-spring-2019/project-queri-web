@@ -1,14 +1,9 @@
-<!--<h1>Comment</h1>-->
 <form (ngSubmit)="onSubmit()">
   <div class="form-group">
     <!-- <label for="name">Name</label> -->
-    <input ngModel minlength="5" name= "comment" #comment = "ngModel" (change) = "log(comment)" id="comment" type="text" class="form-control" required>
+    <textarea ngModel minlength="5" name= "comment" #comment = "ngModel" (change) = "log(comment)" id="comment" type="text" class="form-control" required></textarea>
    <!-- <div class = "alert alert-danger" *ngIf="question.touched && !question.valid">Enter a Question!</div> -->
+   <br>
+   <button (click) = 'sendToParent()' type="submit"class="btn btn-primary">Submit</button>
   </div>
-  <button (click) = 'sendToParent()' type="submit"class="btn btn-primary">Submit</button>
-
 </form>
-
-<!--
-  sendToParent() is called before onSubmit()
--->

@@ -2,14 +2,18 @@
     background-color: black;
     border-color:darkslategrey;
     color: white;
+    font-size: 20px;
     height: 300px;
     max-width: 500;
-    font-size: 20px;
     resize: none;
 }
-
+.title{
+    color:white;
+    font-size: 35px;
+}
 .btn-primary{
-    color: darkslategray;
     background-color: black;
     border-color: darkcyan; 
+    color: darkslategray;
 }
+

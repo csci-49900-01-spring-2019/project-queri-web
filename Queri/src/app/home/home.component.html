@@ -1,8 +1,4 @@
 <div class="homepage">
-    <!--
-    <div class="list-of-topics">
-        <topic-list></topic-list>
-    </div> -->  
     <div class="question">
         <app-question 
         [question] = "post?.content"
@@ -11,16 +7,13 @@
         [number_of_likes] = "post?.meta.likes"
         [number_of_comments] = "post?.meta.comments"
         ></app-question>
-
     </div>
-    
-    
+    <br>
     <div class = "comment-form">
         <app-comment-form *ngIf = "this.showForm" (event)='setDataFromchild($event)'>
         </app-comment-form>
     </div>
-    
-
+    <br>
     <div class = "comments">
         <tr *ngFor = "let comment of comments ">
             <td> <app-comment 

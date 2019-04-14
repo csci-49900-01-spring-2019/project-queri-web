@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>Ask Queri!</h1>
+    <div class = "title">Ask Queri!</div>
     <form  question = "ngform" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <textarea ngModel minlength="5" maxlength="300" name= "question" #question = "ngModel"(change) = "log(question)" id="question" type="text" class="form-control" required></textarea>

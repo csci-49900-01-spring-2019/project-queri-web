@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DemoService } from '../demo.service';
-import { Post } from '../models/data';
+import { Post } from '../_models/data';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +8,7 @@ import { Post } from '../models/data';
   styleUrls: ['./home.component.css'],
   providers: [DemoService]
 })
+
 export class HomeComponent implements OnInit {
   post: Post;
   constructor(private demoService: DemoService) { }
@@ -21,7 +22,6 @@ export class HomeComponent implements OnInit {
   // These values should never be equal
   showForm = true;
   showComments = false;
-  
 
   ngOnInit() {
     this.getData();
@@ -34,7 +34,8 @@ export class HomeComponent implements OnInit {
 
   getData(): void {
     this.demoService.getPostInCategory(this.category, this.postID)
-      .subscribe(post => {this.post = post
+      .subscribe(post => {
+        this.post = post;
         console.log(post);
         this.comments = Object.keys(this.post.comments);
        });
