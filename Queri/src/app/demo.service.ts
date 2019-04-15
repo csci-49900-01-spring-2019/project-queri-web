@@ -12,117 +12,124 @@ export class DemoService {
 
     constructor(private http: HttpClient) {}
 
-    // Uses http.get() to load data from a single API endpoint
+// Uses http.get() to load data from a single API endpoint
 
-    getPostInCategory(name, post_id) : Observable<Post>{
-        return this.http.get<Post>("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/" + name + "/" + post_id + "/");
-            //.pipe();
-        
+    getPostInCategory(name, post_id): Observable<Post> {
+// tslint:disable-next-line: max-line-length
+        return this.http.get<Post>('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/' + name + '/' + post_id + '/');
     }
     getCommentsInPostInCategory(name, post_id) {
-        return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/" + name + "/"+ post_id + "/comments/")
-        .subscribe((data:any[])=>{
+// tslint:disable-next-line: max-line-length
+        return this.http.get('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/' + name + '/' + post_id + '/comments/')
+        .subscribe((data: any[]) => {
             console.log(data);
-        })
+        });
     }
     getCommentInPostInCategory(name, post_id, comment_id) {
-        return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/"  + name + "/"+ post_id + "/comments/" + comment_id + "/")
-        .subscribe((data:any[])=>{
+// tslint:disable-next-line: max-line-length
+        return this.http.get('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/'  + name + '/' + post_id + '/comments/' + comment_id + '/')
+        .subscribe((data: any[]) => {
             console.log(data);
-        })
+        });
     }
     getUsernameOfCommentInPostInCategory(name, post_id, comment_id) {
-        return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/"  + name + "/"+ post_id + "/comments/" + comment_id + "/username/")
-        .subscribe((data:any[])=>{
+// tslint:disable-next-line: max-line-length
+        return this.http.get('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/'  + name + '/' + post_id + '/comments/' + comment_id + '/username/')
+        .subscribe((data: any[]) => {
             console.log(data);
-        })
+        });
     }
     getContentOfCommentInPostInCategory(name, post_id, comment_id) {
-        return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/"  + name + "/"+ post_id + "/comments/" + comment_id + "/content/")
-        .subscribe((data:any[])=>{
+// tslint:disable-next-line: max-line-length
+        return this.http.get('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/'  + name + '/' + post_id + '/comments/' + comment_id + '/content/')
+        .subscribe((data: any[]) => {
             console.log(data);
-        })
+        });
     }
     getCategories() {
-        return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/")
-        .subscribe((data:any[])=>{
+        return this.http.get('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/')
+        .subscribe((data: any[]) => {
             console.log(data);
-        })
+        });
     }
     getAllInCategory(name) {
-        return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/"  + name + "/")
-        .subscribe((data:any[])=>{
+        return this.http.get('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/'  + name + '/')
+        .subscribe((data: any[]) => {
             console.log(data);
-        })
+        });
     }
 
     getCategory(name, count) {
-        return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/" + name + "/" + count + "/")
-        .subscribe((data:any[])=>{
+        return this.http.get('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/' + name + '/' + count + '/')
+        .subscribe((data: any[]) => {
             console.log(data);
-        })
+        });
     }
     getRecent() {
-        return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/recent")
-        .subscribe((data:any[])=>{
+        return this.http.get('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/recent')
+        .subscribe((data: any[]) => {
             console.log(data);
-        })
+        });
     }
     getRecentCount(count) {
-        return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/recent/" + count + "/")
-        .subscribe((data:any[])=>{
+        return this.http.get('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/recent/' + count + '/')
+        .subscribe((data: any[]) => {
             console.log(data);
-        })
+        });
     }
     getArchived() {
-        return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/archived/")
-        .subscribe((data:any[])=>{
+        return this.http.get('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/archived/')
+        .subscribe((data: any[]) => {
             console.log(data);
-        })
+        });
     }
     getArchivedCount() {
-        return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/archived/")
-        .subscribe((data:any[])=>{
+        return this.http.get('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/archived/')
+        .subscribe((data: any[]) => {
             console.log(data);
-        })
+        });
     }
     getVotes(name, p_id) {
-        return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/" + name + "/" + p_id + "/meta/votes/")
-        .subscribe((data:any[])=>{
+// tslint:disable-next-line: max-line-length
+        return this.http.get('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/' + name + '/' + p_id + '/meta/votes/')
+        .subscribe((data: any[]) => {
             console.log(data);
-        })
+        });
     }
 
-   
 
-    AddComment(username,content){
-      const body= {
-      "username":username,
-      "content":content
-      }
-      this.http.post('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/category1/0/comments/new/', body).subscribe((data:any[])=>{
+
+    AddComment(username, content) {
+      const body = {
+      'username': username,
+      'content': content
+      };
+// tslint:disable-next-line: max-line-length
+      this.http.post('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/category1/0/comments/new/', body).subscribe((data: any[]) => {
           console.log(data);
-      })
+      });
 
     }
 
-    AddLike(name, post_id){
+    AddLike(name, post_id) {
 
-        this.http.put('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/' + name + '/' + post_id + '/meta/like', {}).subscribe((data:any[])=>{
+// tslint:disable-next-line: max-line-length
+        this.http.put('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/' + name + '/' + post_id + '/meta/like', {}).subscribe((data: any[]) => {
         console.log(data);
-      })
- 
+      });
+
     }
 
     AddNewPost(username, content, name) {
         const body = {
-            'username': username,
-            'content': content
+            username: username,
+            content: content
 
-        }
-        this.http.post('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/' + name + '/' + 'new/', body).subscribe((data:any[])=>{
-        console.log(data);    
-    })
-    
+        };
+// tslint:disable-next-line: max-line-length
+        this.http.post('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/' + name + '/' + 'new/', body).subscribe((data: any[]) => {
+        console.log(data);
+    });
+
     }
 }
