@@ -23,7 +23,7 @@ export  class  AuthService {
     this.afAuth.auth
     .signInWithPopup(provider)
     .then(res => {
-      resolve(res);
+      console.log(res);
     })
   })
 }

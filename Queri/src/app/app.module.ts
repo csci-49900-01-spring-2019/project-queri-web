@@ -20,6 +20,7 @@ import { QuestionComponent } from './home/question/question.component';
 import { ObjectToArrayPipe } from './pipes/object-to-array.pipe';
 import { CommentComponent } from './home/comment/comment.component';
 import { environment } from '../environments/environment';
+import { NewComponentComponent } from './new-component/new-component.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { environment } from '../environments/environment';
     HomeComponent,
     QuestionComponent,
     ObjectToArrayPipe,
-    CommentComponent
+    CommentComponent,
+    NewComponentComponent
 
   ],
   imports: [
@@ -43,7 +45,7 @@ import { environment } from '../environments/environment';
     AngularFireAuthModule,
     RouterModule.forRoot([
       {
-        path: '', component: HomeComponent
+        path: '', component: NewComponentComponent
       },
       {
         path:'Ask',
