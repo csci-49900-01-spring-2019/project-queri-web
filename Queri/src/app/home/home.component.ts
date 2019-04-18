@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     //this.getData();
-    if(localStorage.getItem("token") == null){
+    if(localStorage.getItem("idToken") == "" || localStorage.getItem("idToken") == null){
         this.authService.doGoogleLogin();
     }else{
       this.getData();

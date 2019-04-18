@@ -13,7 +13,6 @@ import { AuthService } from '../auth.service';
 export class NewComponentComponent implements OnInit {  constructor(private authService : AuthService){ }  
 
 	ngOnInit() {
-		     this.authService.doGoogleLogin();
  
 	}
 }

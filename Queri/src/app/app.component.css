@@ -1,4 +1,5 @@
 .navbar-inverse {
+
 /**
     background: #000000;
     color: rgb(255, 255, 255);
@@ -11,10 +12,20 @@
     font-family: Verdana, Geneva, sans-serif;
  **/   
 }
-
+.navbar{
+    height: auto !important;
+    margin: 0 !important;
+    position: fixed;
+    width: 100%;
+    background-color: transparent !important;
+}
+.navbar p{
+font-family: "Futura" !important;
+}
 .navbar-brand{
    /** padding: 0 15px;*/
-    height: 40px;
+    height: auto;
+
     line-height: 500px;
 }
 
