@@ -23,7 +23,8 @@ export  class  AuthService {
     this.afAuth.auth
     .signInWithPopup(provider)
     .then(res => {
-      console.log(res);
+    localStorage.setItem("idToken", res.credential["accessToken"]);
+     
     })
   })
 }
