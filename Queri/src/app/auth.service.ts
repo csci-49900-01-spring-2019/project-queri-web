@@ -32,10 +32,6 @@ export  class  AuthService {
 
 
 
-
-
-
-
 /*    user:  User;
     constructor(public  afAuth:  AngularFireAuth, public  router:  Router) {
 
