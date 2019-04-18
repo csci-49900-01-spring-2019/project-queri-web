@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule} from '@angular/core';
 import { AngularFireModule } from "@angular/fire"
 import { AngularFireAuthModule } from "@angular/fire/auth"
+import { HttpHeaders } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -36,6 +37,17 @@ import { NewComponentComponent } from './new-component/new-component.component';
     NewComponentComponent
 
   ],
+
+
+
+
+
+  ///
+//
+//  fetch("url.com",{header:{"token":localStorage.getItem("idtoken")}})
+//
+//
+  //
   imports: [
     BrowserModule,
     AppRoutingModule,
