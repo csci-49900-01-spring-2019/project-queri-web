@@ -57,7 +57,7 @@ import { NewComponentComponent } from './new-component/new-component.component';
     AngularFireAuthModule,
     RouterModule.forRoot([
       {
-        path: '', component: NewComponentComponent
+        path: '', component: HomeComponent
       },
       {
         path:'Ask',
