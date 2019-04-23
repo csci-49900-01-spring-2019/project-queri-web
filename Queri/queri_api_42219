@@ -1,0 +1,63 @@
+4/22/2019
+Queri API
+
+
+|--------------------------------------------------------------------------------------------------------|
+
+
+|--------------------------------------------------------------------------------------------------------|
+
+
+Posts functions
+
+GET posts
+	PATH: /posts/
+
+
+GET posts
+	PATH: /posts/:type/
+	
+
+GET posts in :type
+	PATH: /posts/:type/
+
+
+GET post with identifier :post_id in :type
+	PATH: /posts/:type/:post_id/
+
+POST a new post in :type
+PATH: /posts/:type/new/
+
+|--------------------------------------------------------------------------------------------------------|
+
+Meta functions
+
+GET meta information of post with identifier :post_id in :type
+	PATH: /posts/:type/:post_id/meta/
+
+GET likes of post with identifier :post_id in :type
+	PATH: /posts/:type/:post_id/meta/likes/
+
+PUT a like to post with identifier :post_id in :type
+	PATH: /posts/:type/:post_id/meta/like
+
+|--------------------------------------------------------------------------------------------------------|
+
+Comment functions
+
+GET comments of post with identifier :post_id in :type
+	PATH: /posts/:type/:post_id/comments/
+
+
+GET comment with identifier :comment_id of post with identifier :post_id in :type
+	PATH: /posts/:type/:post_id/comments/:comment_id/
+	
+GET comment username of comment with identifier :comment_id of post with identifier :post_id in :type
+	path:/posts/:type/:post_id/comments/:comment_id/username/
+
+GET comment content of comment with identifier :comment_id of post with identifier :post_id in :type
+	PATH: /posts/:type/:post_id/comments/:comment_id/content/
+
+
+POST a new comment in post with identifier :post_id in :type
+	PATH: /posts/:type/:post_id/comments/new/
