@@ -1,18 +1,16 @@
-<div class="username">
-    {{username}}
+<div class="question_wrap">	
+	<div class="username">
+	    {{username}}
+	</div>
+	<div class="question">
+	    {{question}}
+	</div>
+
+
+	<div class="stats" >
+	    <div><div class="stats_icon" style="background-image: url('https://img.icons8.com/cotton/2x/facebook-like--v1.png');"></div><p>{{number_of_likes}}</p></div>
+	     <div><div class="stats_icon" style="background-image: url('https://img.icons8.com/cotton/2x/speech-bubble-with-dots.png');"></div><p>{{number_of_comments}}</p></div>
+	      <div><div class="stats_icon" style="background-image: url('http://icons.iconarchive.com/icons/paomedia/small-n-flat/256/clock-icon.png');"></div><p>{{days_remaining}}d</p></div>
+	</div>
+
 </div>
-<div class="question">
-    {{question}}
-</div>
-
-<div class="stats"  fxLayout="row" fxLayoutAlign="space-around end" >   
-    {{number_of_likes}} likes
-    {{number_of_comments}} comments
-    {{days_remaining}} days left
-</div>
-
-
-
-
-
-

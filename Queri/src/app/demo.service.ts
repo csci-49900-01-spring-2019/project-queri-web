@@ -12,124 +12,131 @@ export class DemoService {
 
     constructor(private http: HttpClient) {}
 
-// Uses http.get() to load data from a single API endpoint
+    getPostInType(type, post_id) : Observable<Post>{
+        return this.http.get<Post>("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/" + type + "/" + post_id + "/");
+            //.pipe();
 
-    getPostInCategory(name, post_id): Observable<Post> {
-// tslint:disable-next-line: max-line-length
-        return this.http.get<Post>('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/' + name + '/' + post_id + '/');
     }
-    getCommentsInPostInCategory(name, post_id) {
-// tslint:disable-next-line: max-line-length
-        return this.http.get('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/' + name + '/' + post_id + '/comments/')
-        .subscribe((data: any[]) => {
+    getCommentsInPostInView(type, post_id) {
+        return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/" + type + "/" + post_id + "/comments/")
+        .subscribe((data:any[])=>{
             console.log(data);
         });
     }
-    getCommentInPostInCategory(name, post_id, comment_id) {
-// tslint:disable-next-line: max-line-length
-        return this.http.get('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/'  + name + '/' + post_id + '/comments/' + comment_id + '/')
-        .subscribe((data: any[]) => {
+    getCommentInPostInView(type, post_id, comment_id) {
+        return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/"  + type + "/" + post_id + "/comments/" + comment_id + "/")
+        .subscribe((data:any[])=>{
             console.log(data);
         });
     }
-    getUsernameOfCommentInPostInCategory(name, post_id, comment_id) {
-// tslint:disable-next-line: max-line-length
-        return this.http.get('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/'  + name + '/' + post_id + '/comments/' + comment_id + '/username/')
-        .subscribe((data: any[]) => {
+    getUsernameOfCommentInPostInView(type, post_id, comment_id) {
+        return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/"  + type + "/" + post_id + "/comments/" + comment_id + "/username/")
+        .subscribe((data:any[])=>{
             console.log(data);
         });
     }
-    getContentOfCommentInPostInCategory(name, post_id, comment_id) {
-// tslint:disable-next-line: max-line-length
-        return this.http.get('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/'  + name + '/' + post_id + '/comments/' + comment_id + '/content/')
-        .subscribe((data: any[]) => {
-            console.log(data);
-        });
-    }
-    getCategories() {
-        return this.http.get('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/')
-        .subscribe((data: any[]) => {
-            console.log(data);
-        });
-    }
-    getAllInCategory(name) {
-        return this.http.get('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/'  + name + '/')
-        .subscribe((data: any[]) => {
+    getContentOfCommentInPostInView(type, post_id, comment_id) {
+        return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/"  + type + "/"+ post_id + "/comments/" + comment_id + "/content/")
+        .subscribe((data:any[])=>{
             console.log(data);
         });
     }
 
-    getCategory(name, count) {
-        return this.http.get('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/' + name + '/' + count + '/')
-        .subscribe((data: any[]) => {
+    getAll(type) {
+        return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/"  + type + "/")
+        .subscribe((data:any[])=>{
             console.log(data);
         });
     }
-    getRecent() {
-        return this.http.get('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/recent')
-        .subscribe((data: any[]) => {
+/*
+    getCategory(type, count) {
+        return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/" + type + "/" + count + "/")
+        .subscribe((data:any[])=>{
+            console.log(data);
+        })
+    }*/
+    getRecent(type) {
+        return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/" + type + "/")
+        .subscribe((data:any[])=>{
             console.log(data);
         });
     }
-    getRecentCount(count) {
-        return this.http.get('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/recent/' + count + '/')
-        .subscribe((data: any[]) => {
+    getRecentCount(type, count) {
+        return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posgetAll/" + type + "/" + count + "/")
+        .subscribe((data:any[])=>{
             console.log(data);
         });
     }
-    getArchived() {
-        return this.http.get('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/archived/')
-        .subscribe((data: any[]) => {
+    getArchived(type) {
+        return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/" + type + "/")
+        .subscribe((data:any[])=>{
             console.log(data);
         });
     }
-    getArchivedCount() {
-        return this.http.get('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/archived/')
-        .subscribe((data: any[]) => {
+    getArchivedCount(type, count) {
+        return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/" + type + "/" + count + "/")
+        .subscribe((data:any[])=>{
             console.log(data);
         });
     }
-    getVotes(name, p_id) {
-// tslint:disable-next-line: max-line-length
-        return this.http.get('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/' + name + '/' + p_id + '/meta/votes/')
-        .subscribe((data: any[]) => {
+    getVotes(type, post_id) {
+        return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/" + type + "/" + post_id + "/meta/likes/")
+        .subscribe((data:any[])=>{
+            console.log(data);
+        });
+    }
+
+    // AddComment(username,content){
+    //   const body= {
+    //   "username":username,
+    //   "content":content
+    //   }
+    //   this.http.post('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posgetAll/category1/0/comments/new/', body).subscribe((data:any[])=>{
+    //       console.log(data);
+    //   })
+
+    // }
+
+    AddComment(username, content, type, count){
+        const body= {
+        "username":username,
+        "content":content
+        }
+        this.http.post("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/" + type + "/" + count + "/comments/new/", body).subscribe((data:any[])=>{
             console.log(data);
         });
     }
 
 
 
-    AddComment(username, content) {
-      const body = {
-      'username': username,
-      'content': content
-      };
-// tslint:disable-next-line: max-line-length
-      this.http.post('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/category1/0/comments/new/', body).subscribe((data: any[]) => {
-          console.log(data);
-      });
+    AddComment(username,content){
+    //   const httpOptions = {
+    //   headers: new HttpHeaders({
+    //     'Authorization' : this.idToken
+    //   })
+    // };
+    //   this.httpClientObj.get('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/category1/0/comments/new/', httpOptions);
+      const body= {
+      "username":username,
+      "content":content
+      }
 
-    }
+    AddLike(type, post_id){
 
-    AddLike(name, post_id) {
-
-// tslint:disable-next-line: max-line-length
-        this.http.put('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/' + name + '/' + post_id + '/meta/like', {}).subscribe((data: any[]) => {
+        this.http.put('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/' + type +  '/' + post_id + '/meta/like', {}).subscribe((data:any[])=>{
         console.log(data);
-      });
+      })
 
     }
 
-    AddNewPost(username, content, name) {
+    AddNewPost(username, content, type){
         const body = {
-            username: username,
-            content: content
-
-        };
-// tslint:disable-next-line: max-line-length
-        this.http.post('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/' + name + '/' + 'new/', body).subscribe((data: any[]) => {
+            "username":username,
+            "content":content
+        }
+        this.http.post('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/' + name + '/' + 'new/', body).subscribe((data:any[])=>{
         console.log(data);
-    });
+    })
 
     }
 }
