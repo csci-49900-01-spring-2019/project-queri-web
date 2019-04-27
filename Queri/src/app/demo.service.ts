@@ -17,7 +17,7 @@ export class DemoService {
     getPostInCategory(name, post_id) : Observable<Post>{
         return this.http.get<Post>("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/" + name + "/" + post_id + "/");
             //.pipe();
-        
+
     }
     getCommentsInPostInCategory(name, post_id) {
         return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/" + name + "/"+ post_id + "/comments/")
@@ -93,9 +93,15 @@ export class DemoService {
         })
     }
 
-   
+
 
     AddComment(username,content){
+    //   const httpOptions = {
+    //   headers: new HttpHeaders({
+    //     'Authorization' : this.idToken
+    //   })
+    // };
+    //   this.httpClientObj.get('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/category1/0/comments/new/', httpOptions);
       const body= {
       "username":username,
       "content":content
@@ -111,7 +117,7 @@ export class DemoService {
         this.http.put('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/' + name + '/' + post_id + '/meta/like', {}).subscribe((data:any[])=>{
         console.log(data);
       })
- 
+
     }
 
     AddNewPost(username, content, name){
@@ -120,8 +126,8 @@ export class DemoService {
             "content":content
         }
         this.http.post('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/' + name + '/' + 'new/', body).subscribe((data:any[])=>{
-        console.log(data);    
+        console.log(data);
     })
-    
+
     }
 }
