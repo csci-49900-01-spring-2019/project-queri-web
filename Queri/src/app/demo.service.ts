@@ -109,17 +109,18 @@ export class DemoService {
 
 
 
-    AddComment(username,content){
-    //   const httpOptions = {
-    //   headers: new HttpHeaders({
-    //     'Authorization' : this.idToken
-    //   })
-    // };
-    //   this.httpClientObj.get('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/category1/0/comments/new/', httpOptions);
-      const body= {
-      "username":username,
-      "content":content
-      }
+    // AddComment(username,content){
+    // //   const httpOptions = {
+    // //   headers: new HttpHeaders({
+    // //     'Authorization' : this.idToken
+    // //   })
+    // // };
+    // //   this.httpClientObj.get('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/category1/0/comments/new/', httpOptions);
+    //   const body= {
+    //   "username":username,
+    //   "content":content
+    //   }
+    // }
 
     AddLike(type, post_id){
 

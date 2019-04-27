@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DemoService } from '../demo.service';
-import { Post } from '../shared/Data';
+import { Post } from '../_models/data';
 import { AuthService } from '../auth.service';
 
 @Component({
