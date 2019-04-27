@@ -108,7 +108,7 @@ export class DemoService {
     }
 
 
-
+/***** 
     AddComment(username,content){
     //   const httpOptions = {
     //   headers: new HttpHeaders({
@@ -120,7 +120,7 @@ export class DemoService {
       "username":username,
       "content":content
       }
-
+*/
     AddLike(type, post_id){
 
         this.http.put('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/' + type +  '/' + post_id + '/meta/like', {}).subscribe((data:any[])=>{
