@@ -19,7 +19,7 @@ import { QuestionComponent } from './home/question/question.component';
 import { CommentComponent } from './home/comment/comment.component';
 import { AskFormComponent } from './ask/ask-form/ask-form.component';
 import { CommentFormComponent } from './home/comment-form/comment-form.component';
-//import { environment } from '../environments/environment';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
