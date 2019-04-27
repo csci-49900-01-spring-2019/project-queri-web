@@ -12,94 +12,10 @@ export class DemoService {
 
     constructor(private http: HttpClient) {}
 
-    // Uses http.get() to load data from a single API endpoint
-
-    // getPostInView(name, post_id) : Observable<Post>{
-    //     return this.http.get<Post>("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posgetAll/" + name + "/" + post_id + "/");
-    //         //.pipe();
-        
-    // }
-    // getCommentsInPostInView(name, post_id) {
-    //     return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posgetAll/" + name + "/"+ post_id + "/comments/")
-    //     .subscribe((data:any[])=>{
-    //         console.log(data);
-    //     })
-    // }
-    // getCommentInPostInView(name, post_id, comment_id) {
-    //     return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posgetAll/"  + name + "/"+ post_id + "/comments/" + comment_id + "/")
-    //     .subscribe((data:any[])=>{
-    //         console.log(data);
-    //     })
-    // }
-    // getUsernameOfCommentInPostInView(name, post_id, comment_id) {
-    //     return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posgetAll/"  + name + "/"+ post_id + "/comments/" + comment_id + "/username/")
-    //     .subscribe((data:any[])=>{
-    //         console.log(data);
-    //     })
-    // }
-    // getContentOfCommentInPostInView(name, post_id, comment_id) {
-    //     return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posgetAll/"  + name + "/"+ post_id + "/comments/" + comment_id + "/content/")
-    //     .subscribe((data:any[])=>{
-    //         console.log(data);
-    //     })
-    // }
-    // getAll() {
-    //     return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posgetAll/")
-    //     .subscribe((data:any[])=>{
-    //         console.log(data);
-    //     })
-    // }
-    // getAllInView(name) {
-    //     return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posgetAll/"  + name + "/")
-    //     .subscribe((data:any[])=>{
-    //         console.log(data);
-    //     })
-    // }
-
-    // getCategory(name, count) {
-    //     return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posgetAll/" + name + "/" + count + "/")
-    //     .subscribe((data:any[])=>{
-    //         console.log(data);
-    //     })
-    // }
-    // getRecent() {
-    //     return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/recent")
-    //     .subscribe((data:any[])=>{
-    //         console.log(data);
-    //     })
-    // }
-    // getRecentCount(count) {
-    //     return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posgetAll/recent/" + count + "/")
-    //     .subscribe((data:any[])=>{
-    //         console.log(data);
-    //     })
-    // }
-    // getArchived() {
-    //     return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/archived/")
-    //     .subscribe((data:any[])=>{
-    //         console.log(data);
-    //     })
-    // }
-    // getArchivedCount() {
-    //     return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/archived/")
-    //     .subscribe((data:any[])=>{
-    //         console.log(data);
-    //     })
-    // }
-    // getVotes(name, p_id) {
-    //     return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posgetAll/" + name + "/" + p_id + "/meta/votes/")
-    //     .subscribe((data:any[])=>{
-    //         console.log(data);
-    //     })
-    // }
-
-
-
-
     getPostInType(type, post_id) : Observable<Post>{
         return this.http.get<Post>("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/" + type + "/" + post_id + "/");
             //.pipe();
-        
+
     }
     getCommentsInPostInView(type, post_id) {
         return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/" + type + "/" + post_id + "/comments/")
@@ -189,7 +105,7 @@ export class DemoService {
         this.http.post("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/" + type + "/" + count + "/comments/new/", body).subscribe((data:any[])=>{
             console.log(data);
         })
-  
+
       }
 
     AddLike(type, post_id){
@@ -197,7 +113,7 @@ export class DemoService {
         this.http.put('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/' + type +  '/' + post_id + '/meta/like', {}).subscribe((data:any[])=>{
         console.log(data);
       })
- 
+
     }
 
     AddNewPost(username, content, type){
@@ -206,8 +122,8 @@ export class DemoService {
             "content":content
         }
         this.http.post('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/' +  type + '/' + 'new/', body).subscribe((data:any[])=>{
-        console.log(data);    
+        console.log(data);
     })
-    
+
     }
 }
