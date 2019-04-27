@@ -30,7 +30,7 @@
 .username{
     margin:auto; 
     height:auto; 
-
+    font-family: "Arial Black";
     overflow:auto;
     color: white;
     text-align: center;
@@ -65,7 +65,7 @@ grid-gap:10px;
     width: 180px;
     margin: auto;
     height: auto;
-    font-family: "Futura";
+    font-family: "Arial Black";
     margin-top: 20px;
     color:white;
     letter-spacing: 2px;

@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   }
   comments: string[]; // Object.keys(this.post.comments);
 
-  category: string = 'category1';
+  type: string = 'featured';
   postID: string = '0';
 
   ngOnInit() {
@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
   }
 
   getData(): void{
-    this.demoService.getPostInCategory(this.category, this.postID)
+    this.demoService.getPostInType(this.type, this.postID)
       .subscribe(post => {this.post = post
         console.log(post);
         this.comments = Object.keys(this.post.comments);
