@@ -3,6 +3,7 @@
     <div class="list-of-topics">
         <topic-list></topic-list>
     </div> -->  
+    <div class="question_wrap">
     <div class="question">
         <app-question 
         [question] = "post?.content"
@@ -26,9 +27,17 @@
         <button>Next</button>
 
     </div>
-
+</div>
        
         <ul  class = "comments" >
+            <app-comment class = "comment" *ngFor = "let comment of comments "
+            [comment] = "post?.comments[comment].content"
+            [username] = "post?.comments[comment].username"
+            ></app-comment>
+            <app-comment class = "comment" *ngFor = "let comment of comments "
+            [comment] = "post?.comments[comment].content"
+            [username] = "post?.comments[comment].username"
+            ></app-comment>
             <app-comment class = "comment" *ngFor = "let comment of comments "
             [comment] = "post?.comments[comment].content"
             [username] = "post?.comments[comment].username"
