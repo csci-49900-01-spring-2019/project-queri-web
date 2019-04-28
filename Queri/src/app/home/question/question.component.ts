@@ -17,6 +17,5 @@ export class QuestionComponent implements OnInit {
   constructor() { }
   ngOnInit() { }
 
-
   
 }

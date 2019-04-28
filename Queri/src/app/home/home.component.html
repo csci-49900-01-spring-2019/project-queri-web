@@ -1,6 +1,10 @@
 <div class="homepage">
+    <!--
+    <div class="list-of-topics">
+        <topic-list></topic-list>
+    </div> -->  
     <div class="question">
-        <app-question
+        <app-question 
         [question] = "post?.content"
         [username] = "post?.username"
         [days_remaining] = "post?.meta.days_remaining"
@@ -10,21 +14,12 @@
     </div>
 
 
-    
+    <!--
     <div class="answer_section">
         <textarea class="answer_box" name="answer" id="" cols="30" rows="10"></textarea>
     </div>
-    <br>
-    <div class = "comments">
-        <tr *ngFor = "let comment of comments ">
-            <td> <app-comment
-            *ngIf = "this.showComments"
-            [comment] = "post?.comments[comment].content"
-            [username] = "post?.comments[comment].username"
-            ></app-comment>
-            </td>
-        </tr>
-    </div>
+    -->
+ 
      <div class="routing_questions_component">
         <button>Previous</button>
         <button>Answer</button>
@@ -32,5 +27,14 @@
 
     </div>
 
+       
+        <ul  class = "comments" >
+            <app-comment class = "comment" *ngFor = "let comment of comments "
+            [comment] = "post?.comments[comment].content"
+            [username] = "post?.comments[comment].username"
+            ></app-comment>
+        </ul>
 
+    
+    
 </div>

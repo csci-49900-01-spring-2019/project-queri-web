@@ -1,8 +1,9 @@
 .question{
-
+ 
     border-radius: 10px;
     /*color: #ff7770;
     font-family: sans-serif;
+    text-align: center;
     font-size: 47px;
     font-family: "Futura";
     width: 70%;
@@ -11,7 +12,7 @@
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);*/
     /*background-color: black;*/
-}
+}    
 
 .question_wrap{
       color: white;
@@ -21,14 +22,14 @@
     font-family: "Futura";
     width: 80%;
     margin: auto;
-
+    
     padding: 20px;
 
 }
 
 .username{
-    margin:auto;
-    height:auto;
+    margin:auto; 
+    height:auto; 
     font-family: "Arial Black";
     overflow:auto;
     color: white;
@@ -38,7 +39,7 @@
     padding: 5px;
 
     border-radius: 10px;
-
+    
 }
 .stats >div{
    /* border-radius: 100%;

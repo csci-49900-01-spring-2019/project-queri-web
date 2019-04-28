@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DemoService } from '../demo.service';
 import { Post } from '../_models/data';
 import { AuthService } from '../auth.service';
@@ -9,7 +9,6 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./home.component.css'],
   providers: [DemoService]
 })
-
 export class HomeComponent implements OnInit {
   post: Post;
   constructor(private demoService: DemoService, private authService : AuthService){
@@ -19,12 +18,6 @@ export class HomeComponent implements OnInit {
 
   type: string = 'featured';
   postID: string = '0';
-
-
-  // Determines what componts will be shown
-  // These values should never be equal
-  showForm = true;
-  showComments = false;
 
   ngOnInit() {
     //this.getData();
@@ -41,6 +34,7 @@ export class HomeComponent implements OnInit {
       .subscribe(post => {this.post = post
         console.log(post);
         this.comments = Object.keys(this.post.comments);
+        //this.stats = Object.keys(this.post.meta);
        });
   }
 
