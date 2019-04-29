@@ -90,17 +90,17 @@ export class HomeComponent implements OnInit {
   setDataFromchild( data ) {
     console.log(this.postsKeys[this.currentPostNumber]);
     this.demoService.getCommentsInPostInView(this.type, this.postsKeys[this.currentPostNumber])
-      .subscribe(comments => {
-        this.comments = comments;
-        console.log(this.comments);
-        this.commentkeys = Object.keys(this.comments);
-        console.log(this.commentkeys);
-      })
-
-    
+    .subscribe(comments => {
+      this.comments = comments;
+      console.log(this.comments);
+      this.commentkeys = Object.keys(this.comments);
+      console.log(this.commentkeys);
+    });
     this.showForm = false;
     this.showComments = true;
 
   }
+
+  // ngOnDestroy() {}
 
 }

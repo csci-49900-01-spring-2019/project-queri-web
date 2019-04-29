@@ -70,6 +70,10 @@ import { ArchiveComponent } from './archive/archive.component';
       {
         path: 'Voting',
         component: VotingComponent
+      },
+      {
+        path: 'Archive',
+        component: ArchiveComponent
       }
       /*
       {

@@ -21,13 +21,13 @@ export class CommentFormComponent implements OnInit {
     this.comment = x.control.value;
   }
 
-  sendToParent(){
+  sendToParent() {
     this.event.emit(this.foo);
   }
 
   onSubmit() {
     // What is count???
-    // this.demoService.AddComment(this.username, this.comment, 'featured', 10);
+    this.demoService.AddComment(this.username, this.comment, 'featured', 10);
     console.log('Button clicked');
   }
 

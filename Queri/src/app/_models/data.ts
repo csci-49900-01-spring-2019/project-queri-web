@@ -12,6 +12,6 @@ interface comment{
 
 interface statistics{
     comments: number;
-    day_remaining: number;
+    days_remaining: number;
     likes: number;
 }
