@@ -1,4 +1,9 @@
 <div class="homepage">
+    <!--
+    <div class="list-of-topics">
+        <topic-list></topic-list>
+    </div> -->  
+    <div class="question_wrap">
     <div class="question">
         <app-question
         [question] = "posts && posts[currentPostNumber]?.content"
@@ -29,6 +34,3 @@
         <button (click) = 'onClickAnswer()'>Answer</button>
         <button (click) = 'onClickNext()'>Next</button>
     </div>
-
-
-</div>

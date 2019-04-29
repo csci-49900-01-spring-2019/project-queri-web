@@ -1,6 +1,67 @@
+/*
 .comment{
-    font-family: Arial Black;
-    text-align: left;
-    font-size: 30px;
-    text-align: left;
+	background-color: red;
+	text-align: left;
+	vertical-align: top;
+	padding: 15px;
+	border-radius: 10px;
+	color: white;
+	font-size: 20px;
+}*/
+.comment_user_profile{
+  width: 30px;
+  height: 30px;
+  background-color: grey;
+  border-radius: 100%;
+  display: inline-block;
+  background-image: url("https://cdn3.iconfinder.com/data/icons/avatars-9/145/Avatar_Penguin-512.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.comment_user_wrap{
+  background-color: white;
+  width: 100%;
+  text-align: center;
+  padding: 5px;
+
+}
+.comment_username{
+  padding: 0px;
+
+
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: "Avenir";
+  font-size: 16px;
+ text-align: center;
+display: inline-block;
+vertical-align: top;
+padding-top: 4px;
+margin-left: 4px;
+
+color: rgb(0,160,190);
+
+}
+.comment_wrap{
+	 position: relative;
+	 border-radius: 5px;
+   background-color: rgb(0,160,190);
+   box-shadow: 0 0 5px rgba(0,0,0,0.2);
+   padding: 3px;
+   border: 3px solid white;
+}
+.meta_bar{
+  height: 30px;
+  width: 100%;
+  background-color: red;
+}
+.comment_content{
+  padding: 10px;
+  border-radius: 10px;
+     font-size: 17px;
+color: white;
+      text-align: center;
+      display: inline-block;
+      text-align: left;
 }
