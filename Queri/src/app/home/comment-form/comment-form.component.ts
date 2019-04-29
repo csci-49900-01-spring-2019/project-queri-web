@@ -27,8 +27,13 @@ export class CommentFormComponent implements OnInit {
 
   onSubmit() {
     // What is count???
+<<<<<<< HEAD
     this.demoService.AddComment(this.username, this.comment, 'featured', 10);
+=======
+     this.demoService.AddComment(this.username, this.comment, 'featured', 10);
+>>>>>>> ee91b81bce979af0ed2b4ac03382f07918d6ef2c
     console.log('Button clicked');
+
   }
 
   ngOnInit() { }

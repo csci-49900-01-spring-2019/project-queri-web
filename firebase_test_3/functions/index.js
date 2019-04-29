@@ -19,6 +19,60 @@ function AddMeta(meta_reference, meta_type){
 }
 
 
+app.post('users/new', function(req, res) {
+  let idToken = req.header('Authorization');
+  let profile_pic = 'https://cdn3.iconfinder.com/data/icons/avatars-9/145/Avatar_Penguin-512.png';
+  verify(idToken, function(uid) {
+    let username = req.body.username;
+    let reference = 'users/';
+    let user = {
+      user_info: {
+        username: username
+      }
+    };
+    admin
+      .database()
+      .ref(reference)
+      .child(uid)
+      .set(user);
+    res.json({ status: 'success' });
+  });
+});
+app.get('users/:id/user_info', function(req, res) {
+  let idToken = req.header('Authorization');
+  verify(idToken, function(uid) {
+    let reference = 'users/' + req.params.id + '/user_info';
+    admin
+      .database()
+      .ref(reference)
+      .once('value', function(snap) {
+        if (snap.val() == null) {
+          res.json(null);
+        } else {
+          res.json(snap.val());
+        }
+      });
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
