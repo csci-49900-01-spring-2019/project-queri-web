@@ -13,24 +13,24 @@
         [number_of_comments] = "posts && posts[currentPostNumber]?.meta.comments"
         ></app-question>
     </div>
+
+        <div class="routing_questions_component">
+        <button (click) = 'onClickPrevious()'>Previous</button>
+        <button (click) = 'onClickAnswer()'>Answer</button>
+        <button (click) = 'onClickNext()'>Next</button>
+    </div>
     
     <div class="comment-form"> 
        <app-comment-form *ngIf = "this.showForm" (event)='setDataFromchild($event)'></app-comment-form>
     </div>
     <br>
-    <div class = "comments">
-        <tr *ngFor = "let comment of commentkeys ">
-            <td> <app-comment
+    <div class = "comments" id = "comments_div">
+        <div *ngFor = "let comment of commentkeys ">
+           <app-comment
             *ngIf = "this.showComments"
-            [comment] = "posts && posts[currentPostNumber]?.comments[comment].username"
-            [username] = "posts && posts[currentPostNumber]?.comments[comment].content"
+            [comment] =  "posts && posts[currentPostNumber]?.comments[comment].content"
+            [username] = "posts && posts[currentPostNumber]?.comments[comment].username"
             ></app-comment>
-            </td>
-        </tr>
+        </div>
     </div>
     
-    <div class="routing_questions_component">
-        <button (click) = 'onClickPrevious()'>Previous</button>
-        <button (click) = 'onClickAnswer()'>Answer</button>
-        <button (click) = 'onClickNext()'>Next</button>
-    </div>

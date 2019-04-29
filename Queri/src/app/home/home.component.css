@@ -30,6 +30,8 @@
 width: 390px;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 10px;
+  margin-bottom: 30px;
+  margin-top: 30px;
 
 }
 .routing_questions_component > button{
@@ -73,7 +75,9 @@ width:100px;
   padding-bottom: 35px;
 }
 
-
+#comments_div{
+  
+}
 
 .comments{
    /* font-family: Arial Black;
