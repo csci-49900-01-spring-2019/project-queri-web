@@ -1,5 +1,5 @@
 import { Component, OnInit ,Input} from '@angular/core';
-import { DemoService } from '../../demo.service';
+
 
 @Component({
   selector: 'app-question',

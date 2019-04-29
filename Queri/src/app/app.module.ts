@@ -20,6 +20,9 @@ import { CommentComponent } from './home/comment/comment.component';
 import { AskFormComponent } from './ask/ask-form/ask-form.component';
 import { CommentFormComponent } from './home/comment-form/comment-form.component';
 import { environment } from '../environments/environment';
+import { VotingComponent } from './voting/voting.component';
+import { VoteQuestionComponent } from './voting/vote-question/vote-question.component';
+import { ArchiveComponent } from './archive/archive.component';
 
 
 @NgModule({
@@ -30,7 +33,10 @@ import { environment } from '../environments/environment';
     QuestionComponent,
     CommentComponent,
     AskFormComponent,
-    CommentFormComponent
+    CommentFormComponent,
+    VotingComponent,
+    VoteQuestionComponent,
+    ArchiveComponent
 
   ],
 
@@ -60,6 +66,10 @@ import { environment } from '../environments/environment';
       {
         path: 'Ask',
         component: AskComponent
+      },
+      {
+        path: 'Voting',
+        component: VotingComponent
       }
       /*
       {

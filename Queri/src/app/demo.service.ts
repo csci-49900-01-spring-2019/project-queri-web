@@ -127,7 +127,8 @@ export class DemoService {
 
     }
 
-    AddNewPost(username, content, type){
+    // arugment type is not used in the function???
+    AddNewPost(username, content, type?){
         const body = {
             "username":username,
             "content":content

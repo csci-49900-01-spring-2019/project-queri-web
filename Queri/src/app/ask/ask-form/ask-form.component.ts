@@ -12,8 +12,8 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class AskFormComponent implements OnInit {
 
   constructor(private demoService: DemoService) { }
-  username = 'Jimmi76';
-  name = 'Jimmy';
+  username = 'NotKevin';
+
   question: string;
   @ViewChild('question') form: any;
 
@@ -24,7 +24,7 @@ export class AskFormComponent implements OnInit {
    }
 
   onSubmit() {
-    // this.demoService.AddNewPost(this.username, this.question, this.name);
+    // this.demoService.AddNewPost(this.username, this.question);
     console.log('Button clicked');
     this.form.reset();
   }
