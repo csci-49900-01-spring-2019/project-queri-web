@@ -22,7 +22,6 @@ export class HomeComponent implements OnInit {
   // Category
   type: string = 'featured';
 
-<<<<<<< HEAD
   postsKeys: string[] = [];
   // Number of Posts available
 
@@ -40,8 +39,6 @@ export class HomeComponent implements OnInit {
 
   comments: Comment[] = [];
 
-=======
->>>>>>> 7e38366f41c76976c6e7b362c81fa498805c1283
   ngOnInit() {
     console.log("ng");
     console.log("1 number of posts: " + this.numberOfPosts);
@@ -86,7 +83,6 @@ export class HomeComponent implements OnInit {
     // this.commentkeys = Object.keys(this.posts[this.currentPostNumber].comments);
   }
 
-<<<<<<< HEAD
   onClickAnswer() {
     this.showForm = !this.showForm;
   }
@@ -105,15 +101,6 @@ export class HomeComponent implements OnInit {
     this.showForm = false;
     this.showComments = true;
 
-=======
-  getData(): void{
-    this.demoService.getPostInType(this.type, this.postID)
-      .subscribe(post => {this.post = post
-        console.log(post);
-        this.comments = Object.keys(this.post.comments);
-        //this.stats = Object.keys(this.post.meta);
-       });
->>>>>>> 7e38366f41c76976c6e7b362c81fa498805c1283
   }
 
 }
