@@ -9,31 +9,25 @@ import { DemoService } from '../../demo.service';
 export class CommentFormComponent implements OnInit {
 
   constructor(private demoService: DemoService) { }
-  username = 'Jimmi76';
+  username: string;
   comment: string;
-  
   @Input() hidden: boolean;
   @Output() event: EventEmitter<boolean> = new EventEmitter();
 
   foo: false;
-  // Default should be false
-  // hideForm = true;
 
-  log(x){
-    console.log("Comment: " + x.control.value);
+  log(x: any) {
+    console.log('Comment: ' + x.control.value);
     this.comment = x.control.value;
-    
   }
 
   sendToParent(){
     this.event.emit(this.foo);
-    console.log("FOOOOOOO");
   }
 
   onSubmit() {
     //this.demoService.AddComment(this.username, this.comment);
-    console.log("Button clicked");
-    
+    console.log('Button clicked');
   }
 
   ngOnInit() { }

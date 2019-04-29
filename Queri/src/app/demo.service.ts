@@ -17,11 +17,8 @@ export class DemoService {
             //.pipe();
 
     }
-    getCommentsInPostInView(type, post_id) {
-        return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/" + type + "/" + post_id + "/comments/")
-        .subscribe((data:any[])=>{
-            console.log(data);
-        });
+    getCommentsInPostInView(type, post_id): Observable<Comment[]> {
+        return this.http.get<Comment[]>("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/" + type + "/" + post_id + "/comments/");
     }
     getCommentInPostInView(type, post_id, comment_id) {
         return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/"  + type + "/" + post_id + "/comments/" + comment_id + "/")
@@ -42,11 +39,12 @@ export class DemoService {
         });
     }
 
-    getAll(type) {
-        return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/"  + type + "/")
+    getAll(type): Observable<Post[]> {
+        return this.http.get<Post[]>("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/"  + type + "/");
+        /*
         .subscribe((data:any[])=>{
             console.log(data);
-        });
+        });*/
     }
 /*
     getCategory(type, count) {

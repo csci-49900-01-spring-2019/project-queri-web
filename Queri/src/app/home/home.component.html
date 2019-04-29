@@ -1,35 +1,33 @@
 <div class="homepage">
     <div class="question">
         <app-question
-        [question] = "post?.content"
-        [username] = "post?.username"
-        [days_remaining] = "post?.meta.days_remaining"
-        [number_of_likes] = "post?.meta.likes"
-        [number_of_comments] = "post?.meta.comments"
+        [question] = "posts && posts[currentPostNumber]?.content"
+        [username] = "posts && posts[currentPostNumber]?.username"
+        [days_remaining] = "posts && posts[currentPostNumber]?.meta.days_remaining"
+        [number_of_likes] = "posts && posts[currentPostNumber]?.meta.likes"
+        [number_of_comments] = "posts && posts[currentPostNumber]?.meta.comments"
         ></app-question>
     </div>
-
-
     
-    <div class="answer_section">
-        <textarea class="answer_box" name="answer" id="" cols="30" rows="10"></textarea>
+    <div class="comment-form"> 
+       <app-comment-form *ngIf = "this.showForm" (event)='setDataFromchild($event)'></app-comment-form>
     </div>
     <br>
     <div class = "comments">
-        <tr *ngFor = "let comment of comments ">
+        <tr *ngFor = "let comment of commentkeys ">
             <td> <app-comment
             *ngIf = "this.showComments"
-            [comment] = "post?.comments[comment].content"
-            [username] = "post?.comments[comment].username"
+            [comment] = "posts && posts[currentPostNumber]?.comments[comment].username"
+            [username] = "posts && posts[currentPostNumber]?.comments[comment].content"
             ></app-comment>
             </td>
         </tr>
     </div>
-     <div class="routing_questions_component">
-        <button>Previous</button>
-        <button>Answer</button>
-        <button>Next</button>
-
+    
+    <div class="routing_questions_component">
+        <button (click) = 'onClickPrevious()'>Previous</button>
+        <button (click) = 'onClickAnswer()'>Answer</button>
+        <button (click) = 'onClickNext()'>Next</button>
     </div>
 
 

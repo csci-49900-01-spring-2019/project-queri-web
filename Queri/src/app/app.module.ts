@@ -58,10 +58,15 @@ import { environment } from '../environments/environment';
         path: '', component: HomeComponent
       },
       {
-        path:'Ask',
+        path: 'Ask',
         component: AskComponent
       }
-
+      /*
+      {
+        path: '',
+        redirectTo: 'Home/:id',
+        pathMatch: 'full'
+      }*/
     ])
   ],
   providers: [DemoService, HttpClientModule],
