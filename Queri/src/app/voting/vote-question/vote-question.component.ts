@@ -22,8 +22,12 @@ export class VoteQuestionComponent implements OnInit {
   buttonText: string = 'Like';
   clicked = false;
 
+  colors: string[] = ['cyan', 'green', 'blue', 'purple', 'pink', 'magenta', 'black', 'grey', 'yellow', 'orange'];
+  numberOfColors = this.colors.length;
+
   ngOnInit() {
   }
+
 
   onLike(){
     if (this.buttonText === 'Like'){
@@ -32,6 +36,12 @@ export class VoteQuestionComponent implements OnInit {
       this.clicked = true;
     }
     // this.demoService.AddLike(this.type, this.postId);
+  }
+
+  setRandomColor(): string{
+    let index = Math.floor(Math.random() * this.numberOfColors) + 0;
+    //this.pageColor = this.colors[index];
+    return this.colors[index];
   }
 
 }

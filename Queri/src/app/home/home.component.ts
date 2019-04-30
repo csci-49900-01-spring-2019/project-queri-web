@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { DemoService } from '../demo.service';
 import { Post } from '../_models/data';
 import { AuthService } from '../auth.service';
@@ -8,12 +8,15 @@ import { ActivatedRoute } from '@angular/router';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  providers: [DemoService]
+  // providers: [DemoService],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent implements OnInit {
   constructor(private demoService: DemoService,
               private authService: AuthService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private cd: ChangeDetectorRef) 
+  {
     // this.route.params.subscribe( params => console.log(params) );
   }
   // Holds Response from getAll()
@@ -32,32 +35,32 @@ export class HomeComponent implements OnInit {
   showForm = false;
   showComments = false;
 
-  //pageColor: string;
-
-  colors: string[] = ['cyan', 'green', 'blue', 'purple', 'pink', 'magenta', 'black', 'grey', 'yellow', 'orange',];
-
+  colors: any[] = ['cyan', 'green', 'blue', 'purple', 'pink', 'magenta', 'black', 'grey', 'yellow', 'orange',];
+  numberOfColors: number;
   currentPostNumber: number = 0;
   commentkeys: string[] = [];
-
-  numberOfColors = this.colors.length;
-
   comments: Comment[] = [];
 
   ngOnInit() {
-    
-
-    this.setRandomColor();
     if (localStorage.getItem("idToken") == "" || localStorage.getItem("idToken") == null){
         this.authService.doGoogleLogin();
     } else {
+      this.numberOfColors = this.colors.length;
+      //this.setRandomColor();
       this.getData();
     }
   }
 
-  getData(){
+// tslint:disable-next-line: use-life-cycle-interface
+  ngAfterViewInit() {
+    this.cd.detectChanges();
+  }
+
+  getData() {
     this.demoService.getAll(this.type)
       .subscribe(posts => {
         this.posts = posts;
+        console.log(posts);
         this.numberOfPosts = this.posts.length;
         this.postsKeys = Object.keys(this.posts);
     });
@@ -102,15 +105,11 @@ export class HomeComponent implements OnInit {
     });
     this.showForm = false;
     this.showComments = true;
-
   }
 
-  // ngOnDestroy() {}
-
-  setRandomColor(): string{
+  setRandomColor(): any{
     let index = Math.floor(Math.random() * this.numberOfColors) + 0;
-    //this.pageColor = this.colors[index];
     return this.colors[index];
   }
-
+  
 }
