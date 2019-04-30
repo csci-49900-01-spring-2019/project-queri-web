@@ -15,18 +15,12 @@ export class VotingComponent implements OnInit {
   postKeys: string[] = [];
   type: string = 'featured';
 
-
   ngOnInit() {
     this.demoService.getAll(this.type)
       .subscribe(posts => {
         this.posts = posts;
-        this.postKeys = Object.keys(this.posts);
         console.log(this.posts);
-        console.log(this.postKeys);
-        console.log(this.posts[this.postKeys[0]].meta.days_remaining);
+        this.postKeys = Object.keys(this.posts);
       });
-
-      
   }
-
 }

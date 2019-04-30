@@ -19,11 +19,17 @@ export class VoteQuestionComponent implements OnInit {
   type: string = 'featured';
   @Input() postId: any;
 
+  buttonText: string = 'Like';
+  
   ngOnInit() {
   }
 
   onLike(){
-    this.demoService.AddLike(this.type, this.postId);
+    if (this.buttonText === 'Like'){
+      this.buttonText = 'Liked';
+      console.log('liked: ' + this.question);
+    }
+    // this.demoService.AddLike(this.type, this.postId);
   }
 
 }
