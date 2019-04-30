@@ -1,15 +1,20 @@
 
 <div class="voting">
-  <tr *ngFor = "let key of postKeys ">
-    <td> 
-      <app-voting-question
-      [question] = "posts[key]?.content"
-      [username] = "posts[key]?.username"
-      [days_remaining] = "posts[key]?.meta.days_remaining"
-      [number_of_likes] = "posts[key]?.meta.likes"
-      [number_of_comments] = "posts[key]?.meta.comments"
-    ></app-voting-question> 
-    </td>
-  </tr>
+  <div class="question">
+    <tr *ngFor = "let key of postKeys ">
+      <td> 
+        <app-voting-question
+        [question] = "posts[key]?.content"
+        [username] = "posts[key]?.username"
+        [days_remaining] = "posts[key]?.meta.days_remaining"
+        [number_of_likes] = "posts[key]?.meta.likes"
+        [number_of_comments] = "posts[key]?.meta.comments"
+      ></app-voting-question> 
+      <br>
+      </td>
+    </tr>
+  </div>
 </div>
+
+
 

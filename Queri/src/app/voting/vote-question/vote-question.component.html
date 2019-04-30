@@ -1,14 +1,8 @@
 <div class="question">
-  Question:{{question}}
+  {{username}}
   <br>
-  Username: {{username}}
+  {{question}}
   <br>
-  Days: {{days_remaining}}
-  <br>
-  Likes: {{number_of_likes}}
-  <br>
-  Comments: {{number_of_comments}}
-  <br>
-  <button (click)='onLike()' class="btn btn-primary">Like</button>
+  <button (click)='onLike()' class="btn btn-primary"> {{buttonText}} </button>
 </div>
 

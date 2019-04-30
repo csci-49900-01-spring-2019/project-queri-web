@@ -23,6 +23,7 @@ import { environment } from '../environments/environment';
 import { VotingComponent } from './voting/voting.component';
 import { VoteQuestionComponent } from './voting/vote-question/vote-question.component';
 import { ArchiveComponent } from './archive/archive.component';
+import { ArchiveQuestionComponent } from './archive/archive-question/archive-question.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { ArchiveComponent } from './archive/archive.component';
     CommentFormComponent,
     VotingComponent,
     VoteQuestionComponent,
-    ArchiveComponent
+    ArchiveComponent,
+    ArchiveQuestionComponent
 
   ],
 
