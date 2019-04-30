@@ -3,6 +3,6 @@
   <br>
   {{question}}
   <br>
-  <button (click)='onLike()' class="btn btn-primary"> {{buttonText}} </button>
+  <button [disabled] = "clicked" (click)='onLike()' class="btn btn-primary"> {{buttonText}} </button>
 </div>
 

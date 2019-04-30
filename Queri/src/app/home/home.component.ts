@@ -32,19 +32,21 @@ export class HomeComponent implements OnInit {
   showForm = false;
   showComments = false;
 
+  //pageColor: string;
+
+  colors: string[] = ['cyan', 'green', 'blue', 'purple', 'pink', 'magenta', 'black', 'grey', 'yellow', 'orange',];
+
   currentPostNumber: number = 0;
   commentkeys: string[] = [];
 
-  dateTime = new Date()
+  numberOfColors = this.colors.length;
 
   comments: Comment[] = [];
 
   ngOnInit() {
-    console.log("ng");
-    console.log("1 number of posts: " + this.numberOfPosts);
-    console.log(this.dateTime);
-    console.log("ng");
+    
 
+    this.setRandomColor();
     if (localStorage.getItem("idToken") == "" || localStorage.getItem("idToken") == null){
         this.authService.doGoogleLogin();
     } else {
@@ -62,6 +64,7 @@ export class HomeComponent implements OnInit {
   }
 
   onClickPrevious(){
+    this.setRandomColor();
     this.showComments = false;
     console.log(this.currentPostNumber);
     if (this.currentPostNumber == 0) {
@@ -74,6 +77,7 @@ export class HomeComponent implements OnInit {
   }
 
   onClickNext() {
+    this.setRandomColor();
     this.showComments = false;
     if(this.currentPostNumber == this.numberOfPosts - 1) {
       this.currentPostNumber = 0;
@@ -102,5 +106,11 @@ export class HomeComponent implements OnInit {
   }
 
   // ngOnDestroy() {}
+
+  setRandomColor(): string{
+    let index = Math.floor(Math.random() * this.numberOfColors) + 0;
+    //this.pageColor = this.colors[index];
+    return this.colors[index];
+  }
 
 }

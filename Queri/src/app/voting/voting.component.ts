@@ -15,6 +15,8 @@ export class VotingComponent implements OnInit {
   postKeys: string[] = [];
   type: string = 'featured';
 
+ 
+
   ngOnInit() {
     this.demoService.getAll(this.type)
       .subscribe(posts => {

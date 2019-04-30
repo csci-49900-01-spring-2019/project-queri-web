@@ -20,7 +20,8 @@ export class VoteQuestionComponent implements OnInit {
   @Input() postId: any;
 
   buttonText: string = 'Like';
-  
+  clicked = false;
+
   ngOnInit() {
   }
 
@@ -28,6 +29,7 @@ export class VoteQuestionComponent implements OnInit {
     if (this.buttonText === 'Like'){
       this.buttonText = 'Liked';
       console.log('liked: ' + this.question);
+      this.clicked = true;
     }
     // this.demoService.AddLike(this.type, this.postId);
   }
