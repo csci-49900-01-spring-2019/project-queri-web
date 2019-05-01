@@ -1,15 +1,16 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { DemoService } from '../../demo.service';
 
 
 @Component({
   selector: 'app-voting-question',
   templateUrl: './vote-question.component.html',
-  styleUrls: ['./vote-question.component.css']
+  styleUrls: ['./vote-question.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class VoteQuestionComponent implements OnInit {
 
-  constructor(private demoService: DemoService) { }
+  constructor(private demoService: DemoService ) { }
 
   @Input() question: string;
   @Input() username: string;
@@ -21,16 +22,16 @@ export class VoteQuestionComponent implements OnInit {
 
   buttonText: string = 'Like';
   clicked = false;
-
+  color: any;
   colors: string[] = ['cyan', 'green', 'blue', 'purple', 'pink', 'magenta', 'black', 'grey', 'yellow', 'orange'];
   numberOfColors = this.colors.length;
 
   ngOnInit() {
+    this.setRandomColor();
   }
-
-
+  
   onLike(){
-    if (this.buttonText === 'Like'){
+    if (this.buttonText === 'Like') {
       this.buttonText = 'Liked';
       console.log('liked: ' + this.question);
       this.clicked = true;
@@ -38,10 +39,9 @@ export class VoteQuestionComponent implements OnInit {
     // this.demoService.AddLike(this.type, this.postId);
   }
 
-  setRandomColor(): string{
-    let index = Math.floor(Math.random() * this.numberOfColors) + 0;
-    //this.pageColor = this.colors[index];
-    return this.colors[index];
+  setRandomColor(): void {
+    const index = Math.floor(Math.random() * this.numberOfColors) + 0;
+    this.color = this.colors[index];
   }
 
 }

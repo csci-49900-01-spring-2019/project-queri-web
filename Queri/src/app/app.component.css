@@ -21,14 +21,15 @@
     border-radius: 0 !important;
     border: none !important;
     padding: 5px !important; 
+    font-size: 20px;
 }
+
 .navbar p{
-font-family: "Arial Black" !important;
+    font-family: "Arial Black" !important;
 }
 .navbar-brand{
    /** padding: 0 15px;*/
     height: auto;
-
     line-height: 500px;
 }
 
@@ -37,6 +38,8 @@ color: rgb(110, 110, 110);
 text-decoration: none;
 float: left;
 }
+
+
 
 .right{
     float: right;
