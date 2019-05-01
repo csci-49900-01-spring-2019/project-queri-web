@@ -14,13 +14,13 @@ export class VoteQuestionComponent implements OnInit {
 
   @Input() question: string;
   @Input() username: string;
-  @Input() days_remaining: number;
-  @Input() number_of_likes: number;
-  @Input() number_of_comments: number;
-  type: string = 'featured';
+  @Input() daysRemaining: number;
+  @Input() numberOfLikes: number;
+  @Input() numberOfComments: number;
   @Input() postId: any;
 
-  buttonText: string = 'Like';
+  type = 'featured';
+  buttonText = 'Like';
   clicked = false;
   color: any;
   colors: string[] = ['cyan', 'green', 'blue', 'purple', 'pink', 'magenta', 'black', 'grey', 'yellow', 'orange'];
@@ -29,8 +29,8 @@ export class VoteQuestionComponent implements OnInit {
   ngOnInit() {
     this.setRandomColor();
   }
-  
-  onLike(){
+
+  onLike() {
     if (this.buttonText === 'Like') {
       this.buttonText = 'Liked';
       console.log('liked: ' + this.question);

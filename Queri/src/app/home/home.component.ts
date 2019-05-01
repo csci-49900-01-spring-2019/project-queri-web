@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DemoService } from '../demo.service';
 import { Post } from '../_models/data';
 import { AuthService } from '../auth.service';
@@ -8,95 +8,93 @@ import { ActivatedRoute } from '@angular/router';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  // providers: [DemoService],
-  //changeDetection: ChangeDetectionStrategy.OnPush
 })
+
 export class HomeComponent implements OnInit {
-  constructor(private demoService: DemoService,
-              private authService: AuthService,
-              private route: ActivatedRoute,
-              private cd: ChangeDetectorRef)
-  {
+  constructor(private demoService: DemoService, private authService: AuthService, private route: ActivatedRoute) {
     // this.route.params.subscribe( params => console.log(params) );
   }
+
+  // Category
+  type = 'featured';
+
   // Holds Response from getAll()
   posts: Post[] = [];
 
-  // Category
-  type: string = 'featured';
-
+  // Post Ids
   postsKeys: string[] = [];
-  // Number of Posts available
 
-  numberOfPosts: number = 100;
+  currentPostNumber: number;
+
+  // Comments
+  commentkeys: string[] = [];
+  comments: Comment[] = [];
 
   // Controls when a the from and comments will be
   // shown on a screen
   showForm = false;
   showComments = false;
+
+  // Current Background Color
   color: any;
+
+  // All Colors
   colors: any[] = ['cyan', 'green', 'blue', 'purple', 'pink', 'magenta', 'black', 'grey', 'yellow', 'orange'];
-  numberOfColors: number;
-  currentPostNumber: number = 0;
-  commentkeys: string[] = [];
-  comments: Comment[] = [];
+
 
   ngOnInit() {
-    if (localStorage.getItem("idToken") == "" || localStorage.getItem("idToken") == null){
+    if (localStorage.getItem('idToken') === '' || localStorage.getItem('idToken') == null) {
         this.authService.doGoogleLogin();
     } else {
-      this.numberOfColors = this.colors.length;
+      this.currentPostNumber = 0;
       this.setRandomColor();
       this.getData();
-      
-      // this.numberOfPosts = this.posts.length;
     }
   }
-
-// tslint:disable-next-line: use-life-cycle-interface
- 
 
   getData() {
     this.demoService.getAll(this.type)
       .subscribe(posts => {
         this.posts = posts;
         console.log(posts);
-        this.numberOfPosts = this.posts.length;
-        //console.log(this.numberOfPosts);
         this.postsKeys = Object.keys(this.posts);
     });
   }
 
   setRandomColor(): void {
-    const index = Math.floor(Math.random() * this.numberOfColors) + 0;
-    this.color = this.colors[index];
+    // For Random Colors
+    // const index = Math.floor(Math.random() * this.numberOfColors) + 0;
+    // this.color = this.colors[index];
+
+    // For Rotating Colors
+    this.color = this.colors[this.currentPostNumber % this.colors.length];
   }
 
-  onClickPrevious(){
-    this.setRandomColor();
+  onClickPrevious() {
     this.showComments = false;
     console.log(this.currentPostNumber);
-    if (this.currentPostNumber == 0) {
-      this.currentPostNumber = this.numberOfPosts - 1;
+    if (this.currentPostNumber === 0) {
+      this.currentPostNumber = this.posts.length - 1;
 
     } else {
       this.currentPostNumber = this.currentPostNumber - 1;
     }
+    this.setRandomColor();
     // console.log('Current Number: ' + this.currentPostNumber);
     // this.commentkeys = Object.keys(this.posts[this.currentPostNumber].comments);
   }
 
   onClickNext() {
-    this.setRandomColor();
     this.showComments = false;
-    console.log(this.currentPostNumber, this.numberOfPosts - 1)
-    if (this.currentPostNumber == this.numberOfPosts - 1) {
-      //this.currentPostNumber = 0;
-      //console.log('if-next');
+    console.log(this.currentPostNumber, this.posts.length - 1);
+    if (this.currentPostNumber === this.posts.length - 1) {
+      // this.currentPostNumber = 0;
+      // console.log('if-next');
     } else {
       this.currentPostNumber = this.currentPostNumber + 1;
-      //console.log('else-next');
+      // console.log('else-next');
     }
+    this.setRandomColor();
     // console.log('Current Number: ' + this.currentPostNumber);
     // this.commentkeys = Object.keys(this.posts[this.currentPostNumber].comments);
   }
