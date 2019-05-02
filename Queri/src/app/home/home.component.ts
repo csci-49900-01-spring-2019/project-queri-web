@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DemoService } from '../demo.service';
 import { Post } from '../_models/data';
 import { AuthService } from '../auth.service';
@@ -8,78 +8,98 @@ import { ActivatedRoute } from '@angular/router';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  providers: [DemoService]
 })
+
 export class HomeComponent implements OnInit {
-  constructor(private demoService: DemoService,
-              private authService: AuthService,
-              private route: ActivatedRoute) {
+  constructor(private demoService: DemoService, private authService: AuthService, private route: ActivatedRoute) {
     // this.route.params.subscribe( params => console.log(params) );
   }
+
+  // Category
+  type = 'featured';
+
   // Holds Response from getAll()
   posts: Post[] = [];
 
-  // Category
-  type: string = 'featured';
-
+  // Post Ids
   postsKeys: string[] = [];
-  // Number of Posts available
 
-  numberOfPosts: number = 100;
+  currentPostNumber: number;
+
+  // Comments
+  commentkeys: string[] = [];
+  comments: Comment[] = [];
 
   // Controls when a the from and comments will be
   // shown on a screen
   showForm = false;
   showComments = false;
 
-  currentPostNumber: number = 0;
-  commentkeys: string[] = [];
+  // Current Background Color
+  color: any;
 
-  dateTime = new Date()
+  // All Colors
+  colors: any[] = ['cyan', 'green', 'blue', 'purple', 'pink', 'magenta', 'black', 'grey', 'yellow', 'orange'];
 
-  comments: Comment[] = [];
+  // numberOfPosts: number;
+
 
   ngOnInit() {
-    console.log("ng");
-    console.log("1 number of posts: " + this.numberOfPosts);
-    console.log(this.dateTime);
-    console.log("ng");
-
-    if (localStorage.getItem("idToken") == "" || localStorage.getItem("idToken") == null){
+    if (localStorage.getItem('idToken') === '' || localStorage.getItem('idToken') == null) {
         this.authService.doGoogleLogin();
     } else {
+      this.currentPostNumber = 0;
+      this.setRandomColor();
+      console.log(this.posts.length);
       this.getData();
     }
   }
 
-  getData(){
+  getData() {
     this.demoService.getAll(this.type)
       .subscribe(posts => {
         this.posts = posts;
-        this.numberOfPosts = this.posts.length;
+        console.log(this.posts);
+        console.log(this.posts.length);
         this.postsKeys = Object.keys(this.posts);
+        console.log(this.postsKeys.length);
     });
   }
 
-  onClickPrevious(){
+  setRandomColor(): void {
+    // For Random Colors
+    // const index = Math.floor(Math.random() * this.numberOfColors) + 0;
+    // this.color = this.colors[index];
+
+    // For Rotating Colors
+    this.color = this.colors[this.currentPostNumber % this.colors.length];
+  }
+
+  onClickPrevious() {
     this.showComments = false;
     console.log(this.currentPostNumber);
-    if (this.currentPostNumber == 0) {
-      this.currentPostNumber = this.numberOfPosts - 1;
-
+    if (this.currentPostNumber === 0) {
+      this.currentPostNumber = this.postsKeys.length - 1;
     } else {
       this.currentPostNumber = this.currentPostNumber - 1;
     }
+    this.setRandomColor();
+    // console.log('Current Number: ' + this.currentPostNumber);
     // this.commentkeys = Object.keys(this.posts[this.currentPostNumber].comments);
   }
 
   onClickNext() {
     this.showComments = false;
-    if(this.currentPostNumber == this.numberOfPosts - 1) {
+    console.log(this.currentPostNumber, this.postsKeys.length - 1);
+    if (this.currentPostNumber === this.postsKeys.length - 1) {
       this.currentPostNumber = 0;
+      // console.log('if-next');
     } else {
       this.currentPostNumber = this.currentPostNumber + 1;
+      // console.log('else-next');
     }
+    this.setRandomColor();
+    // console.log('Current Number: ' + this.currentPostNumber);
     // this.commentkeys = Object.keys(this.posts[this.currentPostNumber].comments);
   }
 
@@ -98,9 +118,5 @@ export class HomeComponent implements OnInit {
     });
     this.showForm = false;
     this.showComments = true;
-
   }
-
-  // ngOnDestroy() {}
-
 }

@@ -12,7 +12,7 @@ export interface Post {
     username: string;
 }
 
-interface comment{
+interface comment {
     content: string;
     username: string;
 }
