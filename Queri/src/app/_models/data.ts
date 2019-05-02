@@ -10,7 +10,7 @@ interface comment{
     username: string;
 }
 
-interface statistics{
+export interface statistics{
     comments: number;
     days_remaining: number;
     likes: number;
