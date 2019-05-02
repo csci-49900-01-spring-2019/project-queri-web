@@ -1,17 +1,18 @@
+
+interface statistics{
+    comments: number;
+    days_remaining: number;
+    likes: number;
+}
+
 export interface Post {
     comments: comment[];
     content: string;
-    meta: statistics[];
+    meta: statistics;
     username: string;
 }
 
 interface comment{
     content: string;
     username: string;
-}
-
-export interface statistics{
-    comments: number;
-    days_remaining: number;
-    likes: number;
 }
