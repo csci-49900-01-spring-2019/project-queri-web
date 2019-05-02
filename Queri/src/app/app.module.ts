@@ -24,6 +24,8 @@ import { VotingComponent } from './voting/voting.component';
 import { VoteQuestionComponent } from './voting/vote-question/vote-question.component';
 import { ArchiveComponent } from './archive/archive.component';
 import { ArchiveQuestionComponent } from './archive/archive-question/archive-question.component';
+import { LoginComponent } from './login/login.component';
+import { ObjectToArrayPipe } from './_pipes/object-to-array.pipe';
 
 
 @NgModule({
@@ -38,7 +40,9 @@ import { ArchiveQuestionComponent } from './archive/archive-question/archive-que
     VotingComponent,
     VoteQuestionComponent,
     ArchiveComponent,
-    ArchiveQuestionComponent
+    ArchiveQuestionComponent,
+    ObjectToArrayPipe,
+    LoginComponent
 
   ],
 
