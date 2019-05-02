@@ -41,6 +41,8 @@ export class HomeComponent implements OnInit {
   // All Colors
   colors: any[] = ['cyan', 'green', 'blue', 'purple', 'pink', 'magenta', 'black', 'grey', 'yellow', 'orange'];
 
+  // numberOfPosts: number;
+
 
   ngOnInit() {
     if (localStorage.getItem('idToken') === '' || localStorage.getItem('idToken') == null) {
@@ -48,6 +50,7 @@ export class HomeComponent implements OnInit {
     } else {
       this.currentPostNumber = 0;
       this.setRandomColor();
+      console.log(this.posts.length);
       this.getData();
     }
   }
@@ -56,8 +59,10 @@ export class HomeComponent implements OnInit {
     this.demoService.getAll(this.type)
       .subscribe(posts => {
         this.posts = posts;
-        console.log(posts);
+        console.log(this.posts);
+        console.log(this.posts.length);
         this.postsKeys = Object.keys(this.posts);
+        console.log(this.postsKeys.length);
     });
   }
 
@@ -74,8 +79,7 @@ export class HomeComponent implements OnInit {
     this.showComments = false;
     console.log(this.currentPostNumber);
     if (this.currentPostNumber === 0) {
-      this.currentPostNumber = this.posts.length - 1;
-
+      this.currentPostNumber = this.postsKeys.length - 1;
     } else {
       this.currentPostNumber = this.currentPostNumber - 1;
     }
@@ -86,9 +90,9 @@ export class HomeComponent implements OnInit {
 
   onClickNext() {
     this.showComments = false;
-    console.log(this.currentPostNumber, this.posts.length - 1);
-    if (this.currentPostNumber === this.posts.length - 1) {
-      // this.currentPostNumber = 0;
+    console.log(this.currentPostNumber, this.postsKeys.length - 1);
+    if (this.currentPostNumber === this.postsKeys.length - 1) {
+      this.currentPostNumber = 0;
       // console.log('if-next');
     } else {
       this.currentPostNumber = this.currentPostNumber + 1;

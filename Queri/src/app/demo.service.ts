@@ -98,8 +98,8 @@ export class DemoService {
 
     AddComment(username, content, type, count){
         const body= {
-        "username":username,
-        "content":content
+        "username": username,
+        "content": content
         }
         this.http.post("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/" + type + "/" + count + "/comments/new/", body).subscribe((data:any[])=>{
             console.log(data);
@@ -107,7 +107,7 @@ export class DemoService {
     }
 
 
-/***** 
+/****
     AddComment(username,content){
     //   const httpOptions = {
     //   headers: new HttpHeaders({
@@ -120,7 +120,7 @@ export class DemoService {
       "content":content
       }
 */
-    AddLike(type, post_id){
+    AddLike(type, post_id) {
 
         this.http.put('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/' + type +  '/' + post_id + '/meta/like', {}).subscribe((data:any[])=>{
         console.log(data);

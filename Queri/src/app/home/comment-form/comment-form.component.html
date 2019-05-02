@@ -4,6 +4,6 @@
     <textarea ngModel minlength="5" name= "comment" #comment = "ngModel" (change) = "log(comment)" id="comment" type="text" class="form-control" required></textarea>
    <!-- <div class = "alert alert-danger" *ngIf="question.touched && !question.valid">Enter a Question!</div> -->
    <br>
-   <button (click) = 'sendToParent()' type="submit"class="btn btn-primary">Submit</button>
+   <button (click) = 'sendToParent(); onSubmit()' type="submit"class="btn btn-primary">Submit</button>
   </div>
 </form>
