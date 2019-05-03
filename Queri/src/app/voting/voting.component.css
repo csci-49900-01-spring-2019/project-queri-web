@@ -1,7 +1,11 @@
 .question{
-    position: abolute;
+    
     text-align: center;
-    min-width: 500px;
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+    
 }
 
 .voting{
