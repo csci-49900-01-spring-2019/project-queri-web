@@ -54,7 +54,7 @@ export class HomeComponent implements OnInit {
       this.currentPostNumber = 0;
       this.setRandomColor();
       this.getData();
-      // this.router.navigate(['/featured', this.postsKeys[this.currentPostNumber]]);
+      
     }
   }
 
@@ -64,6 +64,7 @@ export class HomeComponent implements OnInit {
         this.posts = posts;
         this.postsKeys = Object.keys(this.posts);
         console.log(posts);
+        this.router.navigate(['/featured', this.postsKeys[this.currentPostNumber]]);
     });
   }
 
@@ -85,7 +86,7 @@ export class HomeComponent implements OnInit {
     }
     this.setRandomColor();
     // this.commentkeys = Object.keys(this.posts[this.currentPostNumber].comments);
-    // this.router.navigate(['/featured', this.postsKeys[this.currentPostNumber]]);
+    this.router.navigate(['/featured', this.postsKeys[this.currentPostNumber]]);
   }
 
   onClickNext( id: any ) {
@@ -96,8 +97,8 @@ export class HomeComponent implements OnInit {
       this.currentPostNumber = this.currentPostNumber + 1;
     }
     this.setRandomColor();
-    // this.router.navigate(['/featured', this.postsKeys[this.currentPostNumber]]);
-    //this.commentkeys = Object.keys(this.posts[this.currentPostNumber].comments);
+    this.router.navigate(['/featured', this.postsKeys[this.currentPostNumber]]);
+    // this.commentkeys = Object.keys(this.posts[this.currentPostNumber].comments);
   }
 
   onClickAnswer() {

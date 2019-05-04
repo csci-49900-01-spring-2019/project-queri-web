@@ -128,18 +128,26 @@ export class DemoService {
       })
     }
 
-    // arugment type is not used in the function???
+    // argument type is not used in the function???
     AddNewPost(username, content, type?) {
         const body = {
-            "username":username,
-            "content":content
+            "username": username,
+            "content": content
         }
 
-        //gives an error
-        //this.http.post('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/' + name + '/' + 'new/', body).subscribe((data:any[])=>{
-        
+        // gives an error
+        /****************************************** 
+            message: "Http failure response for https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories//new/: 0 Unknown Error"
+            name: "HttpErrorResponse"
+            ok: false
+            status: 0
+            statusText: "Unknown Error"
+            url: "https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories//new/"
+        **************************/
+        this.http.post('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/' + name + '/' + 'new/', body).subscribe((data:any[])=>{
         // Line below gives status success message
-        this.http.post('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/' + '/' + 'new/', body).subscribe((data:any[])=>{
+        // name is removed
+        // this.http.post('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/' + '/' + 'new/', body).subscribe((data:any[])=>{
             console.log(data);
         });
 
