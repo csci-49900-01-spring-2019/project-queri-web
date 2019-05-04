@@ -11,6 +11,8 @@ export class CommentComponent implements OnInit {
   @Input() username: string;
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() { 
+    console.log('Initialized');
+  }
 
 }

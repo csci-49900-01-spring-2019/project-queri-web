@@ -29,14 +29,16 @@ export class VoteQuestionComponent implements OnInit {
 
   ngOnInit() {
     this.setRandomColor();
+    this.getVotes();
+    
+  }
+
+  getVotes() {
     this.demoService.getVotes(this.type, this.postId)
     .subscribe(votes => {
       this.votes = votes;
       this.cdr.detectChanges();
-      
     })
-   
-   
   }
 
   onLike() {
@@ -44,13 +46,16 @@ export class VoteQuestionComponent implements OnInit {
       this.buttonText = 'Liked';
       console.log('liked: ' + this.question);
       this.clicked = true;
+      this.demoService.AddLike(this.type, this.postId);
+      this.getVotes();
     }
-    // this.demoService.AddLike(this.type, this.postId);
   }
 
   setRandomColor(): void {
     const index = Math.floor(Math.random() * this.numberOfColors) + 0;
     this.color = this.colors[index];
   }
+
+ 
 
 }

@@ -106,6 +106,7 @@ export class HomeComponent implements OnInit {
     .subscribe(comments => {
       this.comments = comments;
       this.commentkeys = Object.keys(this.comments);
+      console.log('# of Comments: ', this.commentkeys.length);
     });
     this.showForm = false;
     this.showComments = true;

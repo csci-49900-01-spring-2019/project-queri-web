@@ -123,22 +123,20 @@ export class DemoService {
       }
 */
     AddLike(type, post_id) {
-
         this.http.put('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/' + type +  '/' + post_id + '/meta/like', {}).subscribe((data:any[])=>{
         console.log(data);
       })
-
     }
 
     // arugment type is not used in the function???
-    AddNewPost(username, content, type?){
+    AddNewPost(username, content, type?) {
         const body = {
             "username":username,
             "content":content
         }
         this.http.post('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/' + name + '/' + 'new/', body).subscribe((data:any[])=>{
-        console.log(data);
-    })
+            console.log(data);
+        });
 
     }
 }

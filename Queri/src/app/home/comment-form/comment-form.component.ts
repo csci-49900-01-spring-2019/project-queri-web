@@ -29,7 +29,7 @@ export class CommentFormComponent implements OnInit {
 
   onSubmit() {
     if(this.comment.length > 0){
-      this.demoService.AddComment(this.username, this.comment, this.type, this.key);
+      //this.demoService.AddComment(this.username, this.comment, this.type, this.key);
     }else{
       console.log('Empty Comment');
     }
