@@ -1,9 +1,10 @@
 .question{
     
     text-align: center;
-    margin: auto;
+    
     width: 50%;
     border: 3px solid green;
+    margin: auto;
     padding: 10px;
     
 }

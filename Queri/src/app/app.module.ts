@@ -26,6 +26,8 @@ import { ArchiveComponent } from './archive/archive.component';
 import { ArchiveQuestionComponent } from './archive/archive-question/archive-question.component';
 import { LoginComponent } from './login/login.component';
 import { ObjectToArrayPipe } from './_pipes/object-to-array.pipe';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PrefixNot } from '@angular/compiler';
 
 
 @NgModule({
@@ -42,7 +44,8 @@ import { ObjectToArrayPipe } from './_pipes/object-to-array.pipe';
     ArchiveComponent,
     ArchiveQuestionComponent,
     ObjectToArrayPipe,
-    LoginComponent
+    LoginComponent,
+    PageNotFoundComponent
 
   ],
 
@@ -67,26 +70,27 @@ import { ObjectToArrayPipe } from './_pipes/object-to-array.pipe';
 
     RouterModule.forRoot([
       {
-        path: '', component: HomeComponent
+        path: '', redirectTo: '/Featured', pathMatch: 'full'
+      },
+      {
+        path: 'Featured', component: HomeComponent
       },
       {
         path: 'Ask',
         component: AskComponent
       },
       {
-        path: 'Voting',
+        path: 'Vote',
         component: VotingComponent
       },
       {
-        path: 'Archive',
+        path: 'Archived',
         component: ArchiveComponent
-      }
-      /*
+      },
       {
-        path: '',
-        redirectTo: 'Home/:id',
-        pathMatch: 'full'
-      }*/
+        path: '**',
+        component: PageNotFoundComponent
+      }
     ])
   ],
   providers: [DemoService, HttpClientModule],

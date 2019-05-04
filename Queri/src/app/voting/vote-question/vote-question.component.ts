@@ -47,7 +47,7 @@ export class VoteQuestionComponent implements OnInit {
       console.log('liked: ' + this.question);
       this.clicked = true;
       this.demoService.AddLike(this.type, this.postId);
-      this.getVotes();
+      // this.getVotes();
     }
   }
 
