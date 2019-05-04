@@ -20,7 +20,7 @@
     </div>
     
     <div class="comment-form"> 
-       <app-comment-form *ngIf = "this.showForm" (event)='setDataFromchild($event)'></app-comment-form>
+       <app-comment-form *ngIf = "this.showForm" (event)='setDataFromchild($event)' [key]='postsKeys && postsKeys[currentPostNumber]'></app-comment-form>
     </div>
     <br>
     <div class = "comments" id = "comments_div">

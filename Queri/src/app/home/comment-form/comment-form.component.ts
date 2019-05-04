@@ -10,9 +10,11 @@ export class CommentFormComponent implements OnInit {
 
   constructor(private demoService: DemoService) { }
   username: string = 'Ramela';
-  comment: string;
+  comment: string = '';
   @Input() hidden: boolean;
+  @Input() key: string;
   @Output() event: EventEmitter<boolean> = new EventEmitter();
+  type = 'featured'
 
   foo: false;
 
@@ -26,12 +28,16 @@ export class CommentFormComponent implements OnInit {
   }
 
   onSubmit() {
-    // What is count???
-     this.demoService.AddComment(this.username, this.comment, 'featured', 22);
-     console.log('Button clicked');
-
+    if(this.comment.length > 0){
+      this.demoService.AddComment(this.username, this.comment, this.type, this.key);
+    }else{
+      console.log('Empty Comment');
+    }
+    console.log('Button clicked');
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    console.log('Key: ', this.key);
+  }
 
 }

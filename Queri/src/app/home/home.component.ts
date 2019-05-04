@@ -62,6 +62,7 @@ export class HomeComponent implements OnInit {
       .subscribe(posts => {
         this.posts = posts;
         this.postsKeys = Object.keys(this.posts);
+        console.log(posts);
     });
   }
 
@@ -101,26 +102,13 @@ export class HomeComponent implements OnInit {
   }
 
   setDataFromchild( data ) {
-    this.startTimer();
     this.demoService.getCommentsInPostInView(this.type, this.postsKeys[this.currentPostNumber])
     .subscribe(comments => {
       this.comments = comments;
-      console.log('Comments: ', this.comments);
       this.commentkeys = Object.keys(this.comments);
-      console.log('Comment Keys', this.commentkeys);
     });
     this.showForm = false;
     this.showComments = true;
-  }
-
-  startTimer() {
-    this.interval = setInterval(() => {
-      if(this.timeLeft > 0) {
-        this.timeLeft--;
-      } else {
-        this.timeLeft = 60;
-      }
-    },1000)
   }
 }
 

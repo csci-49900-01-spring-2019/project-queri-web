@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 // import { DemoService } from '../../demo.service';
+import {MatDialogModule} from "@angular/material";
+
 
 @Component({
   selector: 'app-archive-question',
