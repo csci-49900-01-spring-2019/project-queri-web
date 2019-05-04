@@ -4,7 +4,6 @@
     width: 50%;
     border: 3px solid green;
     padding: 10px;
-    
 }
 
 .voting{
@@ -12,6 +11,7 @@
     color: black;
     padding-top: 100px;
     /**text-align: center; **/
-    height: 100vh;
+    height: 100%;
+    padding-bottom: 25px;
 }
 
