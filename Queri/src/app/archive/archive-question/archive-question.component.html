@@ -4,4 +4,9 @@
     {{question}}
     <br>
     <button (click)='onClickComments()'  class="btn btn-primary" >Comments</button>
+    <div *ngIf="showComments" class = "comments">
+        <li *ngFor="let key of commentKeys">
+            {{comments[key].content}} {{comments[key].username}}
+        </li>
+    </div>
 </div>

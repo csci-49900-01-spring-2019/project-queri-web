@@ -17,10 +17,14 @@ export class ArchiveQuestionComponent implements OnInit {
   @Input() number_of_comments: number;
   type: string = 'featured';
   @Input() postId: any;
+  @Input() comments: any[];
+  commentKeys: any[];
 
   showComments: boolean = false;
   
   ngOnInit() {
+    this.commentKeys = Object.keys(this.comments);
+    // console.log(this.question, this.commentKeys.length);
   }
 
   onClickComments(){
