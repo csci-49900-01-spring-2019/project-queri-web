@@ -24,7 +24,7 @@ export class AskFormComponent implements OnInit {
    }
 
   onSubmit() {
-    // this.demoService.AddNewPost(this.username, this.question);
+    this.demoService.AddNewPost(this.username, this.question);
     console.log('Button clicked');
     this.form.reset();
   }

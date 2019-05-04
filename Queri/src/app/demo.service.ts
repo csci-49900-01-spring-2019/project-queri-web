@@ -134,7 +134,12 @@ export class DemoService {
             "username":username,
             "content":content
         }
-        this.http.post('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/' + name + '/' + 'new/', body).subscribe((data:any[])=>{
+
+        //gives an error
+        //this.http.post('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/' + name + '/' + 'new/', body).subscribe((data:any[])=>{
+        
+        // Line below gives status success message
+        this.http.post('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/' + '/' + 'new/', body).subscribe((data:any[])=>{
             console.log(data);
         });
 

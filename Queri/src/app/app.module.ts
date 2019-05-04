@@ -46,19 +46,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ObjectToArrayPipe,
     LoginComponent,
     PageNotFoundComponent
-
   ],
-
-
-
-
-
-  ///
-//
-//  fetch("url.com",{header:{"token":localStorage.getItem("idtoken")}})
-//
-//
-  //
+   //  fetch("url.com",{header:{"token":localStorage.getItem("idtoken")}})
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -67,9 +56,15 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-
+    /*
+    export const rootRouterConfig: Routes = [
+      { path: '', redirectTo: 'login', pathMatch: 'full' },
+      { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
+      { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
+      { path: 'user', component: UserComponent,  resolve: { data: UserResolver}}
+    ];
+    */
     RouterModule.forRoot([
-      
       {
         path: '', redirectTo: '/featured', pathMatch: 'full'
       },
@@ -81,7 +76,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
         path: 'featured/:id', component: QuestionComponent
       },
       */
-      
       {
         path: 'ask',
         component: AskComponent
@@ -106,10 +100,4 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 export class AppModule { }
 
 
-/*
-export const rootRouterConfig: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
-  { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
-  { path: 'user', component: UserComponent,  resolve: { data: UserResolver}}
-];*/
+
