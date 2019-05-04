@@ -9,7 +9,7 @@ import { DemoService } from '../../demo.service';
 export class CommentFormComponent implements OnInit {
 
   constructor(private demoService: DemoService) { }
-  username: string = 'NotKevin';
+  username: string = 'Ramela';
   comment: string;
   @Input() hidden: boolean;
   @Output() event: EventEmitter<boolean> = new EventEmitter();
@@ -27,8 +27,8 @@ export class CommentFormComponent implements OnInit {
 
   onSubmit() {
     // What is count???
-     this.demoService.AddComment(this.username, this.comment, 'featured', 10);
-    console.log('Button clicked');
+     this.demoService.AddComment(this.username, this.comment, 'featured', 22);
+     console.log('Button clicked');
 
   }
 

@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
   // Controls when a the from and comments will be
   // shown on a screen
   showForm = false;
-  showComments = false;
+  showComments = true;
 
   // Current Background Color
   color: any;
@@ -43,6 +43,9 @@ export class HomeComponent implements OnInit {
 
   // numberOfPosts: number;
 
+  timeLeft: number = 60;
+  interval;
+
 
   ngOnInit() {
     if (localStorage.getItem('idToken') === '' || localStorage.getItem('idToken') == null) {
@@ -50,7 +53,6 @@ export class HomeComponent implements OnInit {
     } else {
       this.currentPostNumber = 0;
       this.setRandomColor();
-      console.log(this.posts.length);
       this.getData();
     }
   }
@@ -59,10 +61,7 @@ export class HomeComponent implements OnInit {
     this.demoService.getAll(this.type)
       .subscribe(posts => {
         this.posts = posts;
-        console.log(this.posts);
-        console.log(this.posts.length);
         this.postsKeys = Object.keys(this.posts);
-        console.log(this.postsKeys.length);
     });
   }
 
@@ -77,29 +76,23 @@ export class HomeComponent implements OnInit {
 
   onClickPrevious() {
     this.showComments = false;
-    console.log(this.currentPostNumber);
     if (this.currentPostNumber === 0) {
       this.currentPostNumber = this.postsKeys.length - 1;
     } else {
       this.currentPostNumber = this.currentPostNumber - 1;
     }
     this.setRandomColor();
-    // console.log('Current Number: ' + this.currentPostNumber);
     // this.commentkeys = Object.keys(this.posts[this.currentPostNumber].comments);
   }
 
   onClickNext() {
     this.showComments = false;
-    console.log(this.currentPostNumber, this.postsKeys.length - 1);
     if (this.currentPostNumber === this.postsKeys.length - 1) {
       this.currentPostNumber = 0;
-      // console.log('if-next');
     } else {
       this.currentPostNumber = this.currentPostNumber + 1;
-      // console.log('else-next');
     }
     this.setRandomColor();
-    // console.log('Current Number: ' + this.currentPostNumber);
     // this.commentkeys = Object.keys(this.posts[this.currentPostNumber].comments);
   }
 
@@ -108,15 +101,26 @@ export class HomeComponent implements OnInit {
   }
 
   setDataFromchild( data ) {
-    console.log(this.postsKeys[this.currentPostNumber]);
+    this.startTimer();
     this.demoService.getCommentsInPostInView(this.type, this.postsKeys[this.currentPostNumber])
     .subscribe(comments => {
       this.comments = comments;
-      console.log(this.comments);
+      console.log('Comments: ', this.comments);
       this.commentkeys = Object.keys(this.comments);
-      console.log(this.commentkeys);
+      console.log('Comment Keys', this.commentkeys);
     });
     this.showForm = false;
     this.showComments = true;
   }
+
+  startTimer() {
+    this.interval = setInterval(() => {
+      if(this.timeLeft > 0) {
+        this.timeLeft--;
+      } else {
+        this.timeLeft = 60;
+      }
+    },1000)
+  }
 }
+
