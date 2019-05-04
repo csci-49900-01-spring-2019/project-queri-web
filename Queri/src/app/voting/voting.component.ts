@@ -13,9 +13,7 @@ export class VotingComponent implements OnInit {
 
   posts: Post[] = [];
   postKeys: string[] = [];
-  type: string = 'featured';
-
- 
+  type: string = 'voting';
 
   ngOnInit() {
     this.demoService.getAll(this.type)

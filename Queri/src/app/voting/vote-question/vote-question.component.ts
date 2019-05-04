@@ -10,7 +10,7 @@ import { DemoService } from '../../demo.service';
 })
 export class VoteQuestionComponent implements OnInit {
 
-  constructor(private demoService: DemoService ) { }
+  constructor(private demoService: DemoService, private cdr:ChangeDetectorRef) { }
 
   @Input() question: string;
   @Input() username: string;
@@ -18,6 +18,7 @@ export class VoteQuestionComponent implements OnInit {
   @Input() numberOfLikes: number;
   @Input() numberOfComments: number;
   @Input() postId: any;
+  votes;
 
   type = 'featured';
   buttonText = 'Like';
@@ -28,6 +29,14 @@ export class VoteQuestionComponent implements OnInit {
 
   ngOnInit() {
     this.setRandomColor();
+    this.demoService.getVotes(this.type, this.postId)
+    .subscribe(votes => {
+      this.votes = votes;
+      this.cdr.detectChanges();
+      
+    })
+   
+   
   }
 
   onLike() {

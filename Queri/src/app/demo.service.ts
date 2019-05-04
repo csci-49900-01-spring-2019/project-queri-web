@@ -79,10 +79,12 @@ export class DemoService {
         });
     }
     getVotes(type, post_id) {
-        return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/" + type + "/" + post_id + "/meta/likes/")
+        return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/" + type + "/" + post_id + "/meta/likes/");
+        /*
         .subscribe((data:any[])=>{
             console.log(data);
         });
+        */
     }
 
     // AddComment(username,content){
