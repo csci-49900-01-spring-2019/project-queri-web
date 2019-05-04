@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DemoService } from '../demo.service';
 import { Post } from '../_models/data';
 import { AuthService } from '../auth.service';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 export class HomeComponent implements OnInit {
-  constructor(private demoService: DemoService, private authService: AuthService, private route: ActivatedRoute) {
+  constructor(private demoService: DemoService, private authService: AuthService, private route: ActivatedRoute, private router: Router) {
     // this.route.params.subscribe( params => console.log(params) );
   }
 
@@ -54,6 +54,7 @@ export class HomeComponent implements OnInit {
       this.currentPostNumber = 0;
       this.setRandomColor();
       this.getData();
+      // this.router.navigate(['/featured', this.postsKeys[this.currentPostNumber]]);
     }
   }
 
@@ -75,7 +76,7 @@ export class HomeComponent implements OnInit {
     this.color = this.colors[this.currentPostNumber % this.colors.length];
   }
 
-  onClickPrevious() {
+  onClickPrevious( id: any ) {
     this.showComments = false;
     if (this.currentPostNumber === 0) {
       this.currentPostNumber = this.postsKeys.length - 1;
@@ -84,9 +85,10 @@ export class HomeComponent implements OnInit {
     }
     this.setRandomColor();
     // this.commentkeys = Object.keys(this.posts[this.currentPostNumber].comments);
+    // this.router.navigate(['/featured', this.postsKeys[this.currentPostNumber]]);
   }
 
-  onClickNext() {
+  onClickNext( id: any ) {
     this.showComments = false;
     if (this.currentPostNumber === this.postsKeys.length - 1) {
       this.currentPostNumber = 0;
@@ -94,7 +96,8 @@ export class HomeComponent implements OnInit {
       this.currentPostNumber = this.currentPostNumber + 1;
     }
     this.setRandomColor();
-    // this.commentkeys = Object.keys(this.posts[this.currentPostNumber].comments);
+    // this.router.navigate(['/featured', this.postsKeys[this.currentPostNumber]]);
+    //this.commentkeys = Object.keys(this.posts[this.currentPostNumber].comments);
   }
 
   onClickAnswer() {

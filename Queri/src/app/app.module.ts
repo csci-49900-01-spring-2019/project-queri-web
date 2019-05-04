@@ -3,8 +3,8 @@
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule} from '@angular/core';
-import { AngularFireModule } from "@angular/fire"
-import { AngularFireAuthModule } from "@angular/fire/auth"
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { HttpHeaders } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -27,7 +27,7 @@ import { ArchiveQuestionComponent } from './archive/archive-question/archive-que
 import { LoginComponent } from './login/login.component';
 import { ObjectToArrayPipe } from './_pipes/object-to-array.pipe';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { PrefixNot } from '@angular/compiler';
+
 
 
 @NgModule({
@@ -69,22 +69,29 @@ import { PrefixNot } from '@angular/compiler';
     AngularFireAuthModule,
 
     RouterModule.forRoot([
+      
       {
-        path: '', redirectTo: '/Featured', pathMatch: 'full'
+        path: '', redirectTo: '/featured', pathMatch: 'full'
       },
       {
-        path: 'Featured', component: HomeComponent
+        path: 'featured', component: HomeComponent
       },
+      /*
       {
-        path: 'Ask',
+        path: 'featured/:id', component: QuestionComponent
+      },
+      */
+      
+      {
+        path: 'ask',
         component: AskComponent
       },
       {
-        path: 'Vote',
+        path: 'vote',
         component: VotingComponent
       },
       {
-        path: 'Archived',
+        path: 'archived',
         component: ArchiveComponent
       },
       {

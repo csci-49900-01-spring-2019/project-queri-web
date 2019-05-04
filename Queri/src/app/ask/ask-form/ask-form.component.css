@@ -1,5 +1,5 @@
 #question{
-    padding-top: 100px;
+    
     background-color: white;
     border-color:darkslategrey;
     color: black;
@@ -7,6 +7,10 @@
     height: auto !important;
     max-width: 500;
     resize: none;
+    padding: 1 1 1 1;
+    resize: none;
+    min-height: 200px;
+   
 }
 .title{
     color:white;
