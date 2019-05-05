@@ -1,5 +1,8 @@
 import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
 import { DemoService } from '../../demo.service';
+import 'rxjs/add/operator/toPromise';
+
+
 
 @Component({
   selector: 'app-comment-form',
@@ -9,7 +12,7 @@ import { DemoService } from '../../demo.service';
 export class CommentFormComponent implements OnInit {
 
   constructor(private demoService: DemoService) { }
-  username: string = 'Ramela';
+  username: string = 'ANONYMOUS';
   comment: string = '';
   @Input() hidden: boolean;
   @Input() key: string;
@@ -27,9 +30,17 @@ export class CommentFormComponent implements OnInit {
     this.event.emit(this.foo);
   }
 
+  state: any;
+
   onSubmit() {
     if(this.comment.length > 0){
-      //this.demoService.AddComment(this.username, this.comment, this.type, this.key);
+      this.demoService.AddComment(this.username, this.comment, this.type, this.key)
+      .subscribe((data:any[])=>{
+        console.log(data);
+        this.state = data;
+        console.log(this.state);
+        console.log(this.state[0]);
+    });
     }else{
       console.log('Empty Comment');
     }

@@ -98,14 +98,16 @@ export class DemoService {
 
     // }
 
-    AddComment(username, content, type, count){
+    AddComment(username, content, type, count): any{
         const body= {
         "username": username,
         "content": content
         }
-        this.http.post("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/" + type + "/" + count + "/comments/new/", body).subscribe((data:any[])=>{
+        return this.http.post("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/" + type + "/" + count + "/comments/new/", body);
+        /*
+        .subscribe((data:any[])=>{
             console.log(data);
-        });
+        });*/
     }
 
 
