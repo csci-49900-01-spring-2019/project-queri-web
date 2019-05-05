@@ -1,5 +1,6 @@
 .ask {
-  background-color:rgb(0,100,140);
+  /**background-color:rgb(0,100,140);*/
+  background-color: rgb(219, 101, 65);
   display: block;
   height: 100vh;
   margin: 0px;
