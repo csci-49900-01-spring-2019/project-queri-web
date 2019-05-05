@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit {
   color: any;
 
   // All Colors
-  colors: any[] = ['cyan', 'green', 'blue', 'purple', 'pink', 'magenta', 'black', 'grey', 'yellow', 'orange'];
+  colors: any[] = ['cyan', 'green', 'blue', 'purple', 'pink', 'raspberry', 'magenta', 'tan', 'yellow', 'orange'];
 
   // numberOfPosts: number;
 
