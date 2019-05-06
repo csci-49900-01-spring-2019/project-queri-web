@@ -43,10 +43,6 @@ export class HomeComponent implements OnInit {
 
   // numberOfPosts: number;
 
-  timeLeft: number = 60;
-  interval;
-
-
   ngOnInit() {
     if (localStorage.getItem('idToken') === '' || localStorage.getItem('idToken') == null) {
         this.authService.doGoogleLogin();
@@ -58,8 +54,8 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  getData() {
-    this.demoService.getAll(this.type)
+async  getData() {
+    await this.demoService.getAll(this.type)
       .subscribe(posts => {
         this.posts = posts;
         this.postsKeys = Object.keys(this.posts);
@@ -105,11 +101,12 @@ export class HomeComponent implements OnInit {
     this.showForm = !this.showForm;
   }
 
-  setDataFromchild( data ) {
-    this.demoService.getCommentsInPostInView(this.type, this.postsKeys[this.currentPostNumber])
+  async setDataFromchild( data ) {
+    await this.demoService.getCommentsInPostInView(this.type, this.postsKeys[this.currentPostNumber])
     .subscribe(comments => {
       this.comments = comments;
       this.commentkeys = Object.keys(this.comments);
+      console.log('Comments: ', this.comments);
       console.log('# of Comments: ', this.commentkeys.length);
     });
     this.showForm = false;

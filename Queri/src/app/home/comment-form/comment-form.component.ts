@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
 import { DemoService } from '../../demo.service';
 import 'rxjs/add/operator/toPromise';
-
+import {Status} from '../../_models/status'
 
 
 @Component({
@@ -30,16 +30,19 @@ export class CommentFormComponent implements OnInit {
     this.event.emit(this.foo);
   }
 
-  state: any;
+  state: Status;
 
-  onSubmit() {
+  async onSubmit() {
     if(this.comment.length > 0){
-      this.demoService.AddComment(this.username, this.comment, this.type, this.key)
-      .subscribe((data:any[])=>{
+      await this.demoService.AddComment(this.username, this.comment, this.type, this.key)
+      .subscribe((data )=>{
         console.log(data);
         this.state = data;
         console.log(this.state);
-        console.log(this.state[0]);
+        console.log(this.state.status);
+        if(this.state.status === 'success') {
+          this.sendToParent();
+        }
     });
     }else{
       console.log('Empty Comment');

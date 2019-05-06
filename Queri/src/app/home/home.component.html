@@ -1,8 +1,4 @@
 <div class="homepage" [style.backgroundColor]="color">
-    <!--
-    <div class="list-of-topics">
-        <topic-list></topic-list>
-    </div> -->  
     <div class="question_wrap">
     <div class="question">
         <app-question
@@ -24,13 +20,13 @@
        <app-comment-form *ngIf = "this.showForm" (event)='setDataFromchild($event)' [key]='postsKeys && postsKeys[currentPostNumber]'></app-comment-form>
     </div>
     <br>
-    <div class = "comments" id = "comments_div">
+    <div *ngIf = "this.showComments" class = "comments" id = "comments_div">
         <div *ngFor = "let comment of commentkeys ">
            <app-comment
-            *ngIf = "this.showComments"
-            [comment] =  "posts && posts[currentPostNumber]?.comments[comment].content"
-            [username] = "posts && posts[currentPostNumber]?.comments[comment].username"
-            ></app-comment>
+            [comment] =  "posts && posts[currentPostNumber]?.comments[comment]?.content"
+            [username] = "posts && posts[currentPostNumber]?.comments[comment]?.username"
+            ></app-comment> 
         </div>
     </div>
     
+    <!--[number_of_likes] = "posts && posts[currentPostNumber]?.meta.likes"-->

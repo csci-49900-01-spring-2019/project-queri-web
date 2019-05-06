@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Post } from './_models/data';
+import { Status } from './_models/status';
 
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -98,12 +99,12 @@ export class DemoService {
 
     // }
 
-    AddComment(username, content, type, count): any{
+    AddComment(username, content, type, count): Observable<Status>{
         const body= {
         "username": username,
         "content": content
         }
-        return this.http.post("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/" + type + "/" + count + "/comments/new/", body);
+        return this.http.post<Status>("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/" + type + "/" + count + "/comments/new/", body);
         /*
         .subscribe((data:any[])=>{
             console.log(data);
