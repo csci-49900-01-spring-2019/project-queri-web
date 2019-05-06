@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Post } from './_models/data';
 import { Status } from './_models/status';
+import { Result } from './_models/result';
 
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -125,10 +126,12 @@ export class DemoService {
       "content":content
       }
 */
-    AddLike(type, post_id) {
-        this.http.put('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/' + type +  '/' + post_id + '/meta/like', {}).subscribe((data:any[])=>{
+    AddLike(type, post_id): Observable<Result> {
+        return this.http.put<Result>('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/' + type +  '/' + post_id + '/meta/like', {});
+        /** 
+        .subscribe((data:any[])=>{
         console.log(data);
-      })
+      }) **/
     }
 
     // argument type is not used in the function???

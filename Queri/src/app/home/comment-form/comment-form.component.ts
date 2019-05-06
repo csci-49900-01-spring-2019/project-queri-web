@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
 import { DemoService } from '../../demo.service';
 import 'rxjs/add/operator/toPromise';
-import {Status} from '../../_models/status'
+import {Status} from '../../_models/status';
 
 
 @Component({
