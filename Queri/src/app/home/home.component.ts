@@ -41,7 +41,6 @@ export class HomeComponent implements OnInit {
   // All Colors
   colors: any[] = ['cyan', 'green', 'blue', 'purple', 'pink', 'raspberry', 'magenta', 'tan', 'yellow', 'orange'];
 
-
   ngOnInit() {
     if (localStorage.getItem('idToken') === '' || localStorage.getItem('idToken') == null) {
         this.authService.doGoogleLogin();
@@ -52,7 +51,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
-async  getData() {
+async getData() {
     await this.demoService.getAll(this.type)
       .subscribe(posts => {
         this.posts = posts;
@@ -79,7 +78,6 @@ async  getData() {
       this.currentPostNumber = this.currentPostNumber - 1;
     }
     this.setRandomColor();
-    // this.commentkeys = Object.keys(this.posts[this.currentPostNumber].comments);
     this.router.navigate(['/featured', this.postsKeys[this.currentPostNumber]]);
   }
 
@@ -92,7 +90,6 @@ async  getData() {
     }
     this.setRandomColor();
     this.router.navigate(['/featured', this.postsKeys[this.currentPostNumber]]);
-    // this.commentkeys = Object.keys(this.posts[this.currentPostNumber].comments);
   }
 
   onClickAnswer() {
@@ -112,7 +109,7 @@ async  getData() {
     this.showComments = true;
   }
 
-  onTest(){
+  onTest() {
     this.router.navigateByUrl('/page_not_found');
   }
 }

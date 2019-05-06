@@ -5,7 +5,7 @@ import {FormsModule} from '@angular/forms';
 import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'ask-form',
+  selector: 'app-ask-form',
   templateUrl: './ask-form.component.html',
   styleUrls: ['./ask-form.component.css']
 })
