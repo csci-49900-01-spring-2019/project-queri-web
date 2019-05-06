@@ -47,13 +47,13 @@ export class VoteQuestionComponent implements OnInit {
   async onLike() {
     if (this.buttonText === 'Like') {
       this.buttonText = 'Liked';
-      console.log('liked: ' + this.question);
+      // console.log('liked: ' + this.question);
       this.clicked = true;
       await this.demoService.AddLike(this.type, this.postId)
         .subscribe(data => {
           this.state = data;
-          console.log(this.state);
-          console.log('State: ', this.state.result.committed);
+          // console.log(this.state);
+          // console.log('State: ', this.state.result.committed);
           
           if(this.state.result.committed === true) {
             this.getVotes();

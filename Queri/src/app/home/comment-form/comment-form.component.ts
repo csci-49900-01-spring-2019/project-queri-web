@@ -22,7 +22,7 @@ export class CommentFormComponent implements OnInit {
   foo: false;
 
   log(x: any) {
-    console.log('Comment: ' + x.control.value);
+    // console.log('Comment: ' + x.control.value);
     this.comment = x.control.value;
   }
 
@@ -36,22 +36,22 @@ export class CommentFormComponent implements OnInit {
     if(this.comment.length > 0){
       await this.demoService.AddComment(this.username, this.comment, this.type, this.key)
       .subscribe((data )=>{
-        console.log(data);
+        // console.log(data);
         this.state = data;
-        console.log(this.state);
-        console.log(this.state.status);
+        // console.log(this.state);
+        // console.log(this.state.status);
         if(this.state.status === 'success') {
           this.sendToParent();
         }
     });
-    }else{
-      console.log('Empty Comment');
+    } else {
+      // console.log('Empty Comment');
     }
-    console.log('Button clicked');
+    // console.log('Button clicked');
   }
 
   ngOnInit() {
-    console.log('Key: ', this.key);
+  // console.log('Key: ', this.key);
   }
 
 }

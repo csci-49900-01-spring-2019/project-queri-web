@@ -12,9 +12,11 @@ export class CommentComponent implements OnInit {
   constructor() { }
 
   ngOnInit() { 
+    /*
     console.log('Initialized');
     console.log(this.username);
     console.log(this.comment);
+    */
   }
 
 }

@@ -41,7 +41,6 @@ export class HomeComponent implements OnInit {
   // All Colors
   colors: any[] = ['cyan', 'green', 'blue', 'purple', 'pink', 'raspberry', 'magenta', 'tan', 'yellow', 'orange'];
 
-  // numberOfPosts: number;
 
   ngOnInit() {
     if (localStorage.getItem('idToken') === '' || localStorage.getItem('idToken') == null) {
@@ -50,7 +49,6 @@ export class HomeComponent implements OnInit {
       this.currentPostNumber = 0;
       this.setRandomColor();
       this.getData();
-      
     }
   }
 
@@ -59,7 +57,7 @@ async  getData() {
       .subscribe(posts => {
         this.posts = posts;
         this.postsKeys = Object.keys(this.posts);
-        console.log(posts);
+      //  console.log(posts);
         this.router.navigate(['/featured', this.postsKeys[this.currentPostNumber]]);
     });
   }
@@ -104,14 +102,18 @@ async  getData() {
   async setDataFromchild( data ) {
     await this.demoService.getCommentsInPostInView(this.type, this.postsKeys[this.currentPostNumber])
     .subscribe(comments => {
-      console.log('Comments: ', comments);
+      // console.log('Comments: ', comments);
       this.comments = comments;
       this.commentkeys = Object.keys(this.comments);
-      console.log('Comments: ', this.comments);
-      console.log('# of Comments: ', this.commentkeys.length);
+      // console.log('Comments: ', this.comments);
+      // console.log('# of Comments: ', this.commentkeys.length);
     });
     this.showForm = false;
     this.showComments = true;
+  }
+
+  onTest(){
+    this.router.navigateByUrl('/page_not_found');
   }
 }
 
