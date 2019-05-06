@@ -19,6 +19,30 @@ function AddMeta(meta_reference, meta_type){
 }
 
 
+
+
+
+function verify(idToken, do_this, res) {
+  admin
+    .auth()
+    .verifyIdToken(idToken)
+    .then(function(decodedToken) {
+      var uid = decodedToken.uid;
+
+      console.log(uid);
+      do_this(uid);
+
+      // ...
+    })
+    .catch(function(error) {
+      // Handle error
+      console.log(error);
+      res.status(400).json({ status: 'error' });
+    });
+}
+
+
+
 app.post('users/new', function(req, res) {
   let idToken = req.header('Authorization');
   let profile_pic = 'https://cdn3.iconfinder.com/data/icons/avatars-9/145/Avatar_Penguin-512.png';
@@ -245,6 +269,7 @@ app.get('/posts/:type/:post_id/comments/:comment_id/content', function(req,res){
 
 
 app.post('/posts/:type/:post_id/comments/new', function(req,res){
+	  verify(idToken, function(uid) {
 	let content = req.body.content;
 	let username = req.body.username;
 	let reference = "posts/"+ req.params.type + "/" + req.params.post_id + "/comments/";
@@ -253,12 +278,14 @@ app.post('/posts/:type/:post_id/comments/new', function(req,res){
 		"username":username
 	}
 	AddMeta("posts/"+ req.params.type + "/" + req.params.post_id + "/meta", "comments");
-	admin.database().ref(reference).push().set(comment_object);
-	res.json({"status":"success"});
+	let path = admin.database().ref(reference).push().set(comment_object);
+	let key = path.key;
+	admin.database().ref('users/'+uid+'created_comments/').push().set({'commentKey':key,'postKey':req.params.post_id});
+	res.json({"status":"success"});});
 });
 
-app.post('/posts/:type/new', function(req,res){
-
+app.post('/posts/voting/new', function(req,res){
+	  verify(idToken, function(uid) {
 	let content = req.body.content;
 	let username = req.body.username;
 	let reference = "posts/"+ req.params.type + "/";
@@ -266,20 +293,39 @@ app.post('/posts/:type/new', function(req,res){
 		"content":content,
 		"username":username
 	}
-	admin.database().ref(reference).push().set(post_object);
-	res.json({"status":"success"});
+	
+	let path = admin.database().ref(reference).push().set(post_object);
+	let key = path.key;
+	admin.database().ref('users/'+uid +'created_questions/').push().set(key);
+	res.json({"status":"success"});});
 });
 
 
 app.put('/posts/:type/:post_id/meta/like', function(req,res){
-
+	  verify(idToken, function(uid) {
 	let reference = "/posts/" + req.params.type + "/" + req.params.post_id + "/" + "meta/likes";
-	admin.database().ref(reference).transaction(function(likes) {
-		  let newValue = (likes || 0) + 1;
-		  return newValue;
-		}).then(function(newValue){
-			res.json({"result":newValue});
-		});
+	admin.database().ref('users/'+uid+'/likes/').once('value', function(snap){
+		let liked = false;
+			if(snap.val()==null){
+				return;
+			}else{
+				for(let like in snap.val()){
+					if(snap.val()[like]===req.params.post_id){
+						liked = true;
+					}
+				}
+			}
+
+			if(!liked){
+				  admin.database().ref(reference).transaction(function(likes) {
+				  let newValue = (likes || 0) + 1;
+				  return newValue;
+				}).then(function(newValue){
+					res.json({"result":newValue});
+					admin.database().ref('users/likes/').push().set(req.params.post_id);
+				});
+			}
+	})});
 });
 
 
