@@ -147,10 +147,10 @@ export class DemoService {
             statusText: "Unknown Error"
             url: "https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories//new/"
         **************************/
-        this.http.post('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/' + name + '/' + 'new/', body).subscribe((data:any[])=>{
+        // this.http.post('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/' + name + '/' + 'new/', body).subscribe((data:any[])=>{
         // Line below gives status success message
         // name is removed
-        // this.http.post('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/' + '/' + 'new/', body).subscribe((data:any[])=>{
+         this.http.post('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/' + 'new/', body).subscribe((data:any[])=>{
             console.log(data);
         });
 
