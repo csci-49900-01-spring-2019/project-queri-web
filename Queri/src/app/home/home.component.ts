@@ -104,6 +104,7 @@ async  getData() {
   async setDataFromchild( data ) {
     await this.demoService.getCommentsInPostInView(this.type, this.postsKeys[this.currentPostNumber])
     .subscribe(comments => {
+      console.log('Comments: ', comments);
       this.comments = comments;
       this.commentkeys = Object.keys(this.comments);
       console.log('Comments: ', this.comments);

@@ -22,11 +22,10 @@
     <br>
     <div *ngIf = "this.showComments" class = "comments" id = "comments_div">
         <div *ngFor = "let comment of commentkeys ">
-           <app-comment
-            [comment] =  "posts && posts[currentPostNumber]?.comments[comment]?.content"
-            [username] = "posts && posts[currentPostNumber]?.comments[comment]?.username"
-            ></app-comment> 
+            <app-comment
+                [comment] = "comments && comments[comment].content"
+                [username] = "comments && comments[comment].username"
+            ></app-comment>
         </div>
     </div>
-    
-    <!--[number_of_likes] = "posts && posts[currentPostNumber]?.meta.likes"-->
+
