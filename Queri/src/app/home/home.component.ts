@@ -73,7 +73,7 @@ async  getData() {
     this.color = this.colors[this.currentPostNumber % this.colors.length];
   }
 
-  onClickPrevious( id: any ) {
+  onClickPrevious() {
     this.showComments = false;
     if (this.currentPostNumber === 0) {
       this.currentPostNumber = this.postsKeys.length - 1;
@@ -85,7 +85,7 @@ async  getData() {
     this.router.navigate(['/featured', this.postsKeys[this.currentPostNumber]]);
   }
 
-  onClickNext( id: any ) {
+  onClickNext() {
     this.showComments = false;
     if (this.currentPostNumber === this.postsKeys.length - 1) {
       this.currentPostNumber = 0;
