@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DemoService } from '../demo.service';
-import { MatGridTileHeaderCssMatStyler } from '@angular/material';
+
 
 @Component({
   selector: 'app-login',
@@ -14,12 +14,11 @@ export class LoginComponent implements OnInit {
 
   keys: string[];
   key: any;
-  num:number = 0
 
   ngOnInit() {
     console.log('Login Component');
-    //this.getKeys();
-    //console.log(this.keys.values);
+    // this.getKeys();
+    // console.log(this.keys.values);
     this.router.navigateByUrl('/featured/0');
   }
 

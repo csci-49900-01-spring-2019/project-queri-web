@@ -12,9 +12,9 @@ import { Title } from '@angular/platform-browser';
 })
 
 export class HomeComponent implements OnInit {
-  constructor(private demoService: DemoService, 
-              private authService: AuthService, 
-              private route: ActivatedRoute, 
+  constructor(private demoService: DemoService,
+              private authService: AuthService,
+              private route: ActivatedRoute,
               private router: Router,
               private title: Title) {
     // this.route.params.subscribe( params => console.log(params) );
@@ -95,11 +95,15 @@ export class HomeComponent implements OnInit {
     this.color = this.colors[this.currentPostNumber % this.colors.length];
   }
 
-  onClickPrevious( id: any ) {
+  onClickPrevious(  ) {
     this.showComments = false;
-    if (this.currentPostNumber === 0) {
+    // console.log(this.currentPostNumber);
+    if (+this.currentPostNumber === 0) {
+      // console.log('if');
+      // console.log(this.postsKeys.length);
       this.currentPostNumber = +this.postsKeys.length - 1;
     } else {
+      // console.log('else');
       this.currentPostNumber = +this.currentPostNumber - 1;
     }
     console.log(this.currentPostNumber);
@@ -107,14 +111,14 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/featured', this.postsKeys[this.currentPostNumber]]);
   }
 
-  onClickNext( id: any ) {
-    this.showComments = false;
+  onClickNext(  ) {
+    // this.showComments = false;
     if (+this.currentPostNumber === +this.postsKeys.length - 1) {
       this.currentPostNumber = 0;
     } else {
       this.currentPostNumber = +this.currentPostNumber + 1;
     }
-    console.log(this.currentPostNumber);
+    // console.log(this.currentPostNumber);
     this.setRandomColor();
     this.router.navigate(['/featured', this.postsKeys[this.currentPostNumber]]);
   }
