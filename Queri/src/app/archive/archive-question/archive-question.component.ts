@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 // import { DemoService } from '../../demo.service';
 import {MatDialogModule} from "@angular/material";
+import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -10,7 +11,7 @@ import {MatDialogModule} from "@angular/material";
 })
 export class ArchiveQuestionComponent implements OnInit {
 
-  constructor() { }
+  constructor(private title: Title) { }
 
   @Input() question: string;
   @Input() username: string;
@@ -23,13 +24,13 @@ export class ArchiveQuestionComponent implements OnInit {
   commentKeys: any[];
 
   showComments: boolean = false;
-  
   ngOnInit() {
+    this.title.setTitle('Archived');
     this.commentKeys = Object.keys(this.comments);
     // console.log(this.question, this.commentKeys.length);
   }
 
-  onClickComments(){
+  onClickComments() {
    this.showComments = !this.showComments;
   }
 

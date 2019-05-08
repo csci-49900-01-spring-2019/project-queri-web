@@ -1,9 +1,8 @@
 export interface Result {
-  result: info;
-    
+  result: Info;
 }
 
-interface info {
-    committed: any;
-    snapshot: any;
+interface Info {
+  committed: any;
+  snapshot: any;
 }

@@ -5,7 +5,7 @@ import {FormsModule} from '@angular/forms';
 import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'ask-form',
+  selector: 'app-ask-form',
   templateUrl: './ask-form.component.html',
   styleUrls: ['./ask-form.component.css']
 })
@@ -18,14 +18,14 @@ export class AskFormComponent implements OnInit {
   @ViewChild('question') form: any;
 
   log(x) {
-    console.log(x);
+    // console.log(x);
     this.question = x.control.value;
-    console.log('Question: ' + this.question);
+    // console.log('Question: ' + this.question);
    }
 
   onSubmit() {
     this.demoService.AddNewPost(this.username, this.question);
-    console.log('Button clicked');
+    // console.log('Button clicked');
     this.form.reset();
   }
   ngOnInit() {
