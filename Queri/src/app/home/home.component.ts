@@ -66,9 +66,9 @@ export class HomeComponent implements OnInit {
       console.log('Not a number');
       this.router.navigateByUrl('/404');
     }*/
-    if( this.sample >= 4 || this.sample < 0) {
+    if ( this.sample >= 4 || this.sample < 0) {
       this.router.navigateByUrl('/404');
-    }else {
+    } else {
       // console.log(this.currentPostNumber);
       this.currentPostNumber = this.sample;
       // console.log(this.currentPostNumber);
@@ -95,12 +95,9 @@ export class HomeComponent implements OnInit {
     this.color = this.colors[this.currentPostNumber % this.colors.length];
   }
 
-  onClickPrevious(  ) {
+  onClickPrevious() {
     this.showComments = false;
-    // console.log(this.currentPostNumber);
-    if (+this.currentPostNumber === 0) {
-      // console.log('if');
-      // console.log(this.postsKeys.length);
+    if ( +this.currentPostNumber === 0) {
       this.currentPostNumber = +this.postsKeys.length - 1;
     } else {
       // console.log('else');
@@ -111,13 +108,13 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/featured', this.postsKeys[this.currentPostNumber]]);
   }
 
-  onClickNext(  ) {
-    // this.showComments = false;
-    if (+this.currentPostNumber === +this.postsKeys.length - 1) {
+  onClickNext() {
+    this.showComments = false;
+    if (this.currentPostNumber === this.postsKeys.length - 1) {
       this.currentPostNumber = 0;
     } else {
       this.currentPostNumber = +this.currentPostNumber + 1;
-    }
+    };
     // console.log(this.currentPostNumber);
     this.setRandomColor();
     this.router.navigate(['/featured', this.postsKeys[this.currentPostNumber]]);
