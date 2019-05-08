@@ -3,6 +3,7 @@ import { DemoService } from '../demo.service';
 import { Post } from '../_models/data';
 import { AuthService } from '../auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,8 @@ export class HomeComponent implements OnInit {
   constructor(private demoService: DemoService, 
               private authService: AuthService, 
               private route: ActivatedRoute, 
-              private router: Router) {
+              private router: Router,
+              private title: Title) {
     // this.route.params.subscribe( params => console.log(params) );
   }
 
@@ -55,6 +57,7 @@ export class HomeComponent implements OnInit {
       console.log('Param: ', this.sample);
       this.currentPostNumber = 0;
       this.getData();
+      this.title.setTitle('Home');
     }
     // what if parameter is string ex: featured/ask
 
