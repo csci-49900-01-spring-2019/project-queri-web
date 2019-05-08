@@ -23,13 +23,12 @@ export class ArchiveQuestionComponent implements OnInit {
   commentKeys: any[];
 
   showComments: boolean = false;
-  
   ngOnInit() {
     this.commentKeys = Object.keys(this.comments);
     // console.log(this.question, this.commentKeys.length);
   }
 
-  onClickComments(){
+  onClickComments() {
    this.showComments = !this.showComments;
   }
 

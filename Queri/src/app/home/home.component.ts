@@ -11,7 +11,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 
 export class HomeComponent implements OnInit {
-  constructor(private demoService: DemoService, private authService: AuthService, private route: ActivatedRoute, private router: Router) {
+  constructor(private demoService: DemoService, 
+              private authService: AuthService, 
+              private route: ActivatedRoute, 
+              private router: Router) {
     // this.route.params.subscribe( params => console.log(params) );
   }
 
@@ -41,22 +44,41 @@ export class HomeComponent implements OnInit {
   // All Colors
   colors: any[] = ['cyan', 'green', 'blue', 'purple', 'pink', 'raspberry', 'magenta', 'tan', 'yellow', 'orange'];
 
+  sample:number;
+
   ngOnInit() {
     if (localStorage.getItem('idToken') === '' || localStorage.getItem('idToken') == null) {
         this.authService.doGoogleLogin();
     } else {
+      this.sample = this.route.snapshot.params['id'];
       this.currentPostNumber = 0;
-      this.setRandomColor();
+      console.log('Param: ', this.sample);
+      this.currentPostNumber = 0;
       this.getData();
+    }
+    // what if parameter is string ex: featured/ask
+
+    /*
+    if(typeof this.sample !== 'number') {
+      console.log('Not a number');
+      this.router.navigateByUrl('/404');
+    }*/
+    if( this.sample >= 4 || this.sample < 0) {
+      this.router.navigateByUrl('/404');
+    }else {
+      // console.log(this.currentPostNumber);
+      this.currentPostNumber = this.sample;
+      // console.log(this.currentPostNumber);
+      this.setRandomColor();
     }
   }
 
-async getData() {
+  async getData() {
     await this.demoService.getAll(this.type)
       .subscribe(posts => {
         this.posts = posts;
         this.postsKeys = Object.keys(this.posts);
-      //  console.log(posts);
+        // console.log(posts);
         this.router.navigate(['/featured', this.postsKeys[this.currentPostNumber]]);
     });
   }
@@ -73,21 +95,23 @@ async getData() {
   onClickPrevious( id: any ) {
     this.showComments = false;
     if (this.currentPostNumber === 0) {
-      this.currentPostNumber = this.postsKeys.length - 1;
+      this.currentPostNumber = +this.postsKeys.length - 1;
     } else {
-      this.currentPostNumber = this.currentPostNumber - 1;
+      this.currentPostNumber = +this.currentPostNumber - 1;
     }
+    console.log(this.currentPostNumber);
     this.setRandomColor();
     this.router.navigate(['/featured', this.postsKeys[this.currentPostNumber]]);
   }
 
   onClickNext( id: any ) {
     this.showComments = false;
-    if (this.currentPostNumber === this.postsKeys.length - 1) {
+    if (+this.currentPostNumber === +this.postsKeys.length - 1) {
       this.currentPostNumber = 0;
     } else {
-      this.currentPostNumber = this.currentPostNumber + 1;
+      this.currentPostNumber = +this.currentPostNumber + 1;
     }
+    console.log(this.currentPostNumber);
     this.setRandomColor();
     this.router.navigate(['/featured', this.postsKeys[this.currentPostNumber]]);
   }

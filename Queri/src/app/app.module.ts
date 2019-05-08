@@ -65,13 +65,14 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ];
     */
     RouterModule.forRoot([
-      { path: '', redirectTo: '/featured', pathMatch: 'full' },
-      { path: 'featured', component: HomeComponent },
+      { path: '', component: LoginComponent },
       { path: 'featured/:id', component: HomeComponent },
+      { path: 'featured', redirectTo: '/404' },
       { path: 'ask', component: AskComponent },
-      { path: 'vote',component: VotingComponent },
+      { path: 'vote', component: VotingComponent },
       { path: 'archived', component: ArchiveComponent },
-      { path: '**', component: PageNotFoundComponent }
+      { path: '404' , component: PageNotFoundComponent},
+      { path: '**', redirectTo: '/404' }
     ])
   ],
   providers: [DemoService, HttpClientModule],
