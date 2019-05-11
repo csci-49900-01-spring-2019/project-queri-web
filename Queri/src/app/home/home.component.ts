@@ -4,6 +4,7 @@ import { Post } from '../_models/data';
 import { AuthService } from '../auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import { post } from 'selenium-webdriver/http';
 
 @Component({
   selector: 'app-home',
@@ -46,44 +47,64 @@ export class HomeComponent implements OnInit {
   // All Colors
   colors: any[] = ['cyan', 'green', 'blue', 'purple', 'pink', 'raspberry', 'magenta', 'tan', 'yellow', 'orange'];
 
-  sample:number;
+  param: string;
 
-  ngOnInit() {
+  result: boolean;
+
+  async ngOnInit() {
     if (localStorage.getItem('idToken') === '' || localStorage.getItem('idToken') == null) {
         this.authService.doGoogleLogin();
     } else {
-      this.sample = this.route.snapshot.params['id'];
+      this.param = this.route.snapshot.params['id'];
       this.currentPostNumber = 0;
-      console.log('Param: ', this.sample);
-      this.currentPostNumber = 0;
-      this.getData();
-      this.title.setTitle('Home');
-    }
-    // what if parameter is string ex: featured/ask
+      console.log('Param: ', this.param);
+      console.log(this.posts);
+      this.posts = await this.getData();
 
-    /*
-    if(typeof this.sample !== 'number') {
-      console.log('Not a number');
-      this.router.navigateByUrl('/404');
-    }*/
-    if ( this.sample >= 4 || this.sample < 0) {
+      console.log(this.posts);
+      console.log(this.posts.length);
+      this.postsKeys = Object.keys(this.posts);
+      console.log(this.postsKeys);
+      this.title.setTitle('Home');
+      this.result = this.validateParam();
+      
+    }
+
+    if ( this.result = false) {
       this.router.navigateByUrl('/404');
     } else {
       // console.log(this.currentPostNumber);
-      this.currentPostNumber = this.sample;
+      this.currentPostNumber = +this.param;
       // console.log(this.currentPostNumber);
       this.setRandomColor();
     }
   }
 
+  /*
   async getData() {
     await this.demoService.getAll(this.type)
       .subscribe(posts => {
         this.posts = posts;
         this.postsKeys = Object.keys(this.posts);
-        // console.log(posts);
-        this.router.navigate(['/featured', this.postsKeys[this.currentPostNumber]]);
+        console.log(posts);
+        // this.router.navigate(['/featured', this.postsKeys[this.currentPostNumber]]);
     });
+  }
+*/
+  async getData() {
+    let temp: Post[];
+    await this.demoService.getAll(this.type)
+    .toPromise()
+    .then( post => {
+      console.log(post);
+      temp = post; }
+      /*post => {
+      this.posts = post;
+      this.postsKeys = Object.keys(post);
+      console.log('Promise Resolved');*/
+    );
+   // console.log(temp);
+    return temp;
   }
 
   setRandomColor(): void {
@@ -139,6 +160,19 @@ export class HomeComponent implements OnInit {
 
   onTest() {
     this.router.navigateByUrl('/page_not_found');
+  }
+
+  validateParam(): boolean{
+    // var temp = this.sample;
+    // console.log(typeof temp);
+    for( let i of this.postsKeys ) {
+      // console.log(typeof i);
+      if (i === this.param) {
+        console.log('match!');
+        return true;
+      }
+    }
+    return false;
   }
 }
 
