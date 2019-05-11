@@ -4,7 +4,6 @@ import { Post } from '../_models/data';
 import { AuthService } from '../auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
-import { post } from 'selenium-webdriver/http';
 
 @Component({
   selector: 'app-home',
