@@ -67,16 +67,15 @@ export class HomeComponent implements OnInit {
       console.log(this.postsKeys);
       this.title.setTitle('Home');
       this.result = this.validateParam();
-      
-    }
-
-    if ( this.result = false) {
-      this.router.navigateByUrl('/404');
-    } else {
-      // console.log(this.currentPostNumber);
-      this.currentPostNumber = +this.param;
-      // console.log(this.currentPostNumber);
-      this.setRandomColor();
+      console.log(this.result);
+      if ( this.result === false) {
+        this.router.navigateByUrl('/404');
+      } else {
+        // console.log(this.currentPostNumber);
+        this.currentPostNumber = +this.param;
+        // console.log(this.currentPostNumber);
+        this.setRandomColor();
+      }
     }
   }
 
@@ -163,13 +162,12 @@ export class HomeComponent implements OnInit {
   }
 
   validateParam(): boolean{
-    // var temp = this.sample;
-    // console.log(typeof temp);
-    for( let i of this.postsKeys ) {
-      // console.log(typeof i);
+    for( const i of this.postsKeys ) {
       if (i === this.param) {
         console.log('match!');
         return true;
+      } else {
+        console.log('not a match');
       }
     }
     return false;
