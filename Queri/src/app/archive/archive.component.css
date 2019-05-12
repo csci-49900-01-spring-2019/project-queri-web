@@ -4,13 +4,13 @@
     width: 97%;
     background-color: #2B3252;
     padding: 10px;
+    z-index: 500
 }
 
 .voting{
     background-color: #2B3252;
     color: black;
     padding-top: 100px;
-    /**text-align: center; **/
     height: 100vh;
     padding-bottom: 25px;
     overflow: scroll;

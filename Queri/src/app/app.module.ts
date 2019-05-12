@@ -31,6 +31,7 @@ import { Profile } from 'selenium-webdriver/firefox';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,7 +76,9 @@ import { Profile } from 'selenium-webdriver/firefox';
       { path: 'vote', component: VotingComponent },
       { path: 'archived', component: ArchiveComponent },
       { path: 'user', redirectTo: '404' },
-      { path: 'user/:id', component: ProfileComponent},
+      { path: 'user/:id', component: ProfileComponent,
+        children: []
+      },
       { path: '404' , component: PageNotFoundComponent },
       { path: '**', redirectTo: '404' }
     ])

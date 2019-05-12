@@ -18,9 +18,11 @@
     width: 70%;
 }
 
-.likeButton{
-    background-image:url('https://img.icons8.com/cotton/2x/facebook-like--v1.png');
+.like{
+   /*background-image:url('https://img.icons8.com/cotton/2x/facebook-like--v1.png');*/
+   background-color: transparent;
     width:40px;
     height:40px;
     border: 0;
 }
+

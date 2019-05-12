@@ -8,10 +8,12 @@
     border: none !important;
     padding: 5px !important; 
     font-size: 20px;
+    z-index: 100;
+    
 }
 
 .navbar p{
-    font-family: "Arial Black" !important;
+    font-family: "Futura" !important;
 }
 .navbar-brand{
    /** padding: 0 15px;*/
@@ -20,12 +22,11 @@
 }
 
 .left {
-color: rgb(110, 110, 110);
-text-decoration: none;
-float: left;
+    color: rgb(110, 110, 110);
+    text-decoration: none;
+    float: left;
 }
 
 .right{
     float: right;
-   
 }

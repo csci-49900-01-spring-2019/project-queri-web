@@ -1,21 +1,24 @@
 <div class="question">
-    
-    {{username}}
-    <br>
+    <div class="username">
+        {{username}}
+    </div>
     {{question}}
     <br>
-    <div class = "stats"  fxLayout="row" fxLayoutAlign="space-around center" >
-        <div>Likes: {{number_of_likes}}</div>
+    <div class = "stats"  fxLayout="row" fxLayoutAlign="center center" >
+        <div>{{number_of_likes}} <img height=40 width = 40 src="https://img.icons8.com/cotton/2x/facebook-like--v1.png" > </div>
+        &nbsp;
+        &nbsp;
+        &nbsp;
         <div>
-                <button (click)='onClickComments()'  class="btn btn-primary" >Comments</button>
-        Comments: {{number_of_comments}}
+        {{number_of_comments}}
+        <button (click)='onClickComments()' type ="image"  class="btn btn-primary"> 
+            <img  height = 40 width = 40 src="https://img.icons8.com/cotton/2x/speech-bubble-with-dots.png" alt=""> 
+        </button>
+         
     </div>     
     </div>
-    
-   
     <div *ngIf="showComments" class = "grid-container">
         <div *ngFor="let key of commentKeys" class="grid-item">
-            <!--{{comments[key].username}}: {{comments[key].content}} -->
             <app-comment 
             [comment] = comments[key].content
             [username] = comments[key].username

@@ -10,7 +10,7 @@ export class ProfileComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log("Profile!");
+    console.log('Profile!');
   }
 
 
