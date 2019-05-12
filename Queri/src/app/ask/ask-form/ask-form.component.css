@@ -1,10 +1,15 @@
 #question{
     
     /*background-color: white;*/
+    /*
     background-color:rgb(219, 101, 65);
     border-color: rgba(255, 128, 54, 0.75);
-    
+    */
+    background-color: #2B3252;
+    border-color:  #210e33;
     border-width: 2px;
+    border-radius: 12px;
+    border-width: .5px;
     color: white;
     font-size: 40px;
     height: auto !important;
@@ -16,13 +21,19 @@
    
 }
 .title{
-    color: #FAD744;
+    color:  #Ef5455;
     font-size: 45px;
 }
 .btn-primary{
+    /*
     background-color: #FAD744;
     border-color: darkcyan; 
     color: #Ef5455;
+    */
+
+    background-color: #Ef5455;
+    /*color: #FAD744;*/
+    color:black;
 }
 
 

@@ -1,12 +1,21 @@
 <div class="question">
+    
     {{username}}
     <br>
     {{question}}
     <br>
-    <button (click)='onClickComments()'  class="btn btn-primary" >Comments</button>
+    <div class = "stats"  fxLayout="row" fxLayoutAlign="space-around center" >
+        <div>Likes: {{number_of_likes}}</div>
+        <div>
+                <button (click)='onClickComments()'  class="btn btn-primary" >Comments</button>
+        Comments: {{number_of_comments}}
+    </div>     
+    </div>
+    
+   
     <div *ngIf="showComments" class = "comments">
         <li *ngFor="let key of commentKeys">
-            {{comments[key].content}} - {{comments[key].username}}
+            {{comments[key].username}}: {{comments[key].content}} 
         </li>
     </div>
 </div>
