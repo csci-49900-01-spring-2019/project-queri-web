@@ -1,9 +1,18 @@
-<div class="question" [style.backgroundColor]="color">
-  {{username}}
-  <br>
-  {{question}}
-  <br>
-  {{votes}}
-  <button [disabled] = "clicked" (click)='onLike()' class="btn btn-primary"> {{buttonText}} </button>
+<div class="question" fxLayout="row" fxLayoutAlign="space-evenly center" >
+    <div>
+        {{votes}}
+    </div>
+    <button [disabled] = "clicked" (click)='onLike()' type="button" class="btn btn-default btn-md">
+        <span class="glyphicon glyphicon-circle-arrow-up"></span>
+    </button>
+    <div fxLayout="column" fxLayoutAlign="space-between center" >
+        <div>
+            {{username}}
+        </div>
+        <div>
+            {{question}}
+        </div>
+    </div>
+    <!--<button > Report </button>-->
 </div>
 

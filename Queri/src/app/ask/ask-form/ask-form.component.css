@@ -1,24 +1,28 @@
 #question{
     
-    background-color: white;
-    border-color:darkslategrey;
-    color: black;
-    font-size: 20px;
+    /*background-color: white;*/
+    background-color:rgb(219, 101, 65);
+    border-color: rgba(255, 128, 54, 0.75);
+    
+    border-width: 2px;
+    color: white;
+    font-size: 40px;
     height: auto !important;
     max-width: 500;
     resize: none;
     padding: 1 1 1 1;
     resize: none;
-    min-height: 200px;
+    min-height: 400px;
    
 }
 .title{
-    color:white;
-    font-size: 35px;
+    color: #FAD744;
+    font-size: 45px;
 }
 .btn-primary{
-    background-color: red;
+    background-color: #FAD744;
     border-color: darkcyan; 
-    color: white;
+    color: #Ef5455;
 }
+
 

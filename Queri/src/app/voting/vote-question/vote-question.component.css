@@ -1,20 +1,25 @@
 .question {
-    color: rgb(255, 255, 255);
-    /*background-color:rgb(69, 172, 212);*/
-    border-width: 1px;
-    border-style: solid;
-    border-color: black;
-    text-align: center;
-    /*font-family: sans-serif;*/
-    font-size: 20px;
+    background-color: #Ef5455;
+    border-color: transparent;
+    border-radius: 12px;
+    color: #2B3252;
+    display: inline-block;
     font-family: "Futura";
+    font-size: 25px;
+    height: 100px;
+    margin: auto;
+    padding: 5px;
+    text-align:left;
+    width: 100%;
     
 }
 
 .btn-primary {
-    background-color: rgb(56, 150, 84);
-    border-color: darkcyan; 
-    color: white;
-    
-    border-radius: 8px;
+    background-color: rgb(216, 27, 27);
+    border-radius: 20px;
+}
+
+.btn-md{
+    background-color: #FAD744;
+    border-radius: 10px;
 }

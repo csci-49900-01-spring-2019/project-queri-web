@@ -30,7 +30,7 @@ export class AskFormComponent implements OnInit {
     await this.demoService.AddNewPost(this.username, this.question)
       .subscribe( data => {
         this.result = data;
-        console.log(this.result.status);
+        console.log(this.result);
       });
     // console.log('Button clicked');
     this.form.reset();
