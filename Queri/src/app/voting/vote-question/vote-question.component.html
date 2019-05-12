@@ -1,17 +1,11 @@
-<div class="question" fxLayout="row" fxLayoutAlign="space-evenly center" >
-    <div>
-        {{votes}}
+<div class="question" fxLayout="row" fxLayoutAlign="start center" >
+    <div class = "votes" fxFlex="8"> {{votes}} </div>
+    <div fxFlex="10">
+        <button [disabled] = "clicked" (click)='onLike()' type="image" class="likeButton"><img src="'https://img.icons8.com/cotton/2x/facebook-like--v1.png" alt=""></button>
     </div>
-    <button [disabled] = "clicked" (click)='onLike()' type="button" class="btn btn-default btn-md">
-        <span class="glyphicon glyphicon-circle-arrow-up"></span>
-    </button>
-    <div fxLayout="column" fxLayoutAlign="space-between center" >
-        <div>
-            {{username}}
-        </div>
-        <div>
-            {{question}}
-        </div>
+    <div fxFlex="200" fxLayout="column" fxLayoutAlign="start start" >
+        <div class="username"> {{username}} </div>
+        <div class="user-question"> {{question}} </div>
     </div>
     <!--<button > Report </button>-->
 </div>
