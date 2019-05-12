@@ -13,9 +13,14 @@
     </div>
     
    
-    <div *ngIf="showComments" class = "comments">
-        <li *ngFor="let key of commentKeys">
-            {{comments[key].username}}: {{comments[key].content}} 
-        </li>
+    <div *ngIf="showComments" class = "grid-container">
+        <div *ngFor="let key of commentKeys" class="grid-item">
+            <!--{{comments[key].username}}: {{comments[key].content}} -->
+            <app-comment 
+            [comment] = comments[key].content
+            [username] = comments[key].username
+            >
+            </app-comment>
+        </div>
     </div>
 </div>

@@ -10,3 +10,18 @@
     font-family: "Futura";
     list-style: none;
 }
+
+.grid-container {
+    display: inline-grid;
+    grid-template-columns: auto auto auto;
+    background-color: transparent;
+    padding: 10px;
+  }
+  
+  .grid-item {
+    background-color:transparent;
+    border: none;
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+  }
