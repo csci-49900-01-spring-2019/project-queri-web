@@ -26,6 +26,8 @@ import { ArchiveQuestionComponent } from './archive/archive-question/archive-que
 import { LoginComponent } from './login/login.component';
 import { ObjectToArrayPipe } from './_pipes/object-to-array.pipe';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ProfileComponent } from './profile/profile.component';
+import { Profile } from 'selenium-webdriver/firefox';
 
 
 
@@ -44,7 +46,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ArchiveQuestionComponent,
     ObjectToArrayPipe,
     LoginComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ProfileComponent
   ],
    //  fetch("url.com",{header:{"token":localStorage.getItem("idtoken")}})
   imports: [
@@ -71,6 +74,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
       { path: 'ask', component: AskComponent },
       { path: 'vote', component: VotingComponent },
       { path: 'archived', component: ArchiveComponent },
+      { path: 'user', redirectTo: '404' },
+      { path: 'user/:id', component: ProfileComponent},
       { path: '404' , component: PageNotFoundComponent },
       { path: '**', redirectTo: '404' }
     ])
