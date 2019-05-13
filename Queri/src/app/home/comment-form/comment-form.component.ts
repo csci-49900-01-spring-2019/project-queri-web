@@ -1,5 +1,8 @@
-import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DemoService } from '../../demo.service';
+import 'rxjs/add/operator/toPromise';
+import {Status} from '../../_models/status';
+
 
 @Component({
   selector: 'app-comment-form',
@@ -9,27 +12,45 @@ import { DemoService } from '../../demo.service';
 export class CommentFormComponent implements OnInit {
 
   constructor(private demoService: DemoService) { }
-  username: string;
-  comment: string;
+  username: string = 'ANONYMOUS';
+  comment: string = '';
   @Input() hidden: boolean;
+  @Input() key: string;
   @Output() event: EventEmitter<boolean> = new EventEmitter();
+  type = 'featured';
 
   foo: false;
+  state: Status;
 
   log(x: any) {
-    console.log('Comment: ' + x.control.value);
+    // console.log('Comment: ' + x.control.value);
     this.comment = x.control.value;
   }
 
-  sendToParent(){
+  sendToParent() {
     this.event.emit(this.foo);
   }
 
-  onSubmit() {
-    //this.demoService.AddComment(this.username, this.comment);
-    console.log('Button clicked');
+  async onSubmit() {
+    if (this.comment.length > 0) {
+      await this.demoService.AddComment(this.username, this.comment, this.type, this.key)
+      .subscribe( data => {
+        // console.log(data);
+        this.state = data;
+        // console.log(this.state);
+        // console.log(this.state.status);
+        if (this.state.status === 'success') {
+          this.sendToParent();
+        }
+    });
+    } else {
+      // console.log('Empty Comment');
+    }
+    // console.log('Button clicked');
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+  // console.log('Key: ', this.key);
+  }
 
 }

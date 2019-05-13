@@ -1,5 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { DemoService } from '../demo.service';
 
 @Component({
@@ -10,8 +11,9 @@ import { DemoService } from '../demo.service';
 })
 export class AskComponent implements OnInit {
 
-  constructor() { }
+  constructor(private title: Title) { }
   ngOnInit() {
+    this.title.setTitle('Ask');
   }
 
 }

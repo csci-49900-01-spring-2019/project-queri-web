@@ -3,9 +3,8 @@
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule} from '@angular/core';
-import { AngularFireModule } from "@angular/fire"
-import { AngularFireAuthModule } from "@angular/fire/auth"
-import { HttpHeaders } from '@angular/common/http';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,7 +19,15 @@ import { CommentComponent } from './home/comment/comment.component';
 import { AskFormComponent } from './ask/ask-form/ask-form.component';
 import { CommentFormComponent } from './home/comment-form/comment-form.component';
 import { environment } from '../environments/environment';
-
+import { VotingComponent } from './voting/voting.component';
+import { VoteQuestionComponent } from './voting/vote-question/vote-question.component';
+import { ArchiveComponent } from './archive/archive.component';
+import { ArchiveQuestionComponent } from './archive/archive-question/archive-question.component';
+import { LoginComponent } from './login/login.component';
+import { ObjectToArrayPipe } from './_pipes/object-to-array.pipe';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ProfileComponent } from './profile/profile.component';
+import { UserInfoComponent } from './profile/user-info/user-info.component';
 
 @NgModule({
   declarations: [
@@ -30,20 +37,18 @@ import { environment } from '../environments/environment';
     QuestionComponent,
     CommentComponent,
     AskFormComponent,
-    CommentFormComponent
-
+    CommentFormComponent,
+    VotingComponent,
+    VoteQuestionComponent,
+    ArchiveComponent,
+    ArchiveQuestionComponent,
+    ObjectToArrayPipe,
+    LoginComponent,
+    PageNotFoundComponent,
+    ProfileComponent,
+    UserInfoComponent,
   ],
-
-
-
-
-
-  ///
-//
-//  fetch("url.com",{header:{"token":localStorage.getItem("idtoken")}})
-//
-//
-  //
+   //  fetch("url.com",{header:{"token":localStorage.getItem("idtoken")}})
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -52,21 +57,28 @@ import { environment } from '../environments/environment';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-
+    /*
+    export const rootRouterConfig: Routes = [
+      { path: '', redirectTo: 'login', pathMatch: 'full' },
+      { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
+      { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
+      { path: 'user', component: UserComponent,  resolve: { data: UserResolver}}
+    ];
+    */
     RouterModule.forRoot([
-      {
-        path: '', component: HomeComponent
+      { path: '', redirectTo: 'login', pathMatch: 'full' },
+      { path: 'login', component: LoginComponent },
+      { path: 'featured', redirectTo: '404' },
+      { path: 'featured/:id', component: HomeComponent },
+      { path: 'ask', component: AskComponent },
+      { path: 'vote', component: VotingComponent },
+      { path: 'archived', component: ArchiveComponent },
+      { path: 'user', redirectTo: '404' },
+      { path: 'user/:id', component: ProfileComponent,
+        children: [  ],
       },
-      {
-        path: 'Ask',
-        component: AskComponent
-      }
-      /*
-      {
-        path: '',
-        redirectTo: 'Home/:id',
-        pathMatch: 'full'
-      }*/
+      { path: '404' , component: PageNotFoundComponent },
+      { path: '**', redirectTo: '404' }
     ])
   ],
   providers: [DemoService, HttpClientModule],
@@ -75,10 +87,4 @@ import { environment } from '../environments/environment';
 export class AppModule { }
 
 
-/*
-export const rootRouterConfig: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
-  { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
-  { path: 'user', component: UserComponent,  resolve: { data: UserResolver}}
-];*/
+

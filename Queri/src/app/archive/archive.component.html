@@ -1,0 +1,15 @@
+
+<div class="voting">
+    <div *ngFor = "let key of postKeys " class="question">
+      <app-archive-question
+      [question] = "posts[key]?.content"
+      [username] = "posts[key]?.username"
+      [days_remaining] = "posts[key]?.meta.days_remaining"
+      [number_of_likes] = "posts[key]?.meta.likes"
+      [number_of_comments] = "posts[key]?.meta.comments"
+      [comments] = "posts[key].comments"
+    ></app-archive-question> 
+    <br>
+    </div>
+  </div>
+  

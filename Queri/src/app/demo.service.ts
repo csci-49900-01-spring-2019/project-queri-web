@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Post } from './_models/data';
+import { Status } from './_models/status';
+import { Result } from './_models/result';
 
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -14,10 +16,10 @@ export class DemoService {
 
     getPostInType(type, post_id) : Observable<Post>{
         return this.http.get<Post>("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/" + type + "/" + post_id + "/");
-            //.pipe();
-
     }
+
     getCommentsInPostInView(type, post_id): Observable<Comment[]> {
+// tslint:disable-next-line: max-line-length
         return this.http.get<Comment[]>("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/" + type + "/" + post_id + "/comments/");
     }
     getCommentInPostInView(type, post_id, comment_id) {
@@ -77,11 +79,13 @@ export class DemoService {
             console.log(data);
         });
     }
-    getVotes(type, post_id) {
-        return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/" + type + "/" + post_id + "/meta/likes/")
+    getVotes (type, post_id) {
+        return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/" + type + "/" + post_id + "/meta/likes/");
+        /*
         .subscribe((data:any[])=>{
             console.log(data);
         });
+        */
     }
 
     // AddComment(username,content){
@@ -95,18 +99,20 @@ export class DemoService {
 
     // }
 
-    AddComment(username, content, type, count){
+    AddComment(username, content, type, count): Observable<Status>{
         const body= {
-        "username":username,
-        "content":content
+        "username": username,
+        "content": content
         }
-        this.http.post("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/" + type + "/" + count + "/comments/new/", body).subscribe((data:any[])=>{
+        return this.http.post<Status>("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/" + type + "/" + count + "/comments/new/", body);
+        /*
+        .subscribe((data:any[])=>{
             console.log(data);
-        });
+        });*/
     }
 
 
-/***** 
+/****
     AddComment(username,content){
     //   const httpOptions = {
     //   headers: new HttpHeaders({
@@ -119,22 +125,16 @@ export class DemoService {
       "content":content
       }
 */
-    AddLike(type, post_id){
-
-        this.http.put('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/' + type +  '/' + post_id + '/meta/like', {}).subscribe((data:any[])=>{
-        console.log(data);
-      })
-
+    AddLike(type, post_id): Observable<Result> {
+        return this.http.put<Result>('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/' + type +  '/' + post_id + '/meta/like', {});
     }
 
-    AddNewPost(username, content, type){
+    AddNewPost(username, content, type?): Observable<Status> {
         const body = {
-            "username":username,
-            "content":content
-        }
-        this.http.post('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/' + name + '/' + 'new/', body).subscribe((data:any[])=>{
-        console.log(data);
-    })
+            "username": username,
+            "content": content
+        };
 
+        return this.http.post<Status>('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/voting/' + 'new/', body);
     }
 }

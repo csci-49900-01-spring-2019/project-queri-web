@@ -1,0 +1,15 @@
+<div class="question" fxLayout="row" fxLayoutAlign="start center" >
+    <div class = "votes" fxFlex="8"> {{votes}} </div>
+    <div fxFlex="10">
+        <button [disabled] = "clicked" (click)='onLike()' type="image" class="like">
+            <img height = 35 width = 35 src="https://img.icons8.com/cotton/2x/facebook-like--v1.png">
+        </button> 
+       
+    </div>
+    <div fxFlex="200" fxLayout="column" fxLayoutAlign="start start" >
+        <div class="username"> {{username}} </div>
+        <div class="user-question"> {{question}} </div>
+    </div>
+    <!--<button > Report </button>-->
+</div>
+

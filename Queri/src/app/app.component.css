@@ -1,44 +1,32 @@
-.navbar-inverse {
-
-/**
-    background: #000000;
-    color: rgb(255, 255, 255);
-    text-align: center;
-    padding: 10px 15px 10px;
-    margin: 0px;
-    position: fixed;
-    width: 100%;
-    font-weight: bold;
-    font-family: Verdana, Geneva, sans-serif;
- **/   
-}
 .navbar{
     height: auto !important;
     margin: 0 !important;
     position: fixed;
     width: 100%;
-    background-color: white !important;
+    background-color: Black !important;
     border-radius: 0 !important;
     border: none !important;
     padding: 5px !important; 
+    font-size: 20px;
+    z-index: 100;
+    
 }
+
 .navbar p{
-font-family: "Arial Black" !important;
+    font-family: "Futura" !important;
 }
 .navbar-brand{
    /** padding: 0 15px;*/
     height: auto;
-
     line-height: 500px;
 }
 
 .left {
-color: rgb(110, 110, 110);
-text-decoration: none;
-float: left;
+    color: rgb(110, 110, 110);
+    text-decoration: none;
+    float: left;
 }
 
 .right{
     float: right;
-   
 }

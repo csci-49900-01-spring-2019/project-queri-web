@@ -1,38 +1,7 @@
-<!-- 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#"> 
-        <b routerLink="/" routerLinkActive="active">
-          <img src="../favicon.ico" width="10" height="10"/>
-        </b>
-      </a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active">
-        <a routerLink="/Ask" routerLinkActive="active">
-          Ask!
-        </a> 
-      </li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"> Profile <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Page 1-1</a></li>
-          <li><a href="#">Page 1-2</a></li>
-          <li><a href="#">Page 1-3</a></li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-</nav>
--->
-
-
-             
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-custom">
   <div class="container-fluid">
     
     <div class="navbar-header">
-      <!--<a class="navbar-brand" href="#">WebSiteName</a>-->
       <!-- Button that toggles the navbar on and off on small screens -->
       <button type="button" 
       class="navbar-toggle collapsed" 
@@ -50,18 +19,16 @@
       </button> <!-- end class="navbar-toggle collapsed"  -->
     </div>
     <ul class="nav navbar-nav">
-      <!--<li class="active"><a href="#">Home</a></li>-->
-      <li class="active"><a routerLink="/" routerLinkActive="active">Home <span class="sr-only">(current)</span></a></li>
-  
+      <li><a routerLink="/" routerLinkActive="active">Home<span class="sr-only">(current)</span></a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <!--<li class="active"><a href="#">Ask!</a></li>-->
-      <li><a routerLink="/Ask" routerLinkActive="active">Ask!</a> </li>
-      <!--<li><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>-->
+      <li><a routerLink="/ask" routerLinkActive="active">Ask <span class="sr-only">(current)</span></a> </li>
+      <li><a routerLink="/vote" routerLinkActive="active">Vote <span class="sr-only">(current)</span></a></li>
+      <li><a routerLink="/archived" routerLinkActive="active">Archived <span class="sr-only">(current)</span></a></li>
       <li class="dropdown">
           <a href="#" class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel" >
-            <li><a href="#">View Profile</a></li>
+            <li><a href="/user/:id">View Profile</a></li>
             <li role="separator" class="divider"></li>
             <li><a class="glyphicon glyphicon-log-out" href="#">Logout</a></li>
           </ul>
@@ -69,12 +36,6 @@
     </ul>
   </div>
 </nav>
-
-
-
-
-
-
 
 <router-outlet></router-outlet>
 

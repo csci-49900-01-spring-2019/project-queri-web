@@ -1,36 +1,34 @@
-<div class="homepage">
-    <!--
-    <div class="list-of-topics">
-        <topic-list></topic-list>
-    </div> -->  
+<div class="homepage" [style.backgroundColor]="color">
     <div class="question_wrap">
-    <div class="question">
-        <app-question
-        [question] = "posts && posts[currentPostNumber]?.content"
-        [username] = "posts && posts[currentPostNumber]?.username"
-        [days_remaining] = "posts && posts[currentPostNumber]?.meta.days_remaining"
-        [number_of_likes] = "posts && posts[currentPostNumber]?.meta.likes"
-        [number_of_comments] = "posts && posts[currentPostNumber]?.meta.comments"
-        ></app-question>
+        <div class="question">
+            <app-question
+            [question] = "posts && posts[currentPostNumber]?.content"
+            [username] = "posts && posts[currentPostNumber]?.username"
+            [daysRemaining] = "posts && posts[currentPostNumber]?.meta.days_remaining"
+            [numberOfLikes] = "posts && posts[currentPostNumber]?.meta.likes"
+            [numberOfComments] = "posts && posts[currentPostNumber]?.meta.comments"
+            [key] = 'postsKeys && postsKeys[currentPostNumber]'
+            ></app-question>
+        </div>
+
+        <div class="routing_questions_component">
+            <button (click) = 'onClickPrevious()'>Previous</button>
+            <button (click) = 'onClickAnswer()'>Answer</button>
+            <button (click) = 'onClickNext()'> Next</button>
+        </div>
     </div>
     
     <div class="comment-form"> 
-       <app-comment-form *ngIf = "this.showForm" (event)='setDataFromchild($event)'></app-comment-form>
+       <app-comment-form *ngIf = "this.showForm" (event)='setDataFromchild($event)' [key]='postsKeys && postsKeys[currentPostNumber]'></app-comment-form>
     </div>
     <br>
-    <div class = "comments">
-        <tr *ngFor = "let comment of commentkeys ">
-            <td> <app-comment
-            *ngIf = "this.showComments"
-            [comment] = "posts && posts[currentPostNumber]?.comments[comment].username"
-            [username] = "posts && posts[currentPostNumber]?.comments[comment].content"
+    <div *ngIf = "this.showComments" class = "comments" id = "comments_div">
+        <div *ngFor = "let comment of commentkeys ">
+            <app-comment
+                [comment] = "comments && comments[comment].content"
+                [username] = "comments && comments[comment].username"
             ></app-comment>
-            </td>
-        </tr>
+        </div>
     </div>
-    
-    <div class="routing_questions_component">
-        <button (click) = 'onClickPrevious()'>Previous</button>
-        <button (click) = 'onClickAnswer()'>Answer</button>
-        <button (click) = 'onClickNext()'>Next</button>
-    </div>
+</div>
+

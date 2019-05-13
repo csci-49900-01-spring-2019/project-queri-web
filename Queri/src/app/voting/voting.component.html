@@ -1,0 +1,15 @@
+
+<div class="voting-page">
+  <div class="question-list" *ngFor = "let key of postKeys ">
+        <app-voting-question
+        [question] = "posts[key]?.content"
+        [username] = "posts[key]?.username"
+        [numberOfLikes] = "posts[key]?.meta.likes"
+        [postId] = "key"
+      ></app-voting-question> 
+  </div>
+</div>
+
+<!--
+  [daysRemaining] = "posts[key]?.meta.days_remaining"
+-->

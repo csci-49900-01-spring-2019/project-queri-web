@@ -1,6 +1,4 @@
 import {Component} from '@angular/core';
-import {DemoService} from './demo.service';
-import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -9,16 +7,6 @@ import {Observable} from 'rxjs';
 })
 export class AppComponent {
 
-  public foods;
-
-  constructor(private _demoService: DemoService) {
-
-    //_demoService.getPostInCategory("category1", "0");
-    //_demoService.getArchived();
-    //_demoService.getRecent();
-
-  }
-
-
+  constructor() { }
 
 }

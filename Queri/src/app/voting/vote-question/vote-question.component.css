@@ -1,0 +1,28 @@
+.username{
+    font-size: 18px;
+}
+.user-question{
+    /*color: yellow;*/
+}
+
+.question {
+    background-color: #Ef5455;
+    border-color: transparent;
+    border-radius: 12px;
+    color: #2B3252;
+    display: block;
+    font-family: "Futura";
+    font-size: 28px;
+    height: 100px;
+    padding-left: 15px;
+    width: 70%;
+}
+
+.like{
+   /*background-image:url('https://img.icons8.com/cotton/2x/facebook-like--v1.png');*/
+   background-color: transparent;
+    width:40px;
+    height:40px;
+    border: 0;
+}
+
