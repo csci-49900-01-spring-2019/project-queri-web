@@ -27,10 +27,7 @@ import { LoginComponent } from './login/login.component';
 import { ObjectToArrayPipe } from './_pipes/object-to-array.pipe';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ProfileComponent } from './profile/profile.component';
-import { Profile } from 'selenium-webdriver/firefox';
-
-
-
+import { UserInfoComponent } from './profile/user-info/user-info.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +45,8 @@ import { Profile } from 'selenium-webdriver/firefox';
     ObjectToArrayPipe,
     LoginComponent,
     PageNotFoundComponent,
-    ProfileComponent
+    ProfileComponent,
+    UserInfoComponent,
   ],
    //  fetch("url.com",{header:{"token":localStorage.getItem("idtoken")}})
   imports: [
@@ -77,7 +75,7 @@ import { Profile } from 'selenium-webdriver/firefox';
       { path: 'archived', component: ArchiveComponent },
       { path: 'user', redirectTo: '404' },
       { path: 'user/:id', component: ProfileComponent,
-        children: []
+        children: [  ],
       },
       { path: '404' , component: PageNotFoundComponent },
       { path: '**', redirectTo: '404' }
