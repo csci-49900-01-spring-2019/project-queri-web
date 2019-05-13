@@ -135,6 +135,6 @@ export class DemoService {
             "content": content
         };
 
-        return this.http.post<Status>('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/' + 'new/', body);
+        return this.http.post<Status>('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/voting/' + 'new/', body);
     }
 }

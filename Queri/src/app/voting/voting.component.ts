@@ -21,7 +21,7 @@ export class VotingComponent implements OnInit {
     this.demoService.getAll(this.type)
       .subscribe(posts => {
         this.posts = posts;
-        // console.log(this.posts);
+        console.log(this.posts);
         this.postKeys = Object.keys(this.posts);
       });
   }

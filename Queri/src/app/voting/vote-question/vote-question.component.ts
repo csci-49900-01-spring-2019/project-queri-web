@@ -26,7 +26,7 @@ export class VoteQuestionComponent implements OnInit {
   @Input() postId: any;
   votes;
 
-  type = 'featured';
+  type = 'voting';
   buttonText = 'Like';
   clicked = false;
   color: any;
