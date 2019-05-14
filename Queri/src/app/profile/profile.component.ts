@@ -9,8 +9,15 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class ProfileComponent implements OnInit {
 
   constructor( private router: Router, private route: ActivatedRoute ) { }
+  username: string = 'NotKevin';
+  email:string = 'NotKevin@gmail.com';
+
+  questions: string[] = [];
 
   ngOnInit() {
     console.log('Profile!');
+    for (let i = 0; i< 1000; i++){
+      this.questions.push('Sample Question');
+    }
   }
 }

@@ -1,6 +1,49 @@
 .profile-page{
     padding-top: 100px;
-    background-color: rgb(61, 5, 5);
+    background-color: transparent;
     height: 100vh;
-    
+}
+
+.user-info {
+    height: 100%;
+    width: 260px;
+    position: fixed;
+    z-index: 1;
+    top: 60px;
+    left: 0;
+    background-color: transparent;
+    overflow-x: hidden;
+    padding-top: 20px;
+    border: solid;
+    border-width: 1px;
+}
+
+.image{
+    padding:3px;
+}
+
+.list-of-questions{
+    top: -60px;
+    position: relative;
+    left: 260px;
+    right: 0;
+    border: solid;
+    border-width: 1px;
+    background-color: transparent;
+    height: 100vh;
+    border: solid;
+    border-width: 1px;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    text-align: center;
+    max-width: 82%;
+}
+
+.question{
+    background-color: red;
+    border: solid black;
+    border-width: 1px;
+    height: 75px;
+    font-size: 20px;
 }

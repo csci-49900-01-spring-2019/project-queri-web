@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserInfoComponent implements OnInit {
 
+
+  username: string = 'NotKevin';
+  email:string = 'NotKevin@gmail.com';
   constructor() { }
 
   ngOnInit() {

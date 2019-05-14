@@ -1,66 +1,27 @@
-
 <div class="profile-page">
-  
-</div>
-
-
-
-
-
-<!--
-
-    <div class="row">
-      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-        <ul class="nav nav-tabs">
-          <li role="presentation">
-            <a>Questions</a>
-          </li>
-          <li role="presentation">
-            <a>Comments</a>
-          </li>
-          <li role="presentation">
-            <a>Liked</a>
-          </li>
-        </ul>
-      </div>
+  <div class="user-info">
+    <div class = "image">
+        <img height= 250 width = 250 src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" alt="">
+    </div>
+   
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <!--<app-user-info></app-user-info>-->
+    {{username}}
+      <br>
+    {{email}}
+    
   </div>
-  <div class="row">
-    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-      <router-outlet></router-outlet>
-    </div>
-      </div>
-    </div>
-</div>
--->
-<!--
-
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-      <ul class="nav nav-tabs">
-        <li role="presentation"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{exact: true}">
-          <a routerLink="/">Home</a>
-        </li>
-        <li role="presentation"
-            routerLinkActive="active">
-          <a routerLink="servers">Servers</a>
-        </li>
-        <li role="presentation"
-            routerLinkActive="active">
-          <a [routerLink]="['users']">Users</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-      <router-outlet></router-outlet>
-    </div>
+  <div class="list-of-questions">
+     <div class="question" *ngFor= "let item of questions">
+       {{item}}
+      <br>
+     </div>
+     
   </div>
 </div>
 
 
-
--->
