@@ -16,7 +16,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     console.log('Profile!');
-    for (let i = 0; i< 1000; i++){
+    for (let i = 0; i< 30; i++){
       this.questions.push('Sample Question');
     }
   }

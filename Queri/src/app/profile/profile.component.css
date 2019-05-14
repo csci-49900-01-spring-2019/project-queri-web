@@ -23,7 +23,7 @@
 }
 
 .list-of-questions{
-    top: -60px;
+    top: -40px;
     position: relative;
     left: 260px;
     right: 0;
@@ -41,9 +41,17 @@
 }
 
 .question{
-    background-color: red;
+    background-color: white;
     border: solid black;
     border-width: 1px;
     height: 75px;
-    font-size: 20px;
+    font-size: 30px;
+    border-radius: 12px;
+    padding: 12px;
+    margin: 12px;
+}
+
+.username{
+    font-family: Futura;
+    font-size: 25px;
 }
