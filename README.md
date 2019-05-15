@@ -9,10 +9,10 @@ Queri is an application where users can ask and answer questions. Users have the
 ### Introduction
 Queri is a discussion tool where users can ask or answer questions with the option of staying public or anonymous. The objective is to eliminate any biased towards other users and have users ask questions without them having feeling safe. Users should not be afraid of asking a question just because their posts can be traced or found by another person. On Reddit, users can see the responses to a post without answering the post so their answers may get swayed. We want to prevent that as we want users to get personal responses not swayed by other user responses.
 
-When a user asks or answers a question, they will have the option to stay anonmous or public. Other users will not be able to see other user's profile so users can feel safe when asking or answering questions and not have the fear of their posts being traced or found by another person. Users will also not be able to see other user's responses to a specific question without submitting a response of their own. This is to prevent users from getting their personal responses swayed because they saw another user's response. 
+When a user asks or answers a question, they will have the option to stay anonymous or public. Other users will not be able to see other user's profile so users can feel safe when asking or answering questions and not have the fear of their posts being traced or found by another person. Users will also not be able to see other user's responses to a specific question without submitting a response of their own. This is to prevent users from getting their personal responses swayed because they saw another user's response. 
 
 ## Main Content
-The idea of staying anonmous or public is a feature to 
+The idea of staying anonymous or public is a feature to 
 
 
 ## Conclusion
@@ -22,6 +22,7 @@ The idea of staying anonmous or public is a feature to
 * Angel Checo
 * Kevin Yang
 * Ramela Ramnauth
+* Svetleen Guerrier
 
 ## Conclusion
 
