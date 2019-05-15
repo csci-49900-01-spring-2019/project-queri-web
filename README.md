@@ -1,4 +1,5 @@
 # Queri Web Application
+Web application for Queri. 
 
 ## Content
 
