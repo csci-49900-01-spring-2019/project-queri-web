@@ -29,3 +29,22 @@
 .right{
     float: right;
 }
+
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.col-xs-6 {
+    padding-right: 15px;
+    padding-left: 15px;
+}

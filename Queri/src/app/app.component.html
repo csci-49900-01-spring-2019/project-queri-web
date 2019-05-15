@@ -1,38 +1,45 @@
- 
+
 <nav class="navbar navbar-custom">
-  <div class="container-fluid">
 
-    <div class="navbar-header">
-      <button type="button"
-      class="navbar-toggle collapsed"
-      data-toggle="collapse"
-      data-target="#bs-example-navbar-collapse-1"
-      aria-expanded="false">
-
-      <span class="sr-only"></span>
-
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      </button>
+    <div class="container-fluid">
+      
+      <div class="navbar-header">
+        <!-- Button that toggles the navbar on and off on small screens -->
+        <button type="button" 
+        class="navbar-toggle collapsed" 
+        data-toggle="collapse" 
+        data-target="#bs-example-navbar-collapse-1" 
+        aria-expanded="false">
+  
+        <!-- Hides information from screen readers -->
+        <span class="sr-only"></span>
+  
+        <!-- Draws 3 bars in navbar button when in small mode -->
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button> <!-- end class="navbar-toggle collapsed"  -->
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a routerLink="/" routerLinkActive="active">Home<span class="sr-only">(current)</span></a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a routerLink="/ask" routerLinkActive="active">Ask <span class="sr-only">(current)</span></a> </li>
+        <li><a routerLink="/vote" routerLinkActive="active">Vote <span class="sr-only">(current)</span></a></li>
+        <li><a routerLink="/archived" routerLinkActive="active">Archived <span class="sr-only">(current)</span></a></li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel" >
+              <li><a href="/dashboard">View Profile</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a class="btn btnsignout" (click) = "authService.SignOut()"><i class="fas fa-sign-out"></i>Logout</a></li>
+            </ul>
+          </li>
+      </ul>
     </div>
-    <ul class="nav navbar-nav">
-      <li><a routerLink="/" routerLinkActive="active">Home<span class="sr-only">(current)</span></a></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a routerLink="/ask" routerLinkActive="active">Ask <span class="sr-only">(current)</span></a> </li>
-      <li><a routerLink="/vote" routerLinkActive="active">Vote <span class="sr-only">(current)</span></a></li>
-      <li><a routerLink="/archived" routerLinkActive="active">Archived <span class="sr-only">(current)</span></a></li>
-      <li class="dropdown">
-          <a href="#" class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel" >
-            <li><a href="/dashboard">Sign In</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a class="glyphicon glyphicon-log-out" href="">Logout</a></li>
-          </ul>
-        </li>
-    </ul>
-  </div>
-</nav>
+  </nav>
 
-<router-outlet></router-outlet>
+
+
+  <router-outlet></router-outlet>
+  

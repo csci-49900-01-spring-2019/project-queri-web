@@ -88,6 +88,13 @@ export class DemoService {
         */
     }
 
+    getUserPosts (uid) {
+        return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/" + "/users/" + uid + "posts/")
+        .subscribe((data:any[])=>{
+            console.log(data);
+        });
+    }
+
     // AddComment(username,content){
     //   const body= {
     //   "username":username,
