@@ -25,9 +25,12 @@ Queri is a discussion tool where users can ask or answer questions with the opti
 
 ### Technology Used
 
-* [Express JS](https://expressjs.com/)
-  * [Node JS](https://nodejs.org/en/)
+* [Node JS](https://nodejs.org/en/)
+  * [Express JS](https://expressjs.com/)
+  * [Javascript](https://www.javascript.com/)
 * [Angular 7](https://angular.io/)
+  * [Typescript](https://www.typescriptlang.org/)
+  * [Bootstrap](https://getbootstrap.com/)
 * [Firebase](https://firebase.google.com/)
 
 
