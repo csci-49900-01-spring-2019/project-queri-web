@@ -2,7 +2,8 @@
   /**background-color:rgb(0,100,140);*/
   /*background-color: rgb(219, 101, 65);
   background-color: #3c1a5b;*/
-  background-color: #2B3252;
+  /*background-: #2B3252;*/
+  background-image: linear-gradient(rgb(111, 197, 168), white);
   display: block;
   height: 100vh;
   margin: 0px;

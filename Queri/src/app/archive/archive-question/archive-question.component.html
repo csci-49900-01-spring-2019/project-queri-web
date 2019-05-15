@@ -6,15 +6,11 @@
     <br>
     <div class = "stats"  fxLayout="row" fxLayoutAlign="center center" >
         <div>{{number_of_likes}} <img height=40 width = 40 src="https://img.icons8.com/cotton/2x/facebook-like--v1.png" > </div>
-        &nbsp;
-        &nbsp;
-        &nbsp;
         <div>
         {{number_of_comments}}
         <button (click)='onClickComments()' type ="image"  class="btn btn-primary"> 
             <img  height = 40 width = 40 src="https://img.icons8.com/cotton/2x/speech-bubble-with-dots.png" alt=""> 
         </button>
-         
     </div>     
     </div>
     <div *ngIf="showComments" class = "grid-container">

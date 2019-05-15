@@ -1,16 +1,20 @@
 .voting-page{
     /*background-color:rgb(166, 91, 201);*/
-    background-color: #2B3252;
+    /*background-color: #2B3252;*/
+    background-image: linear-gradient(rgb(111, 197, 168), white);
     color: black;
     padding-top: 100px;
     height: 100vh;   
 }
 
 .question-list{
-    text-align: left;
+    text-align: center;
+    padding: 10px;
+    /*
     width: auto;
     margin: auto;
-    padding: 10px;
+    
+    */
 }
 
 

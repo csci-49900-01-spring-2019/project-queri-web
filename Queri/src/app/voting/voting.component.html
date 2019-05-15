@@ -1,5 +1,6 @@
 
 <div class="voting-page">
+    <!--<div class = "title">Vote!</div>-->
   <div class="question-list" *ngFor = "let key of postKeys ">
         <app-voting-question
         [question] = "posts[key]?.content"

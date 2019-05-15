@@ -5,7 +5,7 @@
     background-color:rgb(219, 101, 65);
     border-color: rgba(255, 128, 54, 0.75);
     */
-    background-color: #2B3252;
+    background-color: transparent;
     border-color:  #210e33;
     border-width: 2px;
     border-radius: 12px;
@@ -21,7 +21,7 @@
    
 }
 .title{
-    color:  #Ef5455;
+    color:  rgb(0, 0, 0);
     font-size: 45px;
 }
 .btn-primary{
@@ -31,7 +31,7 @@
     color: #Ef5455;
     */
 
-    background-color: #Ef5455;
+    background-color: rgb(111, 197, 168);
     /*color: #FAD744;*/
     color:black;
 }
