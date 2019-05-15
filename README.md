@@ -24,7 +24,6 @@ The idea of staying anonymous or public is a feature to
 * Ramela Ramnauth
 * Svetleen Guerrier
 
-## Conclusion
 
 ## References
 
@@ -40,9 +39,4 @@ The idea of staying anonymous or public is a feature to
 * [Android Studios](https://developer.android.com/studio)
   * [Java](https://www.java.com/en/)
 
-
-## Instructions
-
-To get started please clone the repository. To see how to clone a repository refer to this 
-[tutorial](https://help.github.com/en/articles/cloning-a-repository)
 
