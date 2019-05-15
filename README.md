@@ -37,7 +37,7 @@ The idea of staying anonmous or public is a feature to
   * [Bootstrap](https://getbootstrap.com/)
 * [Firebase](https://firebase.google.com/)
 * [Android Studios](https://developer.android.com/studio)
- * [Java](https://www.java.com/en/)
+  * [Java](https://www.java.com/en/)
 
 
 ## Instructions
