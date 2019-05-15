@@ -76,7 +76,7 @@ export class HomeComponent implements OnInit {
     }
   //}
 }
-   
+
 
 async getData() {
   let temp: Post[];
@@ -94,10 +94,32 @@ async getData() {
   return temp;
 }
 
-setRandomColor(): void {
-  // For Random Colors
-  // const index = Math.floor(Math.random() * this.numberOfColors) + 0;
-  // this.color = this.colors[index];
+  /*
+  async getData() {
+    await this.demoService.getAll(this.type)
+      .subscribe(posts => {
+        this.posts = posts;
+        this.postsKeys = Object.keys(this.posts);
+        console.log(posts);
+        // this.router.navigate(['/featured', this.postsKeys[this.currentPostNumber]]);
+    });
+  }
+*/
+  async getData() {
+    let temp: Post[];
+    await this.demoService.getAll(this.type)
+    .toPromise()
+    .then( post => {
+      console.log(post);
+      temp = post; }
+      /*post => {
+      this.posts = post;
+      this.postsKeys = Object.keys(post);
+      console.log('Promise Resolved');*/
+    );
+   // console.log(temp);
+    return temp;
+  }
 
   // For Rotating Colors
   this.color = this.colors[this.currentPostNumber % this.colors.length];
@@ -158,6 +180,17 @@ validateParam(): boolean{
       console.log('not a match');
     }
   }
-  return false;
+
+  validateParam(): boolean{
+    for( const i of this.postsKeys ) {
+      if (i === this.param) {
+        console.log('match!');
+        return true;
+      } else {
+        console.log('not a match');
+      }
+    }
+    return false;
+  }
 }
   }

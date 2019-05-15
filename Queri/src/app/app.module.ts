@@ -37,7 +37,8 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 
-
+import { ProfileComponent } from './profile/profile.component';
+import { UserInfoComponent } from './profile/user-info/user-info.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,9 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
     SignInComponent,
     SignUpComponent,
     ForgotPasswordComponent,
-    VerifyEmailComponent
+    VerifyEmailComponent,
+    ProfileComponent,
+    UserInfoComponent
   ],
    //  fetch("url.com",{header:{"token":localStorage.getItem("idtoken")}})
   imports: [
@@ -72,7 +75,7 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
     AngularFireAuthModule,
     AngularFirestoreModule,
     ReactiveFormsModule,
-  
+
     RouterModule.forRoot([
       { path: '', redirectTo: 'login', pathMatch: 'full' },
       { path: 'login', component: LoginComponent },
@@ -90,11 +93,17 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
       // { path: '404' , component: PageNotFoundComponent }
       ])
 
+
+    //   { path: 'user', redirectTo: '404' },
+    //   { path: 'user/:id', component: ProfileComponent,
+    //     children: [  ],
+    //   },
+    //   { path: '404' , component: PageNotFoundComponent },
+    //   { path: '**', redirectTo: '404' }
+    // ])
+
   ],
   providers: [DemoService, HttpClientModule, AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
-
-
-

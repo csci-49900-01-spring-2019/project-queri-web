@@ -16,13 +16,17 @@ export class VoteQuestionComponent implements OnInit {
 
   @Input() question: string;
   @Input() username: string;
-  @Input() daysRemaining: number;
+
+ 
   @Input() numberOfLikes: number;
+  /*
+  @Input() daysRemaining: number;
   @Input() numberOfComments: number;
+  */
   @Input() postId: any;
   votes;
 
-  type = 'featured';
+  type = 'voting';
   buttonText = 'Like';
   clicked = false;
   color: any;

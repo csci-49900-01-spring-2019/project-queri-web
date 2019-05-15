@@ -1,19 +1,16 @@
-.question{
-    
-    text-align: center;
-    
-    width: 50%;
-    border: 3px solid green;
-    margin: auto;
-    padding: 10px;
-    
-}
-
-.voting{
-    background-color:rgb(166, 91, 201);
+.voting-page{
+    /*background-color:rgb(166, 91, 201);*/
+    background-color: #2B3252;
     color: black;
     padding-top: 100px;
-    /**text-align: center; **/
-    height: 100vh;
+    height: 100vh;   
 }
+
+.question-list{
+    text-align: left;
+    width: auto;
+    margin: auto;
+    padding: 10px;
+}
+
 

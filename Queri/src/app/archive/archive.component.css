@@ -1,16 +1,16 @@
-.question{
+.archive-page{
     text-align: center;
     margin: auto;
     width: 97%;
-    border: 3px solid green;
+    background-color: #2B3252;
     padding: 10px;
+    z-index: 500
 }
 
 .voting{
-    background-color:rgb(74, 202, 123);
+    background-color: #2B3252;
     color: black;
     padding-top: 100px;
-    /**text-align: center; **/
     height: 100vh;
     padding-bottom: 25px;
     overflow: scroll;

@@ -1,0 +1,25 @@
+<div class="profile-page">
+  <div class="user-info">
+    <div class = "image">
+        <img height= 250 width = 250 src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" alt="">
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="username">
+      {{username}}
+    </div>
+    <div class="email">
+      {{email}}
+    </div>
+  </div>
+  <div class="list-of-questions">
+     <div class="question" *ngFor= "let item of questions">
+       {{item}}
+      <br>
+     </div>
+     
+  </div>
+</div>
+
+

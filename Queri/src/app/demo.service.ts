@@ -16,7 +16,6 @@ export class DemoService {
 
     getPostInType(type, post_id) : Observable<Post>{
         return this.http.get<Post>("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/" + type + "/" + post_id + "/");
-
     }
 
     getCommentsInPostInView(type, post_id): Observable<Comment[]> {
@@ -80,7 +79,7 @@ export class DemoService {
             console.log(data);
         });
     }
-    getVotes(type, post_id) {
+    getVotes (type, post_id) {
         return this.http.get("https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/" + type + "/" + post_id + "/meta/likes/");
         /*
         .subscribe((data:any[])=>{
@@ -128,34 +127,14 @@ export class DemoService {
 */
     AddLike(type, post_id): Observable<Result> {
         return this.http.put<Result>('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/' + type +  '/' + post_id + '/meta/like', {});
-        /** 
-        .subscribe((data:any[])=>{
-        console.log(data);
-      }) **/
     }
 
-    // argument type is not used in the function???
-    AddNewPost(username, content, type?) {
+    AddNewPost(username, content, type?): Observable<Status> {
         const body = {
             "username": username,
             "content": content
-        }
+        };
 
-        // gives an error
-        /****************************************** 
-            message: "Http failure response for https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories//new/: 0 Unknown Error"
-            name: "HttpErrorResponse"
-            ok: false
-            status: 0
-            statusText: "Unknown Error"
-            url: "https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories//new/"
-        **************************/
-        // this.http.post('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/' + name + '/' + 'new/', body).subscribe((data:any[])=>{
-        // Line below gives status success message
-        // name is removed
-         this.http.post('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/categories/' + 'new/', body).subscribe((data:any[])=>{
-            console.log(data);
-        });
-
+        return this.http.post<Status>('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posts/voting/' + 'new/', body);
     }
 }

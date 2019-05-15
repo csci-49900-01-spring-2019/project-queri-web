@@ -21,7 +21,8 @@ export class ArchiveComponent implements OnInit {
         this.posts = posts;
       //  console.log(this.posts);
         this.postKeys = Object.keys(this.posts);
-      });
+      }
+    );
   }
 
 }

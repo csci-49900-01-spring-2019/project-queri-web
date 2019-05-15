@@ -1,20 +1,21 @@
 <div class="homepage" [style.backgroundColor]="color">
     <div class="question_wrap">
-    <div class="question">
-        <app-question
-        [question] = "posts && posts[currentPostNumber]?.content"
-        [username] = "posts && posts[currentPostNumber]?.username"
-        [daysRemaining] = "posts && posts[currentPostNumber]?.meta.days_remaining"
-        [numberOfLikes] = "posts && posts[currentPostNumber]?.meta.likes"
-        [numberOfComments] = "posts && posts[currentPostNumber]?.meta.comments"
-        [key] = 'postsKeys && postsKeys[currentPostNumber]'
-        ></app-question>
-    </div>
+        <div class="question">
+            <app-question
+            [question] = "posts && posts[currentPostNumber]?.content"
+            [username] = "posts && posts[currentPostNumber]?.username"
+            [daysRemaining] = "posts && posts[currentPostNumber]?.meta.days_remaining"
+            [numberOfLikes] = "posts && posts[currentPostNumber]?.meta.likes"
+            [numberOfComments] = "posts && posts[currentPostNumber]?.meta.comments"
+            [key] = 'postsKeys && postsKeys[currentPostNumber]'
+            ></app-question>
+        </div>
+
         <div class="routing_questions_component">
-        <button (click) = 'onClickPrevious()'>Previous</button>
-        <button (click) = 'onClickAnswer()'>Answer</button>
-        <button (click) = 'onClickNext()'> Next</button>
-        <!--<button (click) = 'onTest()'>Go to Not Found Page</button>-->
+            <button (click) = 'onClickPrevious()'>Previous</button>
+            <button (click) = 'onClickAnswer()'>Answer</button>
+            <button (click) = 'onClickNext()'> Next</button>
+        </div>
     </div>
     
     <div class="comment-form"> 
@@ -29,4 +30,5 @@
             ></app-comment>
         </div>
     </div>
+</div>
 
