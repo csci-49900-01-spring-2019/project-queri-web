@@ -26,8 +26,8 @@ Queri is a discussion tool where users can ask or answer questions with the opti
 ### Technology Used
 
 * [Express JS](https://expressjs.com/)
+  * [Node JS](https://nodejs.org/en/)
 * [Angular 7](https://angular.io/)
-* [Node JS](https://nodejs.org/en/)
 * [Firebase](https://firebase.google.com/)
 
 
