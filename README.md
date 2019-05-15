@@ -1,6 +1,5 @@
 # Queri Web Application
 
-
 ## Content
 
 ### Abstract
