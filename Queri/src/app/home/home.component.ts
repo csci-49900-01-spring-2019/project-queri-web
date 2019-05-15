@@ -51,9 +51,6 @@ export class HomeComponent implements OnInit {
   result: boolean;
 
   async ngOnInit() {
-    if (localStorage.getItem('idToken') === '' || localStorage.getItem('idToken') == null) {
-        this.authService.doGoogleLogin();
-    } else {
       this.param = this.route.snapshot.params['id'];
       this.currentPostNumber = 0;
       console.log('Param: ', this.param);
@@ -76,7 +73,7 @@ export class HomeComponent implements OnInit {
         this.setRandomColor();
       }
     }
-  }
+  
 
   /*
   async getData() {
@@ -172,4 +169,3 @@ export class HomeComponent implements OnInit {
     return false;
   }
 }
-
