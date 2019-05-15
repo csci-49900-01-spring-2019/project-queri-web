@@ -5,6 +5,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule} from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AuthService } from "../app/auth.service";
+import { ReactiveFormsModule } from "@angular/forms";
+import { AuthGuard } from "../app/guard/auth.guard";
+import { SecureInnerPagesGuard } from "../app/guard/secure-inner-pages.guard.ts.guard";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +31,11 @@ import { ArchiveQuestionComponent } from './archive/archive-question/archive-que
 import { LoginComponent } from './login/login.component';
 import { ObjectToArrayPipe } from './_pipes/object-to-array.pipe';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 
 
 
@@ -44,7 +54,12 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ArchiveQuestionComponent,
     ObjectToArrayPipe,
     LoginComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    DashboardComponent,
+    SignInComponent,
+    SignUpComponent,
+    ForgotPasswordComponent,
+    VerifyEmailComponent
   ],
    //  fetch("url.com",{header:{"token":localStorage.getItem("idtoken")}})
   imports: [
@@ -55,14 +70,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    /*
-    export const rootRouterConfig: Routes = [
-      { path: '', redirectTo: 'login', pathMatch: 'full' },
-      { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
-      { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
-      { path: 'user', component: UserComponent,  resolve: { data: UserResolver}}
-    ];
-    */
+    AngularFirestoreModule,
+    ReactiveFormsModule,
+  
     RouterModule.forRoot([
       { path: '', redirectTo: 'login', pathMatch: 'full' },
       { path: 'login', component: LoginComponent },
@@ -71,11 +81,17 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
       { path: 'ask', component: AskComponent },
       { path: 'vote', component: VotingComponent },
       { path: 'archived', component: ArchiveComponent },
-      { path: '404' , component: PageNotFoundComponent },
-      { path: '**', redirectTo: '404' }
-    ])
+      { path: '**', redirectTo: '404' },
+      { path: 'sign-in', component: SignInComponent, canActivate: [SecureInnerPagesGuard] },
+      { path: 'register-user', component: SignUpComponent, canActivate: [SecureInnerPagesGuard] },
+      { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+      { path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [SecureInnerPagesGuard] },
+      { path: 'verify-email-address', component: VerifyEmailComponent, canActivate: [SecureInnerPagesGuard] }
+      // { path: '404' , component: PageNotFoundComponent }
+      ])
+
   ],
-  providers: [DemoService, HttpClientModule],
+  providers: [DemoService, HttpClientModule, AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

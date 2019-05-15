@@ -1,20 +1,20 @@
-.navbar{
-    height: auto !important;
-    margin: 0 !important;
-    position: fixed;
-    width: 100%;
-    background-color: Black !important;
-    border-radius: 0 !important;
-    border: none !important;
-    padding: 5px !important; 
-    font-size: 20px;
-}
+
+    .navbar{
+        height: auto !important;
+        margin: 0 !important;
+        position: fixed;
+        width: 100%;
+        background-color: Black !important;
+        border-radius: 0 !important;
+        border: none !important;
+        padding: 5px !important; 
+        font-size: 20px;
+    }
 
 .navbar p{
     font-family: "Arial Black" !important;
 }
 .navbar-brand{
-   /** padding: 0 15px;*/
     height: auto;
     line-height: 500px;
 }
