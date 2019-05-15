@@ -14,6 +14,8 @@ When a user asks or answers a question, they will have the option to stay anonym
 ## Main Content
 The idea of staying anonymous or public is a feature for users to have an option for more sense of security. Users should the option of submitting questions and answer anonymously or not as our objective was for users to not be afraid of asking or answering questions online. We also wanted to remove users being bias therefore users having the option to stay anonymous would remove any sort of users being bias. 
 
+Our work is novel with the anonymous feature. Our idea for this project is for users to ask and answer questions online while the option to stay anonymous or public to other users. Reddit has a similar structure to our idea where users can post but did not have an option to stay anonymous. Reddit is also a social tool so users can not only post questions but they can post information and etc. Our idea is for users to only post and answer questions online so users can have thier questions answered within a certain time frame. 
+
 
 ## Conclusion
 
