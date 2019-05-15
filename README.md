@@ -1,6 +1,5 @@
 # Queri Web Application
 
-Web Application for Queri Application
 
 ## Content
 
