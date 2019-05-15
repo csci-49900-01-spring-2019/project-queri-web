@@ -12,7 +12,7 @@ Queri is a discussion tool where users can ask or answer questions with the opti
 When a user asks or answers a question, they will have the option to stay anonymous or public. Other users will not be able to see other user's profile so users can feel safe when asking or answering questions and not have the fear of their posts being traced or found by another person. Users will also not be able to see other user's responses to a specific question without submitting a response of their own. This is to prevent users from getting their personal responses swayed because they saw another user's response. 
 
 ## Main Content
-The idea of staying anonymous or public is a feature to 
+The idea of staying anonymous or public is a feature for users to have an option for more sense of security. Users should the option of submitting questions and answer anonymously or not as our objective was for users to not be afraid of asking or answering questions online. We also wanted to remove users being bias therefore users having the option to stay anonymous would remove any sort of users being bias. 
 
 
 ## Conclusion
