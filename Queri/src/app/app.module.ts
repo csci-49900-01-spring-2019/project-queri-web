@@ -84,13 +84,13 @@ import { UserInfoComponent } from './profile/user-info/user-info.component';
       { path: 'ask', component: AskComponent },
       { path: 'vote', component: VotingComponent },
       { path: 'archived', component: ArchiveComponent },
-      { path: '**', redirectTo: '404' },
+      // { path: '**', redirectTo: '404' },
       { path: 'sign-in', component: SignInComponent, canActivate: [SecureInnerPagesGuard] },
       { path: 'register-user', component: SignUpComponent, canActivate: [SecureInnerPagesGuard] },
       { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
       { path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [SecureInnerPagesGuard] },
-      { path: 'verify-email-address', component: VerifyEmailComponent, canActivate: [SecureInnerPagesGuard] },
-      { path: '404' , component: PageNotFoundComponent }
+      { path: 'verify-email-address', component: VerifyEmailComponent, canActivate: [SecureInnerPagesGuard] }
+      // { path: '404' , component: PageNotFoundComponent }
       ])
 
 
