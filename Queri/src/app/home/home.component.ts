@@ -56,6 +56,10 @@ export class HomeComponent implements OnInit {
       // console.log('Param: ', this.param);
       // console.log(this.posts);
       this.posts = await this.getData();
+      if(this.posts === null){
+        this.router.navigateByUrl('/404');
+        console.log('This is null.');
+      }
       // console.log(this.posts);
       // console.log(this.posts.length);
       this.postsKeys = Object.keys(this.posts);

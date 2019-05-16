@@ -13,7 +13,7 @@ export class ArchiveComponent implements OnInit {
 
   posts: Post[] = [];
   postKeys: string[] = [];
-  type: string = 'featured';
+  type: string = 'archived';
 
   ngOnInit() {
     this.demoService.getAll(this.type)
