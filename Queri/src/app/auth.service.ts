@@ -49,7 +49,6 @@ SignIn(email, password) {
 SignUp(email, password) {
   return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
   .then((result) => {
-
 /* Call the SendVerificaitonMail() function when new user sign 
 up and returns promise */
   this.SendVerificationMail();
@@ -69,7 +68,14 @@ SendVerificationMail() {
 
 // Sign in with Google
 GoogleAuth() {
-  return this.AuthLogin(new auth.GoogleAuthProvider());
+  
+  //let p = new Promise(function(acc, rej){
+    //acc(
+     console.log(this.AuthLogin(new auth.GoogleAuthProvider()));
+  //});
+ // p.then(function(res){
+    //console.log(res.credential);
+  //});
 }  
 
 
@@ -96,6 +102,8 @@ AuthLogin(provider) {
       this.router.navigate(['dashboard']);
     })
   this.SetUserData(result.user);
+  console.log(result.credential);
+  return result;
 }).catch((error) => {
   window.alert(error)
 })

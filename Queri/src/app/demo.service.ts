@@ -95,16 +95,20 @@ export class DemoService {
         });
     }
 
-    // AddComment(username,content){
-    //   const body= {
-    //   "username":username,
-    //   "content":content
-    //   }
-    //   this.http.post('https://us-central1-projectq-42a18.cloudfunctions.net/queri/posgetAll/category1/0/comments/new/', body).subscribe((data:any[])=>{
-    //       console.log(data);
-    //   })
-
-    // }
+    createUser(idToken): Observable<Status>{
+        console.log(idToken);
+        const httpOptions = {
+        headers: new HttpHeaders({
+        'Authorization' : idToken
+        })
+    };
+   
+        return this.http.post<Status>("https://us-central1-projectq-42a18.cloudfunctions.net/queri/users/new/", httpOptions);
+        
+        // .subscribe((data:any[])=>{
+        //     console.log(idToken);
+        // });
+    }
 
     AddComment(username, content, type, count): Observable<Status>{
         const body= {
