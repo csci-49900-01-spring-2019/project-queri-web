@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
   color: any;
 
   // All Colors
-  colors: any[] = ['rgb(0,130,190)', 'rgb(0,130,50)', 'rgb(0,100,210)', 'purple', 'pink', 'raspberry', 'magenta', 'tan', 'rgb(190,190,100)', 'orange'];
+  colors: any[] = ['rgb(0,130,190)', 'rgb(0,130,50)', 'rgb(0,100,210)', 'purple'];
 
   param: string;
 
