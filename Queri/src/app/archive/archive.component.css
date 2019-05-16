@@ -9,18 +9,14 @@
 }
 
 .voting{
-    background-image:white;
+    background-image:linear-gradient(rgb(207, 94, 207), white);
     color: black;
-
     height: 100vh;
     padding-bottom: 25px;
     overflow: scroll;
-display:grid;
-grid-gap: 20px;
-padding: 20px;
-padding-top: 100px;
-
-}
-.voting>div:first-child{
+    display:grid;
+    grid-gap: 20px;
+    padding: 20px;
+    padding-top: 100px;
 }
 

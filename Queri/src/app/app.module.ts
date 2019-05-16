@@ -89,8 +89,8 @@ import { UserInfoComponent } from './profile/user-info/user-info.component';
       { path: 'register-user', component: SignUpComponent, canActivate: [SecureInnerPagesGuard] },
       { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
       { path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [SecureInnerPagesGuard] },
-      { path: 'verify-email-address', component: VerifyEmailComponent, canActivate: [SecureInnerPagesGuard] }
-      // { path: '404' , component: PageNotFoundComponent }
+      { path: 'verify-email-address', component: VerifyEmailComponent, canActivate: [SecureInnerPagesGuard] },
+      { path: '404' , component: PageNotFoundComponent }
       ])
 
 

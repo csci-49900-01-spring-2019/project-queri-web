@@ -1,7 +1,8 @@
 .voting-page{
     /*background-color:rgb(166, 91, 201);*/
     /*background-color: #2B3252;*/
-    background-image: linear-gradient(rgb(111, 197, 168), white);
+    /*background-image: linear-gradient(rgb(111, 197, 168), white);*/
+    background-image: linear-gradient(rgb(0,130,50),white);
     color: black;
     padding-top: 100px;
     height: 100vh;   

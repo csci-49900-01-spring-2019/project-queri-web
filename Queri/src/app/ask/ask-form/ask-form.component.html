@@ -3,7 +3,7 @@
     <br>
     <form  question = "ngform" (ngSubmit)="onSubmit()">
       <div class="form-group">
-        <textarea ngModel minlength="5" maxlength="300" name= "question" #question = "ngModel"(change) = "log(question)" id="question" type="text" class="form-control" required></textarea>
+        <textarea ngModel minlength="5" maxlength="256" name= "question" #question = "ngModel"(change) = "log(question)" id="question" type="text" class="form-control" required></textarea>
         <!--<div class = "alert alert-danger" *ngIf="question.touched && !question.valid">Enter a Question!</div>-->
       </div>
       <button (click)="onSubmit()"type="button" class="btn btn-primary">Submit</button>

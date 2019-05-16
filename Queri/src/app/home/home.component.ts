@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
   color: any;
 
   // All Colors
-  colors: any[] = ['rgb(0,130,190)', 'rgb(0,130,50)', 'rgb(0,100,210)', 'purple', 'pink', 'raspberry', 'magenta', 'tan', 'rgb(190,190,100)', 'orange'];
+  colors: any[] = ['rgb(0,130,190)', 'rgb(0,130,50)', 'rgb(0,100,210)', 'purple'];
 
   param: string;
 
@@ -53,17 +53,20 @@ export class HomeComponent implements OnInit {
   async ngOnInit() {
       this.param = this.route.snapshot.params['id'];
       this.currentPostNumber = 0;
-      console.log('Param: ', this.param);
-      console.log(this.posts);
+      // console.log('Param: ', this.param);
+      // console.log(this.posts);
       this.posts = await this.getData();
-
-      console.log(this.posts);
-      console.log(this.posts.length);
+      if(this.posts === null){
+        this.router.navigateByUrl('/404');
+        console.log('This is null.');
+      }
+      // console.log(this.posts);
+      // console.log(this.posts.length);
       this.postsKeys = Object.keys(this.posts);
-      console.log(this.postsKeys);
+      // console.log(this.postsKeys);
       this.title.setTitle('Home');
       this.result = this.validateParam();
-      console.log(this.result);
+      // console.log(this.result);
       if ( this.result === false) {
         this.router.navigateByUrl('/404');
       } else {
@@ -91,7 +94,7 @@ export class HomeComponent implements OnInit {
     await this.demoService.getAll(this.type)
     .toPromise()
     .then( post => {
-      console.log(post);
+      // console.log(post);
       temp = post; }
       /*post => {
       this.posts = post;
@@ -119,7 +122,7 @@ export class HomeComponent implements OnInit {
       // console.log('else');
       this.currentPostNumber = +this.currentPostNumber - 1;
     }
-    console.log(this.currentPostNumber);
+    // console.log(this.currentPostNumber);
     this.setRandomColor();
     this.router.navigate(['/featured', this.postsKeys[this.currentPostNumber]]);
   }
@@ -160,10 +163,10 @@ export class HomeComponent implements OnInit {
   validateParam(): boolean{
     for( const i of this.postsKeys ) {
       if (i === this.param) {
-        console.log('match!');
+        // console.log('match!');
         return true;
       } else {
-        console.log('not a match');
+        // console.log('not a match');
       }
     }
     return false;
